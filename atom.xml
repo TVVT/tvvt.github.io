@@ -4,7 +4,7 @@
   <subtitle><![CDATA[一群活泼开朗有潜力的小伙伴]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://yoursite.com/"/>
-  <updated>2014-06-24T15:10:52.399Z</updated>
+  <updated>2014-06-24T15:17:29.047Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -265,74 +265,164 @@ xhr.send(formdata);
   </entry>
   
   <entry>
-    <title><![CDATA[使用phoneGap构建ios程序]]></title>
-    <link href="http://yoursite.com/2014/06/11/phonegap/"/>
-    <id>http://yoursite.com/2014/06/11/phonegap/</id>
+    <title><![CDATA[html5表单]]></title>
+    <link href="http://yoursite.com/2014/06/11/form/"/>
+    <id>http://yoursite.com/2014/06/11/form/</id>
     <published>2014-06-11T08:03:42.000Z</published>
-    <updated>2014-06-16T02:44:32.000Z</updated>
-    <content type="html"><![CDATA[<h3 id="write_once_,_run_anywhere?">write once , run anywhere?</h3>
-<p>NO！很多安卓设备的h5能力糟糕的让人惊讶。就算是apple，目前也还是不够好:(</p>
-<p>所以为了尽量保体验。我直接开发在ios5以上的系统。</p>
-<p><a id="more"></a></p>
-<h3 id="设置phoneGap">设置phoneGap</h3>
-<p>目前为止，phoneGap的最新版本是2.2.0 。在2.1.0时候使用childbrowser会有bug（如果你需要联合登陆。我相信你会用到这个的。）</p>
-<p>安装的教程点击<a href="http://docs.phonegap.com/en/2.2.0/guide_getting-started_ios_index.md.html#Getting%20Started%20with%20iOS" target="_blank">这里</a>。</p>
-<h4 id="禁止页面拖动。">禁止页面拖动。</h4>
-<p>苹果的浏览器在默认情况下可以拖动页面。使用UIwebView当然也不例外。</p>
-<p>尽管我们可以使用touchmove来禁止页面被拖动。</p>
-<pre><code>document.addEventListener(<span class="string">'touchmove'</span>,<span class="function"><span class="keyword">function</span><span class="params">(e)</span>{</span>
-    e.preventDefault();
-});
-</code></pre><p>但是这样很容造成一些其他的问题。</p>
-<p>其实在phoneGap里可以设置：</p>
-<p>在项目中找到Cordova.plist - &gt; UIWebViewBounce。将值改成NO。</p>
-<p>就是这么简单。</p>
-<p><em>注意</em>：在phoneGap 2.4.0 中 已经统一在 xml 中修改了。</p>
-<p>找到config.xml 修改成：</p>
-<pre><code>&lt;preference name=<span class="string">"UIWebViewBounce"</span> <span class="keyword">value</span>=<span class="string">"false"</span> /&gt;
-</code></pre><p>但是这个也会造成一些其他的问题。比如我使用：active来改变按钮的样式就实效了。</p>
-<p>不过后来经过尝试，对于绑定了touch事件，比如touchend，就可以激活：active伪类。</p>
-<p>但是我们可能还是需要使用click，因为使用click，用户可以取消误点击。而touch事件没有办法取消的。</p>
-<p>后来我的解决方案是 绑定一个空的touchend，然后绑定 click。</p>
-<p>代码如下：</p>
-<pre><code>_btn.addEventListener(<span class="string">'touchend'</span>,<span class="function"><span class="keyword">function</span><span class="params">()</span>{</span>});
-_btn.addEventListener(<span class="string">'click'</span>,<span class="function"><span class="keyword">function</span><span class="params">()</span>{</span>
-    <span class="comment">//do somthing...</span>
-});
-</code></pre><h4 id="跨域设置">跨域设置</h4>
-<p>还是在刚才的Cordova.plist 在 ExternalHost 下面添加一个字段（默认是item0），值是 * (代表所有的域名。当然为了安全起见，你可以只写你自己的域名)</p>
-<p>设置完之后，我们就可以使用ajax去请求。</p>
-<p>我们的应用使用到了canvas，所以canvas跨域的安全性限制也可以得到解决。</p>
-<p>这个要比浏览器客户端方便很多。</p>
-<p><em>注意</em> 在 phoneGap 2.4.0中已经默认添加 * 。如果需要修改</p>
-<p>去config.xml 中修改。</p>
-<h4 id="尺寸">尺寸</h4>
-<p>对于ipad来说，屏幕有高清屏和非高清屏。我们的程序是基于非高清屏去设置的。因为我们的程序的ui基本上是基于CSS去实现的。所以一般不会有太大的问题。</p>
-<p>我们需要在index.html里做如下设置。</p>
-<pre><code><span class="tag">&lt;<span class="title">meta</span> <span class="attribute">name</span>=<span class="value">"viewport"</span> <span class="attribute">content</span>=<span class="value">"user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=1024"</span> /&gt;</span>
-</code></pre><p>如果你的是iphone</p>
-<pre><code><span class="tag">&lt;<span class="title">meta</span> <span class="attribute">name</span>=<span class="value">"viewport"</span> <span class="attribute">content</span>=<span class="value">"user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=320"</span> /&gt;</span>
-</code></pre><p>把meta加入到head中。</p>
-<h5 id="滑动">滑动</h5>
-<p>ios支持原生的滑动，效果会比iscroll好很多。关键是，它真的很简单：</p>
-<pre><code><span class="tag">div</span><span class="rules">{
-    <span class="rule"><span class="attribute">overflow</span>:<span class="value">auto</span></span>;
-    <span class="rule"><span class="attribute">-webkit-overflow-scrolling</span>:<span class="value"> touch</span></span>;
+    <updated>2014-06-16T02:44:04.000Z</updated>
+    <content type="html"><![CDATA[<p>对于h5的表单，大家应该不会感到非常陌生。</p>
+<p>具体的例子可以看<a href="http://eizia.sinaapp.com/?dir=html5&page=from" target="_blank">http://eizia.sinaapp.com/?dir=html5&amp;page=from</a><br><a id="more"></a><br>也建议使用移动设备看下效果。你也可以直接扫描：</p>
+<p><img src="http://chart.apis.google.com/chart?cht=qr&chl=http%3A%2F%2Feizia.sinaapp.com%2F%3Fdir%3Dhtml5%26page%3Dfrom&chs=200x200"></p>
+<p>在ios上，不同的type会调出相应的键盘。</p>
+<p>可以有效减少用户切换输入。</p>
+<h4 id="不支持的浏览器">不支持的浏览器</h4>
+<p>对于那些古董的浏览器（不是所有的古董都是好东西）来说，虽然不支持新的type，但是都默认当成’text’来处理。所以在这里还是要感谢一下微软先前没有做的那么死。</p>
+<h4 id="input吐槽">input吐槽</h4>
+<p>这里就不得不吐槽下apple，input type=file 很简单的文件上传直到ios6才支持。（可能不太简单吧-_-|||）</p>
+<p>好吧。目前看到wp8上也不支持，囧！</p>
+<h4 id="表单验证">表单验证</h4>
+<p>h5的表单支持验证，你可以在<a href="http://eizia.sinaapp.com/?dir=html5&page=from" target="_blank">实例页面</a>没有填写任何字段的时候点下最下面的提交按钮看下。</p>
+<p>如果不出意外的话（这里的意外就是你在用ie系列，或者套壳的ie），浏览器会提示你有个必填字段并没有填。</p>
+<p>这里的提示的前提是你真正的去提交一张表单。但问题是：自从web2.0(其实我讨厌这个唬人的概念，但是又不得不这样说。)，我们已经很少使用form原生提交了。原因是原生的提交会造成页面刷新，影响用户体验。</p>
+<hr>
+<p>那么我们来看看如何使用AJAX来提交一张表单吧。</p>
+<h4 id="使用css定义字段是否合法的样式">使用css定义字段是否合法的样式</h4>
+<pre><code><span class="tag">input</span><span class="pseudo">:focus</span><span class="pseudo">:required</span><span class="pseudo">:invalid</span><span class="rules">{
+    <span class="comment">/*your style here*/</span>
 <span class="rule">}</span></span>
-</code></pre><p>甚至我们可以使用js来调用</p>
-<pre><code>_div.addEventListener(<span class="string">'scroll'</span>,<span class="function"><span class="keyword">function</span><span class="params">(e)</span>{</span>
-    console.log(e.target.scrollLeft);
-    console.log(e.target.scrollTop);
-    <span class="comment">//your code here.</span>
-});
-</code></pre><h3 id="延伸">延伸</h3>
+
+<span class="tag">input</span><span class="pseudo">:required</span><span class="pseudo">:valid</span><span class="rules">{
+    <span class="comment">/*your style here*/</span>
+<span class="rule">}</span></span>
+</code></pre><p>其他的伪类还有：</p>
+<p>1.valid<br>1.invalid<br>1.required<br>1.optional<br>1.in-range<br>1.out-of-range<br>1.read-only<br>1.read-write</p>
+<p>值得一提的是 这个在ios上是支持的。（版本未测）</p>
+<h4 id="正则表达式">正则表达式</h4>
+<p>对于常用的type，浏览器支持的已经可以了，但是难免会遇到复杂的情况。这里的正则其实不是写在js里。而是直接写在html里。</p>
+<pre><code>&lt;input id=<span class="string">"password"</span> name=<span class="string">"password"</span> <span class="typedef"><span class="keyword">type</span>="password" required pattern="<span class="container">(?=^.{8,}$)</span><span class="container">((?=.*\<span class="title">d</span>)</span>|<span class="container">(?=.*\<span class="type">W</span>+)</span>)<span class="container">(?![.\<span class="title">n</span>])</span><span class="container">(?=.*[<span class="type">A</span>-<span class="type">Z</span>])</span><span class="container">(?=.*[<span class="title">a</span>-<span class="title">z</span>])</span>.*" /&gt;</span>
+</code></pre><p>这样避免了js来回读取dom，是不是感觉一下子高效了很多。</p>
+<h4 id="改变其他元素的样式">改变其他元素的样式</h4>
+<p>前面讲的伪类只影响input本身的样式。但是光这样可能满足不了产品经理挑剔的需求。废话不说，看代码应该就明白了</p>
+<p>html：</p>
+<pre><code><span class="tag">&lt;<span class="title">input</span> <span class="attribute">id</span>=<span class="value">"password"</span> <span class="attribute">type</span>=<span class="value">"password"</span>  /&gt;</span>
+<span class="tag">&lt;<span class="title">p</span> <span class="attribute">class</span>=<span class="value">"validation01"</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"invalid"</span>&gt;</span>你的密码有误<span class="tag">&lt;/<span class="title">span</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"valid"</span>&gt;</span>正确<span class="tag">&lt;/<span class="title">span</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">p</span>&gt;</span>
+</code></pre><p>css：</p>
+<pre><code><span class="class">.validation01</span> <span class="rules">{
+  <span class="comment">/*style here*/</span>
+<span class="rule">}</span></span>
+<span class="tag">input</span><span class="pseudo">:focus</span> + <span class="class">.validation01</span> <span class="rules">{
+  <span class="comment">/*style here*/</span>
+<span class="rule">}</span></span>
+<span class="tag">input</span><span class="pseudo">:focus</span><span class="pseudo">:required</span><span class="pseudo">:valid</span> + <span class="class">.validation01</span> <span class="rules">{
+  <span class="comment">/*style here*/</span>
+<span class="rule">}</span></span>
+<span class="tag">input</span><span class="pseudo">:focus</span><span class="pseudo">:required</span><span class="pseudo">:valid</span> + <span class="class">.validation01</span> <span class="class">.invalid</span> <span class="rules">{
+  <span class="comment">/*style here*/</span>
+<span class="rule">}</span></span>
+<span class="tag">input</span><span class="pseudo">:focus</span><span class="pseudo">:required</span><span class="pseudo">:invalid</span> + <span class="class">.validation01</span> <span class="class">.valid</span> <span class="rules">{
+  <span class="comment">/*style here*/</span>
+<span class="rule">}</span></span>
+</code></pre><p>这样应该是比较常见的业务逻辑了吧。</p>
+<h4 id="ajax提交表单">ajax提交表单</h4>
+<p>接下来就是提交了。</p>
+<p>由于是使用ajax提交，所以我们必须自己先要验证表单的合法性。</p>
+<p>JS代码如下：</p>
+<pre><code><span class="keyword">var</span> _login_btn = document.querySelector(<span class="string">'.login_btn'</span>); <span class="comment">//获取按钮</span>
+_login_btn.addEventListener(<span class="string">'click'</span>,<span class="function"><span class="keyword">function</span><span class="params">()</span>{</span>
+    <span class="keyword">var</span> _form = document.querySelector(<span class="string">'.login_form'</span>); <span class="comment">//获取表单对象</span>
+    <span class="keyword">if</span>(!_form.checkValidity()){ <span class="comment">//_form.checkValidity 是原生的方法 返回true 和 false</span>
+        alert(<span class="string">'请正确输入表单'</span>);
+        <span class="keyword">return</span>;
+    };
+
+    <span class="comment">//如果通过验证这提交这个表单</span>
+
+    <span class="comment">//todo</span>
+},<span class="literal">false</span>);
+</code></pre><p>好了，终于到了最后的提交了。</p>
+<p>我们把上面那个代码写完整，仔细看看不一样的地方。</p>
+<pre><code><span class="keyword">var</span> _login_btn = document.querySelector(<span class="string">'.login_btn'</span>); <span class="comment">//获取按钮</span>
+_login_btn.addEventListener(<span class="string">'click'</span>,<span class="function"><span class="keyword">function</span><span class="params">()</span>{</span>
+    <span class="keyword">var</span> _form = document.querySelector(<span class="string">'.login_form'</span>); <span class="comment">//获取表单对象</span>
+    <span class="keyword">if</span>(!_form.checkValidity()){ <span class="comment">//_form.checkValidity 是原生的方法 返回true 和 false</span>
+        alert(<span class="string">'请正确输入表单'</span>);
+        <span class="keyword">return</span>;
+    };
+
+    <span class="comment">//如果通过验证这提交这个表单</span>
+
+    <span class="keyword">var</span> _formdata = <span class="keyword">new</span> FormData(_form); <span class="comment">//这是h5新支持的表单对象。你可以去google "FormData"     </span>
+
+    <span class="keyword">var</span> xhr = <span class="keyword">new</span> XMLHttpRequest();
+    xhr.onreadystatechange = <span class="function"><span class="keyword">function</span><span class="params">()</span>{</span>
+        <span class="keyword">if</span>(xhr.readyState === <span class="number">4</span>){
+            <span class="comment">//success here</span>
+        }
+      };
+      xhr.open(<span class="string">'POST'</span>,url); <span class="comment">//url 是表单的提交地址。</span>
+    xhr.send(_formdata);
+},<span class="literal">false</span>);
+</code></pre><p>好了，这里就大功告成了。感谢formdata为我们直接提交了表单。我们可以多出很多时间去浏览新浪微博了（不过LZ本人可是完全弃用微博，把时间花在了玩3ds上了）。当然这样做的耦合性也非常棒。现在就算产品经理需要填充／剔除表单的字段。忙的就不再是前端了。毕竟我们只要改一点点就ok了。脚本完全可以不用动。看着后台同学瞎忙也是很好玩的一件事情啊&gt;_&lt;</p>
+<p>PS:formdata 支持添加一些表单中不存在的字段。如：</p>
+<pre><code>_formdata.append(name,<span class="keyword">value</span>);
+</code></pre><hr>
+<h4 id="总结">总结</h4>
+<p>表单这个东西其实困扰前端很久的一个东西。这里涉及到的东西还是蛮多的，具体的要大家实践才行。如文中有错误的地方也请指正，不胜感激。</p>
+<p>PS：另外再新的浏览器只要加入以下css</p>
+<pre><code><span class="tag">input</span>, <span class="tag">textarea</span>, <span class="tag">select</span> <span class="rules">{
+   <span class="rule"><span class="attribute">-webkit-appearance</span>:<span class="value"> none</span></span>;
+<span class="rule">}</span></span>
+</code></pre><p>就可以自定义你想要的样式了。是不是很方便呢。</p>
 ]]></content>
-    <summary type="html"><![CDATA[<h3 id="write_once_,_run_anywhere?">write once , run anywhere?</h3>
-<p>NO！很多安卓设备的h5能力糟糕的让人惊讶。就算是apple，目前也还是不够好:(</p>
-<p>所以为了尽量保体验。我直接开发在ios5以上的系统。</p>
-<p>]]></summary>
+    <summary type="html"><![CDATA[<p>对于h5的表单，大家应该不会感到非常陌生。</p>
+<p>具体的例子可以看<a href="http://eizia.sinaapp.com/?dir=html5&page=from" target="_blank">http://eizia.sinaapp.com/?dir=html5&amp;page=from</a><br>]]></summary>
     
-      <category term="phoneGap" scheme="http://yoursite.com/tags/phoneGap/"/>
+      <category term="form" scheme="http://yoursite.com/tags/form/"/>
+    
+      <category term="Effective" scheme="http://yoursite.com/tags/Effective/"/>
+    
+      <category term="Objective-C" scheme="http://yoursite.com/tags/Objective-C/"/>
+    
+      <category term="HTML5" scheme="http://yoursite.com/tags/HTML5/"/>
+    
+      <category term="Hack" scheme="http://yoursite.com/tags/Hack/"/>
+    
+      <category term="JavaScript" scheme="http://yoursite.com/tags/JavaScript/"/>
+    
+      <category term="Mac" scheme="http://yoursite.com/tags/Mac/"/>
+    
+      <category term="Node.js" scheme="http://yoursite.com/tags/Nodejs/"/>
+    
+      <category term="Notes" scheme="http://yoursite.com/tags/Notes/"/>
+    
+      <category term="Objective-C" scheme="http://yoursite.com/tags/Objective-C/"/>
+    
+      <category term="Other" scheme="http://yoursite.com/tags/Other/"/>
+    
+      <category term="Raspberry Pi" scheme="http://yoursite.com/tags/Raspberry-Pi/"/>
+    
+      <category term="Sinppets" scheme="http://yoursite.com/tags/Sinppets/"/>
+    
+      <category term="Unix" scheme="http://yoursite.com/tags/Unix/"/>
+    
+      <category term="Web" scheme="http://yoursite.com/tags/Web/"/>
+    
+      <category term="Xcode" scheme="http://yoursite.com/tags/Xcode/"/>
+    
+      <category term="clang" scheme="http://yoursite.com/tags/clang/"/>
+    
+      <category term="iOS" scheme="http://yoursite.com/tags/iOS/"/>
+    
+      <category term="llvm" scheme="http://yoursite.com/tags/llvm/"/>
+    
+      <category term="runtime" scheme="http://yoursite.com/tags/runtime/"/>
+    
+      <category term="只读经典" scheme="http://yoursite.com/tags/%E5%8F%AA%E8%AF%BB%E7%BB%8F%E5%85%B8/"/>
+    
+      <category term="正则表达式" scheme="http://yoursite.com/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/"/>
     
   </entry>
   
@@ -582,164 +672,74 @@ notOnLine<span class="preprocessor">.html</span>
   </entry>
   
   <entry>
-    <title><![CDATA[html5表单]]></title>
-    <link href="http://yoursite.com/2014/06/11/form/"/>
-    <id>http://yoursite.com/2014/06/11/form/</id>
+    <title><![CDATA[使用phoneGap构建ios程序]]></title>
+    <link href="http://yoursite.com/2014/06/11/phonegap/"/>
+    <id>http://yoursite.com/2014/06/11/phonegap/</id>
     <published>2014-06-11T08:03:42.000Z</published>
-    <updated>2014-06-16T02:44:04.000Z</updated>
-    <content type="html"><![CDATA[<p>对于h5的表单，大家应该不会感到非常陌生。</p>
-<p>具体的例子可以看<a href="http://eizia.sinaapp.com/?dir=html5&page=from" target="_blank">http://eizia.sinaapp.com/?dir=html5&amp;page=from</a><br><a id="more"></a><br>也建议使用移动设备看下效果。你也可以直接扫描：</p>
-<p><img src="http://chart.apis.google.com/chart?cht=qr&chl=http%3A%2F%2Feizia.sinaapp.com%2F%3Fdir%3Dhtml5%26page%3Dfrom&chs=200x200"></p>
-<p>在ios上，不同的type会调出相应的键盘。</p>
-<p>可以有效减少用户切换输入。</p>
-<h4 id="不支持的浏览器">不支持的浏览器</h4>
-<p>对于那些古董的浏览器（不是所有的古董都是好东西）来说，虽然不支持新的type，但是都默认当成’text’来处理。所以在这里还是要感谢一下微软先前没有做的那么死。</p>
-<h4 id="input吐槽">input吐槽</h4>
-<p>这里就不得不吐槽下apple，input type=file 很简单的文件上传直到ios6才支持。（可能不太简单吧-_-|||）</p>
-<p>好吧。目前看到wp8上也不支持，囧！</p>
-<h4 id="表单验证">表单验证</h4>
-<p>h5的表单支持验证，你可以在<a href="http://eizia.sinaapp.com/?dir=html5&page=from" target="_blank">实例页面</a>没有填写任何字段的时候点下最下面的提交按钮看下。</p>
-<p>如果不出意外的话（这里的意外就是你在用ie系列，或者套壳的ie），浏览器会提示你有个必填字段并没有填。</p>
-<p>这里的提示的前提是你真正的去提交一张表单。但问题是：自从web2.0(其实我讨厌这个唬人的概念，但是又不得不这样说。)，我们已经很少使用form原生提交了。原因是原生的提交会造成页面刷新，影响用户体验。</p>
-<hr>
-<p>那么我们来看看如何使用AJAX来提交一张表单吧。</p>
-<h4 id="使用css定义字段是否合法的样式">使用css定义字段是否合法的样式</h4>
-<pre><code><span class="tag">input</span><span class="pseudo">:focus</span><span class="pseudo">:required</span><span class="pseudo">:invalid</span><span class="rules">{
-    <span class="comment">/*your style here*/</span>
+    <updated>2014-06-16T02:44:32.000Z</updated>
+    <content type="html"><![CDATA[<h3 id="write_once_,_run_anywhere?">write once , run anywhere?</h3>
+<p>NO！很多安卓设备的h5能力糟糕的让人惊讶。就算是apple，目前也还是不够好:(</p>
+<p>所以为了尽量保体验。我直接开发在ios5以上的系统。</p>
+<p><a id="more"></a></p>
+<h3 id="设置phoneGap">设置phoneGap</h3>
+<p>目前为止，phoneGap的最新版本是2.2.0 。在2.1.0时候使用childbrowser会有bug（如果你需要联合登陆。我相信你会用到这个的。）</p>
+<p>安装的教程点击<a href="http://docs.phonegap.com/en/2.2.0/guide_getting-started_ios_index.md.html#Getting%20Started%20with%20iOS" target="_blank">这里</a>。</p>
+<h4 id="禁止页面拖动。">禁止页面拖动。</h4>
+<p>苹果的浏览器在默认情况下可以拖动页面。使用UIwebView当然也不例外。</p>
+<p>尽管我们可以使用touchmove来禁止页面被拖动。</p>
+<pre><code>document.addEventListener(<span class="string">'touchmove'</span>,<span class="function"><span class="keyword">function</span><span class="params">(e)</span>{</span>
+    e.preventDefault();
+});
+</code></pre><p>但是这样很容造成一些其他的问题。</p>
+<p>其实在phoneGap里可以设置：</p>
+<p>在项目中找到Cordova.plist - &gt; UIWebViewBounce。将值改成NO。</p>
+<p>就是这么简单。</p>
+<p><em>注意</em>：在phoneGap 2.4.0 中 已经统一在 xml 中修改了。</p>
+<p>找到config.xml 修改成：</p>
+<pre><code>&lt;preference name=<span class="string">"UIWebViewBounce"</span> <span class="keyword">value</span>=<span class="string">"false"</span> /&gt;
+</code></pre><p>但是这个也会造成一些其他的问题。比如我使用：active来改变按钮的样式就实效了。</p>
+<p>不过后来经过尝试，对于绑定了touch事件，比如touchend，就可以激活：active伪类。</p>
+<p>但是我们可能还是需要使用click，因为使用click，用户可以取消误点击。而touch事件没有办法取消的。</p>
+<p>后来我的解决方案是 绑定一个空的touchend，然后绑定 click。</p>
+<p>代码如下：</p>
+<pre><code>_btn.addEventListener(<span class="string">'touchend'</span>,<span class="function"><span class="keyword">function</span><span class="params">()</span>{</span>});
+_btn.addEventListener(<span class="string">'click'</span>,<span class="function"><span class="keyword">function</span><span class="params">()</span>{</span>
+    <span class="comment">//do somthing...</span>
+});
+</code></pre><h4 id="跨域设置">跨域设置</h4>
+<p>还是在刚才的Cordova.plist 在 ExternalHost 下面添加一个字段（默认是item0），值是 * (代表所有的域名。当然为了安全起见，你可以只写你自己的域名)</p>
+<p>设置完之后，我们就可以使用ajax去请求。</p>
+<p>我们的应用使用到了canvas，所以canvas跨域的安全性限制也可以得到解决。</p>
+<p>这个要比浏览器客户端方便很多。</p>
+<p><em>注意</em> 在 phoneGap 2.4.0中已经默认添加 * 。如果需要修改</p>
+<p>去config.xml 中修改。</p>
+<h4 id="尺寸">尺寸</h4>
+<p>对于ipad来说，屏幕有高清屏和非高清屏。我们的程序是基于非高清屏去设置的。因为我们的程序的ui基本上是基于CSS去实现的。所以一般不会有太大的问题。</p>
+<p>我们需要在index.html里做如下设置。</p>
+<pre><code><span class="tag">&lt;<span class="title">meta</span> <span class="attribute">name</span>=<span class="value">"viewport"</span> <span class="attribute">content</span>=<span class="value">"user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=1024"</span> /&gt;</span>
+</code></pre><p>如果你的是iphone</p>
+<pre><code><span class="tag">&lt;<span class="title">meta</span> <span class="attribute">name</span>=<span class="value">"viewport"</span> <span class="attribute">content</span>=<span class="value">"user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=320"</span> /&gt;</span>
+</code></pre><p>把meta加入到head中。</p>
+<h5 id="滑动">滑动</h5>
+<p>ios支持原生的滑动，效果会比iscroll好很多。关键是，它真的很简单：</p>
+<pre><code><span class="tag">div</span><span class="rules">{
+    <span class="rule"><span class="attribute">overflow</span>:<span class="value">auto</span></span>;
+    <span class="rule"><span class="attribute">-webkit-overflow-scrolling</span>:<span class="value"> touch</span></span>;
 <span class="rule">}</span></span>
-
-<span class="tag">input</span><span class="pseudo">:required</span><span class="pseudo">:valid</span><span class="rules">{
-    <span class="comment">/*your style here*/</span>
-<span class="rule">}</span></span>
-</code></pre><p>其他的伪类还有：</p>
-<p>1.valid<br>1.invalid<br>1.required<br>1.optional<br>1.in-range<br>1.out-of-range<br>1.read-only<br>1.read-write</p>
-<p>值得一提的是 这个在ios上是支持的。（版本未测）</p>
-<h4 id="正则表达式">正则表达式</h4>
-<p>对于常用的type，浏览器支持的已经可以了，但是难免会遇到复杂的情况。这里的正则其实不是写在js里。而是直接写在html里。</p>
-<pre><code>&lt;input id=<span class="string">"password"</span> name=<span class="string">"password"</span> <span class="typedef"><span class="keyword">type</span>="password" required pattern="<span class="container">(?=^.{8,}$)</span><span class="container">((?=.*\<span class="title">d</span>)</span>|<span class="container">(?=.*\<span class="type">W</span>+)</span>)<span class="container">(?![.\<span class="title">n</span>])</span><span class="container">(?=.*[<span class="type">A</span>-<span class="type">Z</span>])</span><span class="container">(?=.*[<span class="title">a</span>-<span class="title">z</span>])</span>.*" /&gt;</span>
-</code></pre><p>这样避免了js来回读取dom，是不是感觉一下子高效了很多。</p>
-<h4 id="改变其他元素的样式">改变其他元素的样式</h4>
-<p>前面讲的伪类只影响input本身的样式。但是光这样可能满足不了产品经理挑剔的需求。废话不说，看代码应该就明白了</p>
-<p>html：</p>
-<pre><code><span class="tag">&lt;<span class="title">input</span> <span class="attribute">id</span>=<span class="value">"password"</span> <span class="attribute">type</span>=<span class="value">"password"</span>  /&gt;</span>
-<span class="tag">&lt;<span class="title">p</span> <span class="attribute">class</span>=<span class="value">"validation01"</span>&gt;</span>
-    <span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"invalid"</span>&gt;</span>你的密码有误<span class="tag">&lt;/<span class="title">span</span>&gt;</span>
-    <span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"valid"</span>&gt;</span>正确<span class="tag">&lt;/<span class="title">span</span>&gt;</span>
-<span class="tag">&lt;/<span class="title">p</span>&gt;</span>
-</code></pre><p>css：</p>
-<pre><code><span class="class">.validation01</span> <span class="rules">{
-  <span class="comment">/*style here*/</span>
-<span class="rule">}</span></span>
-<span class="tag">input</span><span class="pseudo">:focus</span> + <span class="class">.validation01</span> <span class="rules">{
-  <span class="comment">/*style here*/</span>
-<span class="rule">}</span></span>
-<span class="tag">input</span><span class="pseudo">:focus</span><span class="pseudo">:required</span><span class="pseudo">:valid</span> + <span class="class">.validation01</span> <span class="rules">{
-  <span class="comment">/*style here*/</span>
-<span class="rule">}</span></span>
-<span class="tag">input</span><span class="pseudo">:focus</span><span class="pseudo">:required</span><span class="pseudo">:valid</span> + <span class="class">.validation01</span> <span class="class">.invalid</span> <span class="rules">{
-  <span class="comment">/*style here*/</span>
-<span class="rule">}</span></span>
-<span class="tag">input</span><span class="pseudo">:focus</span><span class="pseudo">:required</span><span class="pseudo">:invalid</span> + <span class="class">.validation01</span> <span class="class">.valid</span> <span class="rules">{
-  <span class="comment">/*style here*/</span>
-<span class="rule">}</span></span>
-</code></pre><p>这样应该是比较常见的业务逻辑了吧。</p>
-<h4 id="ajax提交表单">ajax提交表单</h4>
-<p>接下来就是提交了。</p>
-<p>由于是使用ajax提交，所以我们必须自己先要验证表单的合法性。</p>
-<p>JS代码如下：</p>
-<pre><code><span class="keyword">var</span> _login_btn = document.querySelector(<span class="string">'.login_btn'</span>); <span class="comment">//获取按钮</span>
-_login_btn.addEventListener(<span class="string">'click'</span>,<span class="function"><span class="keyword">function</span><span class="params">()</span>{</span>
-    <span class="keyword">var</span> _form = document.querySelector(<span class="string">'.login_form'</span>); <span class="comment">//获取表单对象</span>
-    <span class="keyword">if</span>(!_form.checkValidity()){ <span class="comment">//_form.checkValidity 是原生的方法 返回true 和 false</span>
-        alert(<span class="string">'请正确输入表单'</span>);
-        <span class="keyword">return</span>;
-    };
-
-    <span class="comment">//如果通过验证这提交这个表单</span>
-
-    <span class="comment">//todo</span>
-},<span class="literal">false</span>);
-</code></pre><p>好了，终于到了最后的提交了。</p>
-<p>我们把上面那个代码写完整，仔细看看不一样的地方。</p>
-<pre><code><span class="keyword">var</span> _login_btn = document.querySelector(<span class="string">'.login_btn'</span>); <span class="comment">//获取按钮</span>
-_login_btn.addEventListener(<span class="string">'click'</span>,<span class="function"><span class="keyword">function</span><span class="params">()</span>{</span>
-    <span class="keyword">var</span> _form = document.querySelector(<span class="string">'.login_form'</span>); <span class="comment">//获取表单对象</span>
-    <span class="keyword">if</span>(!_form.checkValidity()){ <span class="comment">//_form.checkValidity 是原生的方法 返回true 和 false</span>
-        alert(<span class="string">'请正确输入表单'</span>);
-        <span class="keyword">return</span>;
-    };
-
-    <span class="comment">//如果通过验证这提交这个表单</span>
-
-    <span class="keyword">var</span> _formdata = <span class="keyword">new</span> FormData(_form); <span class="comment">//这是h5新支持的表单对象。你可以去google "FormData"     </span>
-
-    <span class="keyword">var</span> xhr = <span class="keyword">new</span> XMLHttpRequest();
-    xhr.onreadystatechange = <span class="function"><span class="keyword">function</span><span class="params">()</span>{</span>
-        <span class="keyword">if</span>(xhr.readyState === <span class="number">4</span>){
-            <span class="comment">//success here</span>
-        }
-      };
-      xhr.open(<span class="string">'POST'</span>,url); <span class="comment">//url 是表单的提交地址。</span>
-    xhr.send(_formdata);
-},<span class="literal">false</span>);
-</code></pre><p>好了，这里就大功告成了。感谢formdata为我们直接提交了表单。我们可以多出很多时间去浏览新浪微博了（不过LZ本人可是完全弃用微博，把时间花在了玩3ds上了）。当然这样做的耦合性也非常棒。现在就算产品经理需要填充／剔除表单的字段。忙的就不再是前端了。毕竟我们只要改一点点就ok了。脚本完全可以不用动。看着后台同学瞎忙也是很好玩的一件事情啊&gt;_&lt;</p>
-<p>PS:formdata 支持添加一些表单中不存在的字段。如：</p>
-<pre><code>_formdata.append(name,<span class="keyword">value</span>);
-</code></pre><hr>
-<h4 id="总结">总结</h4>
-<p>表单这个东西其实困扰前端很久的一个东西。这里涉及到的东西还是蛮多的，具体的要大家实践才行。如文中有错误的地方也请指正，不胜感激。</p>
-<p>PS：另外再新的浏览器只要加入以下css</p>
-<pre><code><span class="tag">input</span>, <span class="tag">textarea</span>, <span class="tag">select</span> <span class="rules">{
-   <span class="rule"><span class="attribute">-webkit-appearance</span>:<span class="value"> none</span></span>;
-<span class="rule">}</span></span>
-</code></pre><p>就可以自定义你想要的样式了。是不是很方便呢。</p>
+</code></pre><p>甚至我们可以使用js来调用</p>
+<pre><code>_div.addEventListener(<span class="string">'scroll'</span>,<span class="function"><span class="keyword">function</span><span class="params">(e)</span>{</span>
+    console.log(e.target.scrollLeft);
+    console.log(e.target.scrollTop);
+    <span class="comment">//your code here.</span>
+});
+</code></pre><h3 id="延伸">延伸</h3>
 ]]></content>
-    <summary type="html"><![CDATA[<p>对于h5的表单，大家应该不会感到非常陌生。</p>
-<p>具体的例子可以看<a href="http://eizia.sinaapp.com/?dir=html5&page=from" target="_blank">http://eizia.sinaapp.com/?dir=html5&amp;page=from</a><br>]]></summary>
+    <summary type="html"><![CDATA[<h3 id="write_once_,_run_anywhere?">write once , run anywhere?</h3>
+<p>NO！很多安卓设备的h5能力糟糕的让人惊讶。就算是apple，目前也还是不够好:(</p>
+<p>所以为了尽量保体验。我直接开发在ios5以上的系统。</p>
+<p>]]></summary>
     
-      <category term="form" scheme="http://yoursite.com/tags/form/"/>
-    
-      <category term="Effective" scheme="http://yoursite.com/tags/Effective/"/>
-    
-      <category term="Objective-C" scheme="http://yoursite.com/tags/Objective-C/"/>
-    
-      <category term="HTML5" scheme="http://yoursite.com/tags/HTML5/"/>
-    
-      <category term="Hack" scheme="http://yoursite.com/tags/Hack/"/>
-    
-      <category term="JavaScript" scheme="http://yoursite.com/tags/JavaScript/"/>
-    
-      <category term="Mac" scheme="http://yoursite.com/tags/Mac/"/>
-    
-      <category term="Node.js" scheme="http://yoursite.com/tags/Nodejs/"/>
-    
-      <category term="Notes" scheme="http://yoursite.com/tags/Notes/"/>
-    
-      <category term="Objective-C" scheme="http://yoursite.com/tags/Objective-C/"/>
-    
-      <category term="Other" scheme="http://yoursite.com/tags/Other/"/>
-    
-      <category term="Raspberry Pi" scheme="http://yoursite.com/tags/Raspberry-Pi/"/>
-    
-      <category term="Sinppets" scheme="http://yoursite.com/tags/Sinppets/"/>
-    
-      <category term="Unix" scheme="http://yoursite.com/tags/Unix/"/>
-    
-      <category term="Web" scheme="http://yoursite.com/tags/Web/"/>
-    
-      <category term="Xcode" scheme="http://yoursite.com/tags/Xcode/"/>
-    
-      <category term="clang" scheme="http://yoursite.com/tags/clang/"/>
-    
-      <category term="iOS" scheme="http://yoursite.com/tags/iOS/"/>
-    
-      <category term="llvm" scheme="http://yoursite.com/tags/llvm/"/>
-    
-      <category term="runtime" scheme="http://yoursite.com/tags/runtime/"/>
-    
-      <category term="只读经典" scheme="http://yoursite.com/tags/%E5%8F%AA%E8%AF%BB%E7%BB%8F%E5%85%B8/"/>
-    
-      <category term="正则表达式" scheme="http://yoursite.com/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/"/>
+      <category term="phoneGap" scheme="http://yoursite.com/tags/phoneGap/"/>
     
   </entry>
   
