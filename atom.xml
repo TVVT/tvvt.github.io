@@ -1,0 +1,1249 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title><![CDATA[TVVT]]></title>
+  <subtitle><![CDATA[一群活泼开朗有潜力的小伙伴]]></subtitle>
+  <link href="/atom.xml" rel="self"/>
+  <link href="http://yoursite.com/"/>
+  <updated>2014-06-24T15:10:52.399Z</updated>
+  <id>http://yoursite.com/</id>
+  
+  <author>
+    <name><![CDATA[tvvt]]></name>
+    
+  </author>
+  
+  <generator uri="http://zespia.tw/hexo/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[英孚一日游]]></title>
+    <link href="http://yoursite.com/2014/06/18/ef/"/>
+    <id>http://yoursite.com/2014/06/18/ef/</id>
+    <published>2014-06-18T14:36:00.000Z</published>
+    <updated>2014-06-24T15:05:22.000Z</updated>
+    <content type="html"><![CDATA[<p><img src="http://localhost:5000/images/12.png" alt=""><br><img src="http://localhost:5000/images/13.png" alt=""><br><img src="http://localhost:5000/images/27.jpg" alt=""><br><img src="http://localhost:5000/images/15.png" alt=""><br><img src="http://localhost:5000/images/17.jpg" alt=""><br><img src="http://localhost:5000/images/18.jpg" alt=""><br><img src="http://localhost:5000/images/19.jpg" alt=""><br><img src="http://localhost:5000/images/20.jpg" alt=""><br><img src="http://localhost:5000/images/21.jpg" alt=""><br><a id="more"></a><br><img src="http://localhost:5000/images/22.jpg" alt=""><br><img src="http://localhost:5000/images/23.jpg" alt=""><br><img src="http://localhost:5000/images/24.jpg" alt=""><br><img src="http://localhost:5000/images/25.jpg" alt=""><br><img src="http://localhost:5000/images/26.JPG" alt=""><br><img src="http://localhost:5000/images/28.JPG" alt=""><br><img src="http://localhost:5000/images/29.JPG" alt=""></p>
+]]></content>
+    <summary type="html"><![CDATA[<p><img src="http://localhost:5000/images/12.png" alt=""><br><img src="http://localhost:5000/images/13.png" alt=""><br><img src="http://localhost:5000/images/27.jpg" alt=""><br><img src="http://localhost:5000/images/15.png" alt=""><br><img src="http://localhost:5000/images/17.jpg" alt=""><br><img src="http://localhost:5000/images/18.jpg" alt=""><br><img src="http://localhost:5000/images/19.jpg" alt=""><br><img src="http://localhost:5000/images/20.jpg" alt=""><br><img src="http://localhost:5000/images/21.jpg" alt=""><br>]]></summary>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[武汉小伙伴们的快乐之旅]]></title>
+    <link href="http://yoursite.com/2014/06/16/shanghai/"/>
+    <id>http://yoursite.com/2014/06/16/shanghai/</id>
+    <published>2014-06-16T11:56:09.000Z</published>
+    <updated>2014-06-17T06:24:32.000Z</updated>
+    <content type="html"><![CDATA[<p><a id="more"></a><br><img src="../images/DSCF2735.JPG" alt=""></p>
+]]></content>
+    <summary type="html"><![CDATA[<p>]]></summary>
+    
+      <category term="照片" scheme="http://yoursite.com/tags/%E7%85%A7%E7%89%87/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[ios viewport]]></title>
+    <link href="http://yoursite.com/2014/06/11/viewport/"/>
+    <id>http://yoursite.com/2014/06/11/viewport/</id>
+    <published>2014-06-11T08:03:43.000Z</published>
+    <updated>2014-06-16T02:44:57.000Z</updated>
+    <content type="html"><![CDATA[<p>ios上viewport的大小</p>
+<p>不知道为什么 在ios7 ipad上设置 height:100% 始终会有滚动条出现。检查了一些原因 有可能是viewport的原因。<br><a id="more"></a><br>在使用同样的 meta标签下：</p>
+<pre><code><span class="tag">&lt;<span class="title">meta</span> <span class="attribute">name</span>=<span class="value">"viewport"</span> <span class="attribute">content</span>=<span class="value">"width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"</span>&gt;</span>
+</code></pre><p>使用js判断了模拟器的viewport</p>
+<pre><code>var viewportWidth  = document<span class="preprocessor">.documentElement</span><span class="preprocessor">.clientWidth</span>
+, viewportHeight = document<span class="preprocessor">.documentElement</span><span class="preprocessor">.clientHeight</span><span class="comment">;</span>
+console<span class="preprocessor">.log</span>(viewportWidth,viewportHeight)<span class="comment">;</span>
+</code></pre><p>结果如下：</p>
+<h3 id="ios_&lt;_7_ipad">ios &lt; 7 ipad</h3>
+<pre><code>横屏 1024X672
+竖屏 768X928
+横屏+添加到桌面 1024X748
+竖屏+添加到桌面 768X1004
+</code></pre><h3 id="ios7_ipad">ios7 ipad</h3>
+<pre><code>横屏 1024X691
+竖屏 768X928
+横屏+添加到桌面 1024X748
+竖屏+添加到桌面 768X1004
+</code></pre><p>所以在横屏状态下 ios7始终会比ios6高出19px.</p>
+]]></content>
+    <summary type="html"><![CDATA[<p>ios上viewport的大小</p>
+<p>不知道为什么 在ios7 ipad上设置 height:100% 始终会有滚动条出现。检查了一些原因 有可能是viewport的原因。<br>]]></summary>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[html5上传图片]]></title>
+    <link href="http://yoursite.com/2014/06/11/picture-upload/"/>
+    <id>http://yoursite.com/2014/06/11/picture-upload/</id>
+    <published>2014-06-11T08:03:42.000Z</published>
+    <updated>2014-06-16T02:44:50.000Z</updated>
+    <content type="html"><![CDATA[<h3 id="概要">概要</h3>
+<p>html5上传图片其实非常简单。而且功能也比较强大。</p>
+<p>可以用的api 包括 ：  File , ajax    level 2, formdata , drag &amp; drop , createObjectURL , base64 等。</p>
+<p>它们都非常简单且易用。下面按照流程来讲这些可能会用用到的apis。</p>
+<p><a id="more"></a></p>
+<h3 id="上传文件">上传文件</h3>
+<p>传统的上传文件使用的是表单。</p>
+<pre><code>&lt;input <span class="keyword">type</span>=<span class="string">"file"</span> /&gt; 
+</code></pre><p>我们也可以添加一些属性。用法如下：</p>
+<pre><code>&lt;input <span class="keyword">type</span>=<span class="string">"file"</span> accept=<span class="string">"image/*"</span> <span class="string">"multiple"</span>=<span class="string">"multiple"</span> /&gt;
+</code></pre><p>其中 accept 表明接受的MIME type。这里表示所有的图片文件。当调用系统控件的时候，会过滤掉不支持的结果。</p>
+<p>而 multiple 就是是否允许上传多张还是 只允许上传一张。</p>
+<p>目前几乎支持所有的浏览器。</p>
+<p>但是在移动端。ios6以下（不包含6）的safari是不支持的。WP ie10(包含ie10)以下版本是不支持的。</p>
+<p>除了input以外，html5新增了 drag &amp; drop 。 这里可以看到<a href="http://html5demos.com/file-api" target="_blank">例子</a>。</p>
+<p>不过需要注意的是，目前移动平台应该都是不支持的。问题是叫它怎么支持呢？</p>
+<h3 id="获取文件">获取文件</h3>
+<p>之前处理图片文件的时候，我们很多时候是先传到服务器，让服务器判断文件大小、尺寸是否合法。然后再给出结果。</p>
+<p>如果你使用html5的话，根本没有必要这么做。这样节省成本，和获得更好的体验。</p>
+<p>如果使用input的话。我们是这样取得文件的。</p>
+<pre><code>_input.addEventListener(<span class="string">'change'</span>,<span class="function"><span class="keyword">function</span><span class="params">()</span>{</span>
+    <span class="keyword">var</span> files = _input.files;
+    <span class="comment">// do somthing with your files</span>
+});
+</code></pre><p>这里注意的是 不管你是否含有 multiple 属性。你获得的始终是一个数组。</p>
+<p>使用drag &amp; drop的代码如下：</p>
+<pre><code>FU.addEventListener(<span class="string">'dragenter'</span>, <span class="function"><span class="keyword">function</span><span class="params">(e)</span> {</span>
+    e.preventDefault();
+}, <span class="literal">false</span>); 
+FU.addEventListener(<span class="string">'dragleave'</span>, <span class="function"><span class="keyword">function</span><span class="params">(e)</span> {</span>
+    e.preventDefault();
+}, <span class="literal">false</span>);
+FU.addEventListener(<span class="string">'dragover'</span>, <span class="function"><span class="keyword">function</span><span class="params">(e)</span> {</span>
+    e.preventDefault();
+}, <span class="literal">false</span>);
+FU.addEventListener(<span class="string">'drop'</span>, <span class="function"><span class="keyword">function</span><span class="params">(e)</span> {</span>
+    e.preventDefault();
+    <span class="keyword">var</span> files = e.dataTransfer.files;
+    <span class="comment">//do somthing with your files</span>
+}, <span class="literal">false</span>);
+</code></pre><p>首先要注意的是：虽然我没有对 dragenter 、 dragleave 、dragover 等事件做什么处理。（当然你可以做些样式的改变来响应用户的操作）但是还是阻止浏览器默认的操作。</p>
+<p>不然的话，浏览器很有可能在新窗口中打开图片。</p>
+<h3 id="预览文件">预览文件</h3>
+<p>html5可以使用file api 读取文件，并输出base64的格式。然后 使用 image 显示出来。</p>
+<pre><code><span class="keyword">var</span> reader = <span class="keyword">new</span> FileReader();
+reader.onload = <span class="function"><span class="keyword">function</span> <span class="params">(event)</span> {</span>
+    <span class="keyword">var</span> src = event.target.result;
+    <span class="comment">//do somthing width your src</span>
+    };
+reader.readAsDataURL(file);
+</code></pre><p>但是其实没有必要这么麻烦。我们可以使用windows.URL.createObjectURL</p>
+<pre><code><span class="reserved">var</span> WINURL = <span class="built_in">window</span>.URL || <span class="built_in">window</span>.webkitURL;
+<span class="reserved">var</span> src = WINURL.createObjectURL(file);
+<span class="regexp">//</span><span class="keyword">do</span> somthing width your src
+</code></pre><p>需要注意的是当使用完成之后需要注销，不然会占据着内存</p>
+<pre><code>WINURL<span class="preprocessor">.revokeObjectURL</span>(src)<span class="comment">;</span>
+</code></pre><h3 id="上传文件并显示上传进度">上传文件并显示上传进度</h3>
+<p>上传使用ajax POST。</p>
+<p>代码如下：</p>
+<pre><code><span class="keyword">var</span> formdata = <span class="keyword">new</span> FormData();
+formdata.append(<span class="string">'file'</span> , file);
+
+<span class="keyword">var</span> xhr = <span class="keyword">new</span> XMLHttpRequest();
+<span class="keyword">var</span> upload = xhr.upload;
+
+upload.addEventListener(<span class="string">"progress"</span>, <span class="function"><span class="keyword">function</span> <span class="params">(ev)</span> {</span>
+    <span class="keyword">if</span> (ev.lengthComputable) {
+        console.log(ev.loaded/ev.total);
+    }
+},<span class="literal">false</span>);
+
+xhr.onreadystatechange = <span class="function"><span class="keyword">function</span><span class="params">()</span>{</span>
+    <span class="keyword">if</span>(xhr.readyState === <span class="number">4</span>){
+         <span class="comment">//do somthing width your respose.</span>
+    }
+};
+
+xhr.open(<span class="string">'POST'</span>,url); <span class="comment">//url 是表单的提交地址。</span>
+xhr.send(formdata);
+</code></pre><p>是不是特别简单呢。</p>
+]]></content>
+    <summary type="html"><![CDATA[<h3 id="概要">概要</h3>
+<p>html5上传图片其实非常简单。而且功能也比较强大。</p>
+<p>可以用的api 包括 ：  File , ajax    level 2, formdata , drag &amp; drop , createObjectURL , base64 等。</p>
+<p>它们都非常简单且易用。下面按照流程来讲这些可能会用用到的apis。</p>
+<p>]]></summary>
+    
+      <category term="图片处理" scheme="http://yoursite.com/tags/%E5%9B%BE%E7%89%87%E5%A4%84%E7%90%86/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[使用phoneGap构建ios程序3--插件]]></title>
+    <link href="http://yoursite.com/2014/06/11/phonegap3/"/>
+    <id>http://yoursite.com/2014/06/11/phonegap3/</id>
+    <published>2014-06-11T08:03:42.000Z</published>
+    <updated>2014-06-16T02:44:40.000Z</updated>
+    <content type="html"><![CDATA[<h3 id="注意">注意</h3>
+<p>本教程可能只适合ios且版本号在5以上</p>
+<h3 id="使用phoneGap的插件">使用phoneGap的插件</h3>
+<p>phoneGap 不仅可以支持原生api的调用。他还有许多可用的插件。<br><a id="more"></a><br>目前可以在 <a href="https://github.com/purplecabbage/phonegap-plugins" target="_blank">https://github.com/purplecabbage/phonegap-plugins</a></p>
+<p>phoneGap安装插件的方式比较简单，就是将插件文件夹拖入项目的Plugins文件夹中。</p>
+<p>然后在Cordova.plist中增加Plugins的子项目。一般安装的插件的地方都会有说明的。</p>
+<p>接下来主要讲我用到的插件遇到的一些问题。</p>
+<h3 id="ChildBrowser">ChildBrowser</h3>
+<p>地址：<a href="https://github.com/purplecabbage/phonegap-plugins/tree/master/iOS/ChildBrowser" target="_blank">https://github.com/purplecabbage/phonegap-plugins/tree/master/iOS/ChildBrowser</a></p>
+<p>我使用childBorower的目的是为了用到联合登录。（或者OAuth 2.0登录）。</p>
+<p>OAuth 2.0登录的原理大致是这样：请求第三方的接口的页面，访问的时候包含了网站身份信息，以及处理后的跳转页面。第三方收到请求后会将信息发送到我们的服务器。并跳转到我们定义的连接地址。并且加入一串token信息。然后我们利用token就可以和我们自己服务器上对比。</p>
+<p>如果有同样的信息的话。就说明我们的用户登录成功了。</p>
+<p>以上都是我一个做前端的理解。可能会有偏差。</p>
+<p>所以我登录的方法就是 先使用 childBorower 打开第三方页面。等用户登录后页面会发生跳转。</p>
+<p>childBorower有url发生变换的回调函数。这个时候监测url中的token，并取出token值。</p>
+<p>取得token值进行ajax POST请求。获得用户信息。</p>
+<p>最后使用localStorage将请求到的用户信息存储起来。</p>
+<h4 id="遇到的问题">遇到的问题</h4>
+<p>在使用phoneGap2.1.0的时候，调用childBorowser会出现诡异的bug。回调后整个应用被压缩到了一半。</p>
+<p>好在后来升级到了phoneGap2.2.0之后 问题就不复存在了。</p>
+<h3 id="GA统计">GA统计</h3>
+<p>虽然phoneGap是用html写的应用程序。但是直接添加GA的脚本却是不起作用的。</p>
+<p>原因据说是因为webView没有cookie？</p>
+<p>不过好在phonegap提供了插件。（因为google也开放了专门针对应用的统计）。</p>
+<p>但是试过之后才知道，那熊插件根本不起作用啊。</p>
+<p>话说目前phoneGap最新版本已经是2.3.0了，这个插件还口口声声说1.5.0以上。难免让人发毛。而且使用google的SDK还是旧的。真是坑爹不止啊。</p>
+<p>好在我google到了一个专门针对phoneGap2.2.0和GA skd 2.0的教程</p>
+<p>地址：</p>
+<p><a target="_blank" href="http://jelled.com/google-analytics-plugin-for-phonegap-cordova-2-2-0-ios/">http://jelled.com/google-analytics-plugin-for-phonegap-cordova-2-2-0-ios/</a></p>
+<p>按照他的教程 以及给出的插件就可以在 phoneGap 2.2.0 做统计啦</p>
+<p>插件地址：<br><a href="https://github.com/jelled/google-analytics-cordova-ios" target="_blank" rel="external">https://github.com/jelled/google-analytics-cordova-ios</a></p>
+<p>由于是别人的劳动果实 我在这里就不卖弄了。大家去看他的教程吧。</p>
+<h3 id="延伸">延伸</h3>
+]]></content>
+    <summary type="html"><![CDATA[<h3 id="注意">注意</h3>
+<p>本教程可能只适合ios且版本号在5以上</p>
+<h3 id="使用phoneGap的插件">使用phoneGap的插件</h3>
+<p>phoneGap 不仅可以支持原生api的调用。他还有许多可用的插件。<br>]]></summary>
+    
+      <category term="phoneGap" scheme="http://yoursite.com/tags/phoneGap/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[使用phoneGap构建ios程序2--切换页面]]></title>
+    <link href="http://yoursite.com/2014/06/11/phonegap2/"/>
+    <id>http://yoursite.com/2014/06/11/phonegap2/</id>
+    <published>2014-06-11T08:03:42.000Z</published>
+    <updated>2014-06-16T02:44:36.000Z</updated>
+    <content type="html"><![CDATA[<h3 id="开始之前">开始之前</h3>
+<p>这个教程只适用与ios，并且版本号在5.0以上。</p>
+<h3 id="构建页面">构建页面</h3>
+<p>在我开发的app中，如果所有的东西都需要使用js去更改页面的内容。那么将会是一个非常繁琐的体力活。<br><a id="more"></a><br>并且由于我们的性能有限。假如一开始就将所有的元素加载进来的话，重绘需要的开销会非常大。app很可能会因为太占内存，而被保护性崩溃。</p>
+<p>所以我把所有的东西独立出了模块。一个模块包含了一个css文件和一个html文件。</p>
+<p>其中html文件我使用了<a href="http://underscorejs.org/" target="_blank">underscore</a>模板解析引擎，来应对基本相同的页面，但是内容不一样的需求。</p>
+<p>当然，你也可以使用其他引擎，比如<a href="http://jade-lang.com/" target="_blank">jade</a>。效率上好像要比underscore高。但是underscore的写法和html比较接近。有点类似与php。</p>
+<p>当我们需要一个’页面’被切换出来的时候。</p>
+<p>我会首先使用’ajax’去请求那个页面。请求的时候会传入一些json参数。然后模板会根据不同的json数据生成不同的页面。然后append到body中去。</p>
+<p>然后css文件直接append到head中。这里我给每个css文件一个id。当监测到head中已经有这个id的时候。就不用在append了。</p>
+<h3 id="页面切换">页面切换</h3>
+<p>不同于app应用可以有多个view环境。如果我们需要在切换的时候添加效果，我们很可能只能在一个页面下面切换来控制元素的隐藏与显示。</p>
+<p>不过还好我们有css3能够帮助我们做很多事情。</p>
+<h4 id="定义变换的元素">定义变换的元素</h4>
+<p>很多人喜欢把东西绝对定位。然后变换css的’left’值或者’margin-left’值。但是我们这里完全没有必要这样做。</p>
+<p>我们只需要改变元素的transform值。他们的区别在于改变transform值不会影响文档流和页面的重绘。<a href="http://jsfiddle.net/wovfeng/E8zH6/5/" target="_blank">查看示例</a>。</p>
+<p>幸好ios是支持transform3d的，意味着我们可以依赖硬件加速来使得我们的动画更加流畅。</p>
+<pre><code><span class="attribute">-webkit</span><span class="attribute">-transform</span><span class="attribute">-style</span>: preserve<span class="subst">-</span><span class="number">3</span>d; 
+<span class="attribute">-webkit</span><span class="attribute">-transition</span>:<span class="attribute">-webkit</span><span class="attribute">-transform</span> <span class="number">0.5</span>s;
+<span class="attribute">-webkit</span><span class="attribute">-transition</span><span class="attribute">-timing</span><span class="attribute">-function</span>: cubic<span class="attribute">-bezier</span>(<span class="number">0.19</span>,<span class="number">1.00</span>,<span class="number">0.70</span>,<span class="number">0.95</span>);
+</code></pre><p>上面的代码中我们使用了 transition 。当元素的transform发生变化时。会自动发生一个动画。运行的时间是0.5s。</p>
+<p>上面最后那行是我自己写的转换曲线，当然你可以使用默认的。把这行删掉就好了。</p>
+<p>这样我们只要改变元素的transform就可以使用动态的切换效果了。</p>
+<h4 id="变换后的js调用">变换后的js调用</h4>
+<p>如果你仔细看的话，在前面的页面模板中，我并没有把js放在其中。如果在append元素的时候，你可能会一不小心把事件注册了多遍，引起各种各样的bug。</p>
+<p>不过好在我们使用的css transition 支持回调。</p>
+<pre><code>dom.addEventListener(<span class="string">'webkitTransitionEnd'</span>,<span class="function"><span class="keyword">function</span><span class="params">()</span>{</span>
+    <span class="comment">//your code.</span>
+},<span class="literal">false</span>);
+</code></pre><p>在页面回调之后可以绑定你的事件。</p>
+<h3 id="延伸">延伸</h3>
+]]></content>
+    <summary type="html"><![CDATA[<h3 id="开始之前">开始之前</h3>
+<p>这个教程只适用与ios，并且版本号在5.0以上。</p>
+<h3 id="构建页面">构建页面</h3>
+<p>在我开发的app中，如果所有的东西都需要使用js去更改页面的内容。那么将会是一个非常繁琐的体力活。<br>]]></summary>
+    
+      <category term="phoneGap" scheme="http://yoursite.com/tags/phoneGap/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[使用phoneGap构建ios程序]]></title>
+    <link href="http://yoursite.com/2014/06/11/phonegap/"/>
+    <id>http://yoursite.com/2014/06/11/phonegap/</id>
+    <published>2014-06-11T08:03:42.000Z</published>
+    <updated>2014-06-16T02:44:32.000Z</updated>
+    <content type="html"><![CDATA[<h3 id="write_once_,_run_anywhere?">write once , run anywhere?</h3>
+<p>NO！很多安卓设备的h5能力糟糕的让人惊讶。就算是apple，目前也还是不够好:(</p>
+<p>所以为了尽量保体验。我直接开发在ios5以上的系统。</p>
+<p><a id="more"></a></p>
+<h3 id="设置phoneGap">设置phoneGap</h3>
+<p>目前为止，phoneGap的最新版本是2.2.0 。在2.1.0时候使用childbrowser会有bug（如果你需要联合登陆。我相信你会用到这个的。）</p>
+<p>安装的教程点击<a href="http://docs.phonegap.com/en/2.2.0/guide_getting-started_ios_index.md.html#Getting%20Started%20with%20iOS" target="_blank">这里</a>。</p>
+<h4 id="禁止页面拖动。">禁止页面拖动。</h4>
+<p>苹果的浏览器在默认情况下可以拖动页面。使用UIwebView当然也不例外。</p>
+<p>尽管我们可以使用touchmove来禁止页面被拖动。</p>
+<pre><code>document.addEventListener(<span class="string">'touchmove'</span>,<span class="function"><span class="keyword">function</span><span class="params">(e)</span>{</span>
+    e.preventDefault();
+});
+</code></pre><p>但是这样很容造成一些其他的问题。</p>
+<p>其实在phoneGap里可以设置：</p>
+<p>在项目中找到Cordova.plist - &gt; UIWebViewBounce。将值改成NO。</p>
+<p>就是这么简单。</p>
+<p><em>注意</em>：在phoneGap 2.4.0 中 已经统一在 xml 中修改了。</p>
+<p>找到config.xml 修改成：</p>
+<pre><code>&lt;preference name=<span class="string">"UIWebViewBounce"</span> <span class="keyword">value</span>=<span class="string">"false"</span> /&gt;
+</code></pre><p>但是这个也会造成一些其他的问题。比如我使用：active来改变按钮的样式就实效了。</p>
+<p>不过后来经过尝试，对于绑定了touch事件，比如touchend，就可以激活：active伪类。</p>
+<p>但是我们可能还是需要使用click，因为使用click，用户可以取消误点击。而touch事件没有办法取消的。</p>
+<p>后来我的解决方案是 绑定一个空的touchend，然后绑定 click。</p>
+<p>代码如下：</p>
+<pre><code>_btn.addEventListener(<span class="string">'touchend'</span>,<span class="function"><span class="keyword">function</span><span class="params">()</span>{</span>});
+_btn.addEventListener(<span class="string">'click'</span>,<span class="function"><span class="keyword">function</span><span class="params">()</span>{</span>
+    <span class="comment">//do somthing...</span>
+});
+</code></pre><h4 id="跨域设置">跨域设置</h4>
+<p>还是在刚才的Cordova.plist 在 ExternalHost 下面添加一个字段（默认是item0），值是 * (代表所有的域名。当然为了安全起见，你可以只写你自己的域名)</p>
+<p>设置完之后，我们就可以使用ajax去请求。</p>
+<p>我们的应用使用到了canvas，所以canvas跨域的安全性限制也可以得到解决。</p>
+<p>这个要比浏览器客户端方便很多。</p>
+<p><em>注意</em> 在 phoneGap 2.4.0中已经默认添加 * 。如果需要修改</p>
+<p>去config.xml 中修改。</p>
+<h4 id="尺寸">尺寸</h4>
+<p>对于ipad来说，屏幕有高清屏和非高清屏。我们的程序是基于非高清屏去设置的。因为我们的程序的ui基本上是基于CSS去实现的。所以一般不会有太大的问题。</p>
+<p>我们需要在index.html里做如下设置。</p>
+<pre><code><span class="tag">&lt;<span class="title">meta</span> <span class="attribute">name</span>=<span class="value">"viewport"</span> <span class="attribute">content</span>=<span class="value">"user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=1024"</span> /&gt;</span>
+</code></pre><p>如果你的是iphone</p>
+<pre><code><span class="tag">&lt;<span class="title">meta</span> <span class="attribute">name</span>=<span class="value">"viewport"</span> <span class="attribute">content</span>=<span class="value">"user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=320"</span> /&gt;</span>
+</code></pre><p>把meta加入到head中。</p>
+<h5 id="滑动">滑动</h5>
+<p>ios支持原生的滑动，效果会比iscroll好很多。关键是，它真的很简单：</p>
+<pre><code><span class="tag">div</span><span class="rules">{
+    <span class="rule"><span class="attribute">overflow</span>:<span class="value">auto</span></span>;
+    <span class="rule"><span class="attribute">-webkit-overflow-scrolling</span>:<span class="value"> touch</span></span>;
+<span class="rule">}</span></span>
+</code></pre><p>甚至我们可以使用js来调用</p>
+<pre><code>_div.addEventListener(<span class="string">'scroll'</span>,<span class="function"><span class="keyword">function</span><span class="params">(e)</span>{</span>
+    console.log(e.target.scrollLeft);
+    console.log(e.target.scrollTop);
+    <span class="comment">//your code here.</span>
+});
+</code></pre><h3 id="延伸">延伸</h3>
+]]></content>
+    <summary type="html"><![CDATA[<h3 id="write_once_,_run_anywhere?">write once , run anywhere?</h3>
+<p>NO！很多安卓设备的h5能力糟糕的让人惊讶。就算是apple，目前也还是不够好:(</p>
+<p>所以为了尽量保体验。我直接开发在ios5以上的系统。</p>
+<p>]]></summary>
+    
+      <category term="phoneGap" scheme="http://yoursite.com/tags/phoneGap/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[使用easyXDM与跨域iframe交互]]></title>
+    <link href="http://yoursite.com/2014/06/11/easyxdm/"/>
+    <id>http://yoursite.com/2014/06/11/easyxdm/</id>
+    <published>2014-06-11T08:03:42.000Z</published>
+    <updated>2014-06-16T02:47:10.000Z</updated>
+    <content type="html"><![CDATA[<p>以前在<a href="http://www.aifang.com" target="_blank">爱房网</a>的时候,经常会遇到这样的需求：</p>
+<p>1.在任意页面可以嵌套iframe，iframe有独立的功能。如含有日历组件等。<br>1.ifarme需要改变大小，外面的框也需要跟着变化<br>1.iframe和主页面不同域</p>
+<p>之前没有理会这样的需求，是因为实在没有办法搞定ie6（伟大的ie6，原谅我的无能吧。）<br><a id="more"></a><br>不过前段时间Google了一下，发现了这样的一个神器：<a href="http://easyxdm.net/wp/" target="_blank">easyXDM</a></p>
+<p>虽然我已经不在爱房网了，但这个丝毫不会影响我去解决问题的好奇心，不是么？</p>
+<hr>
+<h4 id="实现过程">实现过程</h4>
+<p>easyXDM功能强大，不过我们目前仅仅关心的是如何与跨域的ifarme交互。<a href="http://consumer.easyxdm.net/current/example/resize_iframe.html" target="_blank">官方例子</a></p>
+<h5 id="主页面：">主页面：</h5>
+<p>首先引入easyXDM：</p>
+<pre><code>&lt;script <span class="keyword">type</span>=<span class="string">"text/javascript"</span> src=<span class="string">"../easyXDM.min.js"</span>&gt;
+</code></pre><p>初始化：</p>
+<pre><code><span class="keyword">var</span> transport = <span class="keyword">new</span> easyXDM.Socket({
+    remote: IFRAME_HOST + <span class="string">"/resize_intermediate.html?url=resized_iframe_1.html"</span>,
+    swf: IFRAME_HOST + <span class="string">"/../easyxdm.swf"</span>, 
+    container: <span class="string">"embedded"</span>,
+    onMessage: <span class="function"><span class="keyword">function</span><span class="params">(message, origin)</span>{</span> 
+        <span class="keyword">this</span>.container.getElementsByTagName(<span class="string">"iframe"</span>)[<span class="number">0</span>].style.height = message + <span class="string">"px"</span>; 
+    }
+});
+</code></pre><p>使用easyXDM不用自己去写iframe元素，脚本会自动帮你去生成一个iframe。</p>
+<p>其中的swf是解决ie系列的跨域问题的。如果你只针对高级浏览器（支持postMessage）可以去除掉。</p>
+<p>onMessage是回调函数，在子页面发送消息的时候触发。</p>
+<h5 id="中转页">中转页</h5>
+<p>上面例子的resize_intermediate.html其实是一个空白的中转页，目的就是当他获取子页面的消息时发送给他的父页面。</p>
+<p>听起来有些拗口，我们来看怎么实现的吧。</p>
+<pre><code><span class="doctype">&lt;!doctype html&gt;</span>
+<span class="tag">&lt;<span class="title">html</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">head</span>&gt;</span>
+        <span class="tag">&lt;<span class="title">title</span>&gt;</span>easyXDM<span class="tag">&lt;/<span class="title">title</span>&gt;</span>
+        <span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span> <span class="attribute">src</span>=<span class="value">"../easyXDM.debug.js"</span>&gt;</span><span class="javascript">
+        </span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>
+        <span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="javascript">
+            <span class="keyword">var</span> iframe;
+            <span class="keyword">var</span> socket = <span class="keyword">new</span> easyXDM.Socket({
+                swf: <span class="string">"../easyxdm.swf"</span>,
+                onReady: <span class="function"><span class="keyword">function</span><span class="params">()</span>{</span>
+                    iframe = document.createElement(<span class="string">"iframe"</span>);
+                    iframe.frameBorder = <span class="number">0</span>;
+                    document.body.appendChild(iframe);
+                    iframe.src = easyXDM.query.url;
+                },
+                onMessage: <span class="function"><span class="keyword">function</span><span class="params">(url, origin)</span>{</span>
+                    iframe.src = url;
+                }
+            });
+        </span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>
+        <span class="tag">&lt;<span class="title">style</span> <span class="attribute">type</span>=<span class="value">"text/css"</span>&gt;</span><span class="css">
+            <span class="tag">html</span>, <span class="tag">body</span> <span class="rules">{
+                <span class="rule"><span class="attribute">overflow</span>:<span class="value"> hidden</span></span>;
+                <span class="rule"><span class="attribute">margin</span>:<span class="value"> <span class="number">0</span>px</span></span>;
+                <span class="rule"><span class="attribute">padding</span>:<span class="value"> <span class="number">0</span>px</span></span>;
+                <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">100</span>%</span></span>;
+                <span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">100</span>%</span></span>;
+            <span class="rule">}</span></span>
+
+            <span class="tag">iframe</span> <span class="rules">{
+                <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">100</span>%</span></span>;
+                <span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">100</span>%</span></span>;
+                <span class="rule"><span class="attribute">border</span>:<span class="value"> <span class="number">0</span>px</span></span>;
+            <span class="rule">}</span></span>
+        </span><span class="tag">&lt;/<span class="title">style</span>&gt;</span>
+    <span class="tag">&lt;/<span class="title">head</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">body</span>&gt;</span>
+    <span class="tag">&lt;/<span class="title">body</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">html</span>&gt;</span>
+</code></pre><h5 id="子页面">子页面</h5>
+<p>子页面和中转页是同域的。</p>
+<pre><code>&lt;script type=<span class="string">"text/javascript"</span>&gt;
+    window<span class="preprocessor">.onload</span> = function(){
+        parent<span class="preprocessor">.socket</span><span class="preprocessor">.postMessage</span>(document<span class="preprocessor">.body</span><span class="preprocessor">.clientHeight</span> || document<span class="preprocessor">.body</span><span class="preprocessor">.offsetHeight</span> || document<span class="preprocessor">.body</span><span class="preprocessor">.scrollHeight</span>)<span class="comment">;</span>
+    }<span class="comment">;</span>
+&lt;/script&gt;
+</code></pre><p>子页面只需要对中转页发送消息就可以了。</p>
+<hr>
+<p>上面的官方例子其实实现的是这样一个场景，你需要载入一个iframe，iframe又可以随便跳转。跳转后高度不定，所以需要父页面跟着变化。</p>
+<p>easyXDM使用的方法是载入2个iframe。中转页主要用来传送消息，然后子页面可以随便改url，只要载入的时候发送自身高度就好了。</p>
+<p>如果你的逻辑不需要跳转，只要在适当的时候postMessage即可。</p>
+<hr>
+<h3 id="总结">总结</h3>
+<p>easyXDM的确帮助我们解决了不少问题。但是同时我们也需要了解它的原理，对于高级浏览器，其实是原生的postMessage，对于其他的则使用的是flash。但是flash到底是怎么实现的，目前我也还不知道。（这方面涉及的实在不多。）</p>
+]]></content>
+    <summary type="html"><![CDATA[<p>以前在<a href="http://www.aifang.com" target="_blank">爱房网</a>的时候,经常会遇到这样的需求：</p>
+<p>1.在任意页面可以嵌套iframe，iframe有独立的功能。如含有日历组件等。<br>1.ifarme需要改变大小，外面的框也需要跟着变化<br>1.iframe和主页面不同域</p>
+<p>之前没有理会这样的需求，是因为实在没有办法搞定ie6（伟大的ie6，原谅我的无能吧。）<br>]]></summary>
+    
+      <category term="easyXDM" scheme="http://yoursite.com/tags/easyXDM/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[iscroll使用心得]]></title>
+    <link href="http://yoursite.com/2014/06/11/iscroll/"/>
+    <id>http://yoursite.com/2014/06/11/iscroll/</id>
+    <published>2014-06-11T08:03:42.000Z</published>
+    <updated>2014-06-16T02:44:12.000Z</updated>
+    <content type="html"><![CDATA[<p>前几天同事要在手机上做一个小的页面项目，页面布局是头部和脚步固定（这种布局其实是不太适合手机页面，但是如此常见。）</p>
+<p>我推荐她使用<a href="http://cubiq.org/iscroll" target="_blank" rel="external">iscroll</a></p>
+<p>等过几天发现其实有一大堆的问题。<br><a id="more"></a></p>
+<h4 id="1-文字无法输入">1.文字无法输入</h4>
+<p>项目中含有表单，但是无论怎样都没有办法输入文字。</p>
+<h4 id="2-android上的bug">2.android上的bug</h4>
+<p>如果在软键盘已经调出的情况下刷新会出现bug。页面不能撑满整个屏幕。</p>
+<p>总之，在没有表单的情况下一切良好，有表单的时候坑爹不止啊～</p>
+<hr>
+<p>大体研究了下iscroll的实现方式<br>iscroll采用的布局是头部绝对定位，底部绝对定位，中间采用固定高度，overflow:hidden。然后使用transform来移动内部的元素。</p>
+<hr>
+<h4 id="文字bug产生原因">文字bug产生原因</h4>
+<p>文字无法输入其实是因为加入了css属性</p>
+<pre><code><span class="tag">body</span><span class="rules">{
+    <span class="rule"><span class="attribute">-webkit-user-select</span>:<span class="value">none</span></span>;
+<span class="rule">}</span></span>
+</code></pre><p>以及加入了阻止浏览器默认事件的脚本：</p>
+<pre><code>document.addEventListener(<span class="string">'touchmove'</span>, <span class="function"><span class="keyword">function</span> <span class="params">(e)</span> {</span> e.preventDefault(); }, <span class="literal">false</span>);
+</code></pre><p>加入css的原因是如果能够选择文字的话会出现拖动不顺畅的情况。而加入js的原因是为了阻止ios上的safari上默认页面被拖动。</p>
+<h4 id="文字bug解决方案">文字bug解决方案</h4>
+<p>对于css我们可以使用伪类:</p>
+<pre><code>*<span class="pseudo">:not(input)</span><span class="rules">{
+    <span class="rule"><span class="attribute">-webkit-user-select</span>:<span class="value">none</span></span>;
+<span class="rule">}</span></span>
+</code></pre><p>对于js我们可以使用e.target</p>
+<pre><code>document.addEventListener(<span class="string">'touchmove'</span>, <span class="function"><span class="keyword">function</span> <span class="params">(e)</span> {</span> 
+    console.log(e.target);
+    <span class="comment">//这里使用e.target来判断是否需要阻止默认，希望你能够自己动手。</span>
+    e.preventDefault(); 
+}, <span class="literal">false</span>);
+</code></pre><p>或者我们也可以让input阻止冒泡：</p>
+<pre><code><span class="keyword">var</span> _inputs = document.querySelectorAll(<span class="string">'input'</span>);
+<span class="keyword">for</span>(<span class="keyword">var</span> n=<span class="number">0</span>;n&lt;_inputs.length;n++){
+    <span class="keyword">var</span> _input = _inputs[n];
+    _input.addEventListener(<span class="string">'touchstart'</span>,<span class="function"><span class="keyword">function</span><span class="params">(e)</span>{</span>
+        e.stopPropagation();
+    });
+}
+</code></pre><h4 id="android的bug解决方案">android的bug解决方案</h4>
+<p>回到android问题产生的原因是在android调出软键盘的时候，将页面空间挤压后。中间的模块无法获取正常的高度.这个是一个比较难于解决的问题。</p>
+<p>但是android真的需要iscroll么。iscroll本来就是解决ios上不支持overflow:auto.的问题的。</p>
+<p>所以我的建议是不要在android上使用iscroll。</p>
+<pre><code><span class="keyword">var</span> ua = navigator.userAgent.toLowerCase();
+    <span class="keyword">if</span>(ua.<span class="keyword">match</span>(<span class="string">'iphone'</span>)){
+        init_ios();
+    }<span class="keyword">else</span>{
+        init_android();
+    }
+}
+</code></pre><p>如果使用的平台是ios，那我们就初始化ios的iscroll，如果使用的平台为android，那么我们设置容器的样式：overfllow:auto 这里需要自己去尝试。</p>
+<hr>
+<h4 id="最后">最后</h4>
+<p>其实我最后的建议是能不要使用iscroll就不要使用isroll。</p>
+<p>ios只要在5以上已经开始支持原生的overflow了。而且效率还不是一个数量级的。</p>
+<p>语法如下</p>
+<pre><code><span class="tag">div</span><span class="rules">{
+    <span class="rule"><span class="attribute">overflow</span>:<span class="value">auto</span></span>;
+    <span class="rule"><span class="attribute">-webkit-overflow-scrolling</span>:<span class="value"> touch</span></span>;
+<span class="rule">}</span></span>
+</code></pre><p>随着浏览器的更新，iscroll应该会不复存在了。</p>
+]]></content>
+    <summary type="html"><![CDATA[<p>前几天同事要在手机上做一个小的页面项目，页面布局是头部和脚步固定（这种布局其实是不太适合手机页面，但是如此常见。）</p>
+<p>我推荐她使用<a href="http://cubiq.org/iscroll" target="_blank" rel="external">iscroll</a></p>
+<p>等过几天发现其实有一大堆的问题。<br>]]></summary>
+    
+      <category term="iscroll" scheme="http://yoursite.com/tags/iscroll/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[html5 appliction cache]]></title>
+    <link href="http://yoursite.com/2014/06/11/html5-appliction-cache/"/>
+    <id>http://yoursite.com/2014/06/11/html5-appliction-cache/</id>
+    <published>2014-06-11T08:03:42.000Z</published>
+    <updated>2014-06-16T02:47:09.000Z</updated>
+    <content type="html"><![CDATA[<p>html5 application cache 是html5新增的接口。但是非常有必要了解它的原理及应用场景。</p>
+<h3 id="配置">配置</h3>
+<h4 id="服务器端">服务器端</h4>
+<p>需要设置一个清单文件。并且需要指定特殊的Content-type。如果使用php的话可以直接在清单文件中指定<br><a id="more"></a><br>    &lt;?php header(‘Content-type:text/cache-manifest’);?&gt;CACHE MANIFEST</p>
+<pre><code><span class="variable">#your</span> <span class="built_in">list</span> here
+
+NETWORK
+<span class="attribute">...</span><span class="built_in">.</span>
+</code></pre><p>如果使用nodejs(express)：</p>
+<pre><code>app.get(<span class="string">'/manifest'</span>,function(req,res){
+    console.<span class="keyword">log</span>(<span class="string">'get manifet'</span>);
+    res.setHeader(<span class="string">'Content-Type'</span>, <span class="string">'text/cache-manifest'</span>);
+
+    var <span class="keyword">str</span> = <span class="string">'CACHE MANIFEST\n'</span>;
+    <span class="keyword">str</span> += <span class="string">'CACHE:\n'</span>;
+    <span class="keyword">str</span>+= <span class="string">'#2013-03-15 v.10\n'</span>;
+    <span class="keyword">str</span> += <span class="string">'NETWORK:\n'</span>;
+    <span class="keyword">str</span> += <span class="string">'*\n'</span>;
+    res.send(<span class="keyword">str</span>);
+});
+</code></pre><h4 id="客户端">客户端</h4>
+<p>客户端只需要在每个html标签内添加远程清单地址即可。</p>
+<pre><code>&lt;html manifest=<span class="string">"/manifestfile"</span>&gt;
+<span class="keyword">...</span>
+&lt;/html&gt;
+</code></pre><p>需要注意的是，清单文件是不支持跨域的（部分浏览器好像不限制子域名跨域的。这个我还没有测试过）</p>
+<h3 id="如何填写清单文件">如何填写清单文件</h3>
+<p>清单文件的注释使用的是符号：#</p>
+<p>清单文件大致如下</p>
+<pre><code>CACHE MANIFEST
+<span class="preprocessor">#version v1.0</span>
+<span class="preprocessor">#create Date 2013-04-03</span>
+main<span class="preprocessor">.js</span>
+main<span class="preprocessor">.css</span>
+bj<span class="preprocessor">.png</span>
+<span class="label">NETWORK:</span>
+update<span class="preprocessor">.js</span>
+update<span class="preprocessor">.css</span>
+<span class="label">FALLBACK:</span>
+notOnLine<span class="preprocessor">.html</span>
+</code></pre><p>CACHE MANIFEST 后面的是想要缓存的文件</p>
+<p>NETWORK 后面的是访问在线资源的文件</p>
+<p>FALLBACK 后面是当没有离线页面时候访问文件</p>
+<h3 id="浏览器执行过程">浏览器执行过程</h3>
+<p>当浏览器访问到的页面含有离线清单文件的时候。首先去访问离线清单。然后在本地也创建一份清单文件。</p>
+<p>然后按照清单的指示开始下载离线的文件。</p>
+<p>当再次访问的时候，首先对比本地清单文件和服务器上的清单文件是否保持一致。如果保持一致的话，就直接读取本地文件。因为文件不再请求服务器。所以都不会有304。</p>
+<p>当然如果用户本身处于离线状态，那就省去了和服务器对比的环节。直接读取本地文件。</p>
+<p>需要注意的是，浏览器除了下载清单中的文件外，访问过的html文件也会缓存下来。所以一旦服务器上清单有过变更。浏览器不但重新下载清单上的所有文件，而且会下载本地所有缓存的html文件。</p>
+<p>比如用户浏览了100个页面，一旦清单有变更的话，不但清单文件会同时下载，100个html文件也会同时下载。</p>
+<p>这个应该是对服务器和客户端都有着不小的压力。所以一旦页面非常多的话，是不太适合做离线缓存的。</p>
+<p>我想这个也是为什么叫做”application cache”的原因吧。</p>
+<h3 id="计时更新版本">计时更新版本</h3>
+<p>更新清单文件非常简单 只要清单文件有任何改动即可。</p>
+<p>如果清单中的文件名字没有改变的话只要改些注释就好了。</p>
+<h3 id="浏览器调试">浏览器调试</h3>
+<p>在chrome地址栏输入 chrome://appcache-internals/ 可以看到当前浏览器缓存了哪些网站的数据以及缓存的容量。也可以再这里删掉。</p>
+<p>另外打开控制台的话，可以看到缓存状态信息。</p>
+<p>另外，application cache 还提供了一些监听事件。</p>
+<h3 id="总结">总结</h3>
+<p>application cache经常听说，但是目前使用的网站很少。因为比较适合游戏或者应用类网站。而且是比较难于驾驭的。使用的时候千万要小心。</p>
+]]></content>
+    <summary type="html"><![CDATA[<p>html5 application cache 是html5新增的接口。但是非常有必要了解它的原理及应用场景。</p>
+<h3 id="配置">配置</h3>
+<h4 id="服务器端">服务器端</h4>
+<p>需要设置一个清单文件。并且需要指定特殊的Content-type。如果使用php的话可以直接在清单文件中指定<br>]]></summary>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[html5表单]]></title>
+    <link href="http://yoursite.com/2014/06/11/form/"/>
+    <id>http://yoursite.com/2014/06/11/form/</id>
+    <published>2014-06-11T08:03:42.000Z</published>
+    <updated>2014-06-16T02:44:04.000Z</updated>
+    <content type="html"><![CDATA[<p>对于h5的表单，大家应该不会感到非常陌生。</p>
+<p>具体的例子可以看<a href="http://eizia.sinaapp.com/?dir=html5&page=from" target="_blank">http://eizia.sinaapp.com/?dir=html5&amp;page=from</a><br><a id="more"></a><br>也建议使用移动设备看下效果。你也可以直接扫描：</p>
+<p><img src="http://chart.apis.google.com/chart?cht=qr&chl=http%3A%2F%2Feizia.sinaapp.com%2F%3Fdir%3Dhtml5%26page%3Dfrom&chs=200x200"></p>
+<p>在ios上，不同的type会调出相应的键盘。</p>
+<p>可以有效减少用户切换输入。</p>
+<h4 id="不支持的浏览器">不支持的浏览器</h4>
+<p>对于那些古董的浏览器（不是所有的古董都是好东西）来说，虽然不支持新的type，但是都默认当成’text’来处理。所以在这里还是要感谢一下微软先前没有做的那么死。</p>
+<h4 id="input吐槽">input吐槽</h4>
+<p>这里就不得不吐槽下apple，input type=file 很简单的文件上传直到ios6才支持。（可能不太简单吧-_-|||）</p>
+<p>好吧。目前看到wp8上也不支持，囧！</p>
+<h4 id="表单验证">表单验证</h4>
+<p>h5的表单支持验证，你可以在<a href="http://eizia.sinaapp.com/?dir=html5&page=from" target="_blank">实例页面</a>没有填写任何字段的时候点下最下面的提交按钮看下。</p>
+<p>如果不出意外的话（这里的意外就是你在用ie系列，或者套壳的ie），浏览器会提示你有个必填字段并没有填。</p>
+<p>这里的提示的前提是你真正的去提交一张表单。但问题是：自从web2.0(其实我讨厌这个唬人的概念，但是又不得不这样说。)，我们已经很少使用form原生提交了。原因是原生的提交会造成页面刷新，影响用户体验。</p>
+<hr>
+<p>那么我们来看看如何使用AJAX来提交一张表单吧。</p>
+<h4 id="使用css定义字段是否合法的样式">使用css定义字段是否合法的样式</h4>
+<pre><code><span class="tag">input</span><span class="pseudo">:focus</span><span class="pseudo">:required</span><span class="pseudo">:invalid</span><span class="rules">{
+    <span class="comment">/*your style here*/</span>
+<span class="rule">}</span></span>
+
+<span class="tag">input</span><span class="pseudo">:required</span><span class="pseudo">:valid</span><span class="rules">{
+    <span class="comment">/*your style here*/</span>
+<span class="rule">}</span></span>
+</code></pre><p>其他的伪类还有：</p>
+<p>1.valid<br>1.invalid<br>1.required<br>1.optional<br>1.in-range<br>1.out-of-range<br>1.read-only<br>1.read-write</p>
+<p>值得一提的是 这个在ios上是支持的。（版本未测）</p>
+<h4 id="正则表达式">正则表达式</h4>
+<p>对于常用的type，浏览器支持的已经可以了，但是难免会遇到复杂的情况。这里的正则其实不是写在js里。而是直接写在html里。</p>
+<pre><code>&lt;input id=<span class="string">"password"</span> name=<span class="string">"password"</span> <span class="typedef"><span class="keyword">type</span>="password" required pattern="<span class="container">(?=^.{8,}$)</span><span class="container">((?=.*\<span class="title">d</span>)</span>|<span class="container">(?=.*\<span class="type">W</span>+)</span>)<span class="container">(?![.\<span class="title">n</span>])</span><span class="container">(?=.*[<span class="type">A</span>-<span class="type">Z</span>])</span><span class="container">(?=.*[<span class="title">a</span>-<span class="title">z</span>])</span>.*" /&gt;</span>
+</code></pre><p>这样避免了js来回读取dom，是不是感觉一下子高效了很多。</p>
+<h4 id="改变其他元素的样式">改变其他元素的样式</h4>
+<p>前面讲的伪类只影响input本身的样式。但是光这样可能满足不了产品经理挑剔的需求。废话不说，看代码应该就明白了</p>
+<p>html：</p>
+<pre><code><span class="tag">&lt;<span class="title">input</span> <span class="attribute">id</span>=<span class="value">"password"</span> <span class="attribute">type</span>=<span class="value">"password"</span>  /&gt;</span>
+<span class="tag">&lt;<span class="title">p</span> <span class="attribute">class</span>=<span class="value">"validation01"</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"invalid"</span>&gt;</span>你的密码有误<span class="tag">&lt;/<span class="title">span</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"valid"</span>&gt;</span>正确<span class="tag">&lt;/<span class="title">span</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">p</span>&gt;</span>
+</code></pre><p>css：</p>
+<pre><code><span class="class">.validation01</span> <span class="rules">{
+  <span class="comment">/*style here*/</span>
+<span class="rule">}</span></span>
+<span class="tag">input</span><span class="pseudo">:focus</span> + <span class="class">.validation01</span> <span class="rules">{
+  <span class="comment">/*style here*/</span>
+<span class="rule">}</span></span>
+<span class="tag">input</span><span class="pseudo">:focus</span><span class="pseudo">:required</span><span class="pseudo">:valid</span> + <span class="class">.validation01</span> <span class="rules">{
+  <span class="comment">/*style here*/</span>
+<span class="rule">}</span></span>
+<span class="tag">input</span><span class="pseudo">:focus</span><span class="pseudo">:required</span><span class="pseudo">:valid</span> + <span class="class">.validation01</span> <span class="class">.invalid</span> <span class="rules">{
+  <span class="comment">/*style here*/</span>
+<span class="rule">}</span></span>
+<span class="tag">input</span><span class="pseudo">:focus</span><span class="pseudo">:required</span><span class="pseudo">:invalid</span> + <span class="class">.validation01</span> <span class="class">.valid</span> <span class="rules">{
+  <span class="comment">/*style here*/</span>
+<span class="rule">}</span></span>
+</code></pre><p>这样应该是比较常见的业务逻辑了吧。</p>
+<h4 id="ajax提交表单">ajax提交表单</h4>
+<p>接下来就是提交了。</p>
+<p>由于是使用ajax提交，所以我们必须自己先要验证表单的合法性。</p>
+<p>JS代码如下：</p>
+<pre><code><span class="keyword">var</span> _login_btn = document.querySelector(<span class="string">'.login_btn'</span>); <span class="comment">//获取按钮</span>
+_login_btn.addEventListener(<span class="string">'click'</span>,<span class="function"><span class="keyword">function</span><span class="params">()</span>{</span>
+    <span class="keyword">var</span> _form = document.querySelector(<span class="string">'.login_form'</span>); <span class="comment">//获取表单对象</span>
+    <span class="keyword">if</span>(!_form.checkValidity()){ <span class="comment">//_form.checkValidity 是原生的方法 返回true 和 false</span>
+        alert(<span class="string">'请正确输入表单'</span>);
+        <span class="keyword">return</span>;
+    };
+
+    <span class="comment">//如果通过验证这提交这个表单</span>
+
+    <span class="comment">//todo</span>
+},<span class="literal">false</span>);
+</code></pre><p>好了，终于到了最后的提交了。</p>
+<p>我们把上面那个代码写完整，仔细看看不一样的地方。</p>
+<pre><code><span class="keyword">var</span> _login_btn = document.querySelector(<span class="string">'.login_btn'</span>); <span class="comment">//获取按钮</span>
+_login_btn.addEventListener(<span class="string">'click'</span>,<span class="function"><span class="keyword">function</span><span class="params">()</span>{</span>
+    <span class="keyword">var</span> _form = document.querySelector(<span class="string">'.login_form'</span>); <span class="comment">//获取表单对象</span>
+    <span class="keyword">if</span>(!_form.checkValidity()){ <span class="comment">//_form.checkValidity 是原生的方法 返回true 和 false</span>
+        alert(<span class="string">'请正确输入表单'</span>);
+        <span class="keyword">return</span>;
+    };
+
+    <span class="comment">//如果通过验证这提交这个表单</span>
+
+    <span class="keyword">var</span> _formdata = <span class="keyword">new</span> FormData(_form); <span class="comment">//这是h5新支持的表单对象。你可以去google "FormData"     </span>
+
+    <span class="keyword">var</span> xhr = <span class="keyword">new</span> XMLHttpRequest();
+    xhr.onreadystatechange = <span class="function"><span class="keyword">function</span><span class="params">()</span>{</span>
+        <span class="keyword">if</span>(xhr.readyState === <span class="number">4</span>){
+            <span class="comment">//success here</span>
+        }
+      };
+      xhr.open(<span class="string">'POST'</span>,url); <span class="comment">//url 是表单的提交地址。</span>
+    xhr.send(_formdata);
+},<span class="literal">false</span>);
+</code></pre><p>好了，这里就大功告成了。感谢formdata为我们直接提交了表单。我们可以多出很多时间去浏览新浪微博了（不过LZ本人可是完全弃用微博，把时间花在了玩3ds上了）。当然这样做的耦合性也非常棒。现在就算产品经理需要填充／剔除表单的字段。忙的就不再是前端了。毕竟我们只要改一点点就ok了。脚本完全可以不用动。看着后台同学瞎忙也是很好玩的一件事情啊&gt;_&lt;</p>
+<p>PS:formdata 支持添加一些表单中不存在的字段。如：</p>
+<pre><code>_formdata.append(name,<span class="keyword">value</span>);
+</code></pre><hr>
+<h4 id="总结">总结</h4>
+<p>表单这个东西其实困扰前端很久的一个东西。这里涉及到的东西还是蛮多的，具体的要大家实践才行。如文中有错误的地方也请指正，不胜感激。</p>
+<p>PS：另外再新的浏览器只要加入以下css</p>
+<pre><code><span class="tag">input</span>, <span class="tag">textarea</span>, <span class="tag">select</span> <span class="rules">{
+   <span class="rule"><span class="attribute">-webkit-appearance</span>:<span class="value"> none</span></span>;
+<span class="rule">}</span></span>
+</code></pre><p>就可以自定义你想要的样式了。是不是很方便呢。</p>
+]]></content>
+    <summary type="html"><![CDATA[<p>对于h5的表单，大家应该不会感到非常陌生。</p>
+<p>具体的例子可以看<a href="http://eizia.sinaapp.com/?dir=html5&page=from" target="_blank">http://eizia.sinaapp.com/?dir=html5&amp;page=from</a><br>]]></summary>
+    
+      <category term="form" scheme="http://yoursite.com/tags/form/"/>
+    
+      <category term="Effective" scheme="http://yoursite.com/tags/Effective/"/>
+    
+      <category term="Objective-C" scheme="http://yoursite.com/tags/Objective-C/"/>
+    
+      <category term="HTML5" scheme="http://yoursite.com/tags/HTML5/"/>
+    
+      <category term="Hack" scheme="http://yoursite.com/tags/Hack/"/>
+    
+      <category term="JavaScript" scheme="http://yoursite.com/tags/JavaScript/"/>
+    
+      <category term="Mac" scheme="http://yoursite.com/tags/Mac/"/>
+    
+      <category term="Node.js" scheme="http://yoursite.com/tags/Nodejs/"/>
+    
+      <category term="Notes" scheme="http://yoursite.com/tags/Notes/"/>
+    
+      <category term="Objective-C" scheme="http://yoursite.com/tags/Objective-C/"/>
+    
+      <category term="Other" scheme="http://yoursite.com/tags/Other/"/>
+    
+      <category term="Raspberry Pi" scheme="http://yoursite.com/tags/Raspberry-Pi/"/>
+    
+      <category term="Sinppets" scheme="http://yoursite.com/tags/Sinppets/"/>
+    
+      <category term="Unix" scheme="http://yoursite.com/tags/Unix/"/>
+    
+      <category term="Web" scheme="http://yoursite.com/tags/Web/"/>
+    
+      <category term="Xcode" scheme="http://yoursite.com/tags/Xcode/"/>
+    
+      <category term="clang" scheme="http://yoursite.com/tags/clang/"/>
+    
+      <category term="iOS" scheme="http://yoursite.com/tags/iOS/"/>
+    
+      <category term="llvm" scheme="http://yoursite.com/tags/llvm/"/>
+    
+      <category term="runtime" scheme="http://yoursite.com/tags/runtime/"/>
+    
+      <category term="只读经典" scheme="http://yoursite.com/tags/%E5%8F%AA%E8%AF%BB%E7%BB%8F%E5%85%B8/"/>
+    
+      <category term="正则表达式" scheme="http://yoursite.com/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[Jade-Mixins-Pages]]></title>
+    <link href="http://yoursite.com/2014/06/09/jade-mixins-pages/"/>
+    <id>http://yoursite.com/2014/06/09/jade-mixins-pages/</id>
+    <published>2014-06-09T09:18:10.000Z</published>
+    <updated>2014-06-16T02:44:27.000Z</updated>
+    <content type="html"><![CDATA[<p>分页功能对于web开发来说是非常常见的功能之一，而其实现上也有多种方法。<br>这里和大家分享一种使用Jade实现的分页~</p>
+<hr>
+<p>先上代码:<br><a id="more"></a></p>
+<h3 id="Jade:">Jade:</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+</pre></td><td class="code"><pre>mixin pages(curPage,totol,baseUrl)
+	- var curPage = Number(curPage),totol = Number(totol);
+	- var startPage = curPage - <span class="number">4</span> &gt; <span class="number">0</span> ? curPage - <span class="number">4</span> : <span class="number">1</span>;
+	- var lastPage = curPage + <span class="number">4</span> &lt;= totol ? curPage + <span class="number">4</span> : totol;
+	- <span class="keyword">if</span>(startPage == <span class="number">1</span>) lastPage = totol &gt;= <span class="number">9</span> ? <span class="number">9</span> : totol
+	div.global-pages
+		- <span class="keyword">if</span>(curPage &gt; <span class="number">1</span>)
+			a.page.page-prev(href=baseUrl+<span class="string">'?id='</span>+(curPage-<span class="number">1</span>)) 上一页
+		- <span class="keyword">if</span>(startPage &gt; <span class="number">1</span>)
+			a.ell ...
+		- <span class="keyword">for</span>(var val = startPage ; val &lt; lastPage + <span class="number">1</span> ; val ++)
+			a.page(class=<span class="string">'page-'</span>+val class=curPage===val?<span class="string">'cur'</span>:<span class="string">''</span> href=baseUrl+<span class="string">'?id='</span>+val) <span class="comment">#{val}</span>
+		- <span class="keyword">if</span>(totol &gt; <span class="number">9</span> && curPage &lt; totol )
+			a.ell ...
+		- <span class="keyword">if</span>(curPage &lt; totol)
+			a.page.page-next(href=baseUrl+<span class="string">'?id='</span>+(curPage+<span class="number">1</span>)) 下一页
+</pre></td></tr></table></figure>
+
+<h3 id="使用:">使用:</h3>
+<p><figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>+pages(pageId,<span class="number">20</span>,<span class="string">'http://loler.us:4000/qa'</span>)
+</pre></td></tr></table></figure></p>
+<h3 id="结果:">结果:</h3>
+<p><figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+</pre></td><td class="code"><pre>&lt;div class=<span class="string">"global-pages"</span>&gt;
+	&lt;a href=<span class="string">"http://loler.us:4000/qa?id=1"</span> class=<span class="string">"page page-1 cur"</span>&gt;<span class="number">1</span>&lt;/a&gt;
+	&lt;a href=<span class="string">"http://loler.us:4000/qa?id=2"</span> class=<span class="string">"page page-2"</span>&gt;<span class="number">2</span>&lt;/a&gt;
+	&lt;a href=<span class="string">"http://loler.us:4000/qa?id=3"</span> class=<span class="string">"page page-3"</span>&gt;<span class="number">3</span>&lt;/a&gt;
+	&lt;a href=<span class="string">"http://loler.us:4000/qa?id=4"</span> class=<span class="string">"page page-4"</span>&gt;<span class="number">4</span>&lt;/a&gt;
+	&lt;a href=<span class="string">"http://loler.us:4000/qa?id=5"</span> class=<span class="string">"page page-5"</span>&gt;<span class="number">5</span>&lt;/a&gt;
+	&lt;a href=<span class="string">"http://loler.us:4000/qa?id=6"</span> class=<span class="string">"page page-6"</span>&gt;<span class="number">6</span>&lt;/a&gt;
+	&lt;a href=<span class="string">"http://loler.us:4000/qa?id=7"</span> class=<span class="string">"page page-7"</span>&gt;<span class="number">7</span>&lt;/a&gt;
+	&lt;a href=<span class="string">"http://loler.us:4000/qa?id=8"</span> class=<span class="string">"page page-8"</span>&gt;<span class="number">8</span>&lt;/a&gt;
+	&lt;a href=<span class="string">"http://loler.us:4000/qa?id=9"</span> class=<span class="string">"page page-9"</span>&gt;<span class="number">9</span>&lt;/a&gt;
+	&lt;a class=<span class="string">"ell"</span>&gt;...&lt;/a&gt;
+	&lt;a href=<span class="string">"http://loler.us:4000/qa?id=2"</span> class=<span class="string">"page page-next"</span>&gt;下一页&lt;/a&gt;
+&lt;/div&gt;
+</pre></td></tr></table></figure></p>
+<h3 id="参数:">参数:</h3>
+<p>curPage  当前的pageId<br>totol    页面总数<br>baseUrl  a标签的链接 例如 <a href="http://loler.us:4000/qa，那么a的url就是http://loler.us:4000/qa?id=" target="_blank" rel="external">http://loler.us:4000/qa，那么a的url就是http://loler.us:4000/qa?id=</a></p>
+<h3 id="效果:">效果:</h3>
+<p><img src="/img/mixin-pages.png" alt="分页"></p>
+]]></content>
+    <summary type="html"><![CDATA[<p>分页功能对于web开发来说是非常常见的功能之一，而其实现上也有多种方法。<br>这里和大家分享一种使用Jade实现的分页~</p>
+<hr>
+<p>先上代码:<br>]]></summary>
+    
+      <category term="Jade" scheme="http://yoursite.com/tags/Jade/"/>
+    
+      <category term="Mixins" scheme="http://yoursite.com/tags/Mixins/"/>
+    
+      <category term="分页控件" scheme="http://yoursite.com/tags/%E5%88%86%E9%A1%B5%E6%8E%A7%E4%BB%B6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[兼容所有浏览器的菱形]]></title>
+    <link href="http://yoursite.com/2014/04/16/diamond/"/>
+    <id>http://yoursite.com/2014/04/16/diamond/</id>
+    <published>2014-04-16T07:53:15.000Z</published>
+    <updated>2014-06-16T05:47:53.000Z</updated>
+    <content type="html"><![CDATA[<h2 id="介绍菱形的绘制法">介绍菱形的绘制法</h2>
+<pre><code>第一种是svg、vml
+</code></pre><p>如图：</p>
+<p><img src="https://raw.githubusercontent.com/fangcao7618/fangcao7618.github.io/master/img/1.jpg" alt="图片"><br><a id="more"></a></p>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+</pre></td><td class="code"><pre><span class="doctype">&lt;!doctype html&gt;</span>
+<span class="tag">&lt;<span class="title">html</span> <span class="attribute">lang</span>=<span class="value">"en"</span>&gt;</span>
+
+<span class="tag">&lt;<span class="title">head</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">meta</span> <span class="attribute">charset</span>=<span class="value">"UTF-8"</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">title</span>&gt;</span>菱形裁剪<span class="tag">&lt;/<span class="title">title</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span> <span class="attribute">charset</span>=<span class="value">"utf-8"</span> <span class="attribute">src</span>=<span class="value">"js/raph.js"</span>&gt;</span><span class="javascript"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">style</span> <span class="attribute">type</span>=<span class="value">"text/css"</span> <span class="attribute">charset</span>=<span class="value">"utf-8"</span>&gt;</span><span class="css">
+    <span class="id">#canvas</span> <span class="rules">{
+        <span class="rule"><span class="attribute">background-color</span>:<span class="value"> <span class="hexcolor">#F4F4F4</span></span></span>;
+        <span class="rule"><span class="attribute">left</span>:<span class="value"> <span class="number">0</span></span></span>;
+        <span class="rule"><span class="attribute">position</span>:<span class="value"> absolute</span></span>;
+        <span class="rule"><span class="attribute">top</span>:<span class="value"> <span class="number">0</span></span></span>;
+    <span class="rule">}</span></span>
+    <span class="id">#paper</span> <span class="rules">{
+        <span class="rule"><span class="attribute">left</span>:<span class="value"> <span class="number">0</span></span></span>;
+        <span class="rule"><span class="attribute">position</span>:<span class="value"> relative</span></span>;
+        <span class="rule"><span class="attribute">top</span>:<span class="value"> <span class="number">0</span></span></span>;
+    <span class="rule">}</span></span>
+    <span class="tag">h2</span> <span class="rules">{
+        <span class="rule"><span class="attribute">text-align</span>:<span class="value"> center</span></span>;
+    <span class="rule">}</span></span>
+    <span class="id">#vic1</span>, <span class="id">#vic2</span>, <span class="id">#vic3</span> <span class="rules">{
+        <span class="rule"><span class="attribute">position</span>:<span class="value">absolute</span></span>;
+        <span class="rule"><span class="attribute">left</span>:<span class="value"><span class="number">0</span></span></span>;
+        <span class="rule"><span class="attribute">top</span>:<span class="value"><span class="number">0</span></span></span>;
+    <span class="rule">}</span></span>
+    <span class="tag">shape</span>, <span class="tag">span</span> <span class="rules">{
+        <span class="rule"><span class="attribute">font-size</span>:<span class="value"> <span class="number">16</span>px</span></span>;
+        <span class="rule"><span class="attribute">font-family</span>:<span class="value"><span class="string">'Microsoft YaHei'</span></span></span>;
+        <span class="rule"><span class="attribute">color</span>:<span class="value"> <span class="hexcolor">#ffffff</span></span></span>;
+        <span class="rule"><span class="attribute">font-style</span>:<span class="value"> oblique</span></span>;
+        <span class="rule"><span class="attribute">display</span>:<span class="value">block</span></span>;
+        <span class="rule"><span class="attribute">height</span>:<span class="value"><span class="number">100</span>%</span></span>;
+        <span class="rule"><span class="attribute">width</span>:<span class="value"><span class="number">100</span>%</span></span>;
+        <span class="rule"><span class="attribute">text-align</span>:<span class="value">center</span></span>;
+        <span class="rule"><span class="attribute">background-color</span>:<span class="value"> red</span></span>;
+    <span class="rule">}</span></span>
+    </span><span class="tag">&lt;/<span class="title">style</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">head</span>&gt;</span>
+
+<span class="tag">&lt;<span class="title">body</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"canvas"</span>&gt;</span>
+        <span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"paper"</span>&gt;</span>
+            <span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"vic1"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+            <span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"vic2"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+            <span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"vic3"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+            <span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"vic4"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+            <span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"vic5"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+            <span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"vic6"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+            <span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"vic7"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+            <span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"vic8"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+            <span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"vic9"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+            <span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"vic10"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+            <span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"vic11"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+            <span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"vic12"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+            <span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"vic13"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+            <span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"vic14"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+            <span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"vic15"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+            <span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"vic16"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+            <span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"vic17"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+            <span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"vic18"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+            <span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"vic19"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+            <span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"vic20"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+            <span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"vic21"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+        <span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+    <span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="javascript">
+    (<span class="function"><span class="keyword">function</span><span class="params">(Raphael,wh)</span> {</span>
+        <span class="keyword">var</span> attr = {
+            fill: <span class="string">"#fff"</span>,
+            stroke: <span class="string">"#BCBCBC"</span>,
+            <span class="string">"stroke-width"</span>: <span class="number">1</span>
+        },
+            attr2 = {
+                fill: <span class="string">"#F8F8F8"</span>,
+                stroke: <span class="string">"#BBBBBB"</span>,
+                <span class="string">"stroke-width"</span>: <span class="number">1</span>
+            },
+            attr3 = {
+                fill: <span class="string">"#795755"</span>,
+                stroke: <span class="string">"#BBBBBB"</span>,
+                <span class="string">"stroke-width"</span>: <span class="number">1</span>,
+                <span class="string">"opacity"</span>: <span class="string">"0"</span>,
+                <span class="string">"cursor"</span>: <span class="string">"pointer"</span>
+            },
+            attr4 = {
+                fill: <span class="string">"#fff"</span>,
+                font: <span class="string">"40px Georgia"</span>,
+                <span class="string">"opacity"</span>: <span class="string">"0"</span>,
+                <span class="string">'text-anchor'</span>: <span class="string">'start'</span>
+            },
+            x = <span class="number">30</span>/<span class="number">146</span>*wh, <span class="comment">//距离横坐标点 这里也可以根据角度而计算</span>
+            y = <span class="number">30</span>/<span class="number">146</span>*wh, <span class="comment">//距离竖坐标点 这里也可以根据角度而计算</span>
+            width = wh,
+            height = wh,
+            xiejiao = <span class="built_in">parseInt</span>(width * <span class="built_in">Math</span>.sqrt(<span class="number">2</span>)), <span class="comment">//对角线</span>
+            plength = document.getElementById(<span class="string">"paper"</span>).getElementsByTagName(<span class="string">"div"</span>).length, <span class="comment">//总个数</span>
+            itemCount = <span class="number">9</span>, <span class="comment">//每行显示的个数</span>
+            row = plength % itemCount == <span class="number">0</span> ? plength / itemCount : <span class="built_in">parseInt</span>(plength / itemCount) + <span class="number">1</span>, <span class="comment">//行数</span>
+            R = Raphael(<span class="string">"paper"</span>, xiejiao * (itemCount / <span class="number">2</span> + <span class="number">0.5</span>), xiejiao * (row + <span class="number">0.5</span>)), <span class="comment">//绘制画布宽度</span>
+            aus = {}, <span class="comment">//声明数组</span>
+            pstrs = attr,
+            temp,
+            H1 = <span class="number">0</span>,
+            L1 = <span class="string">""</span>,
+            key = <span class="string">""</span>,
+            imagesL1 = <span class="number">0</span>,
+            imagesH1 = <span class="number">0</span>,
+            _index = <span class="number">0</span>;
+
+        <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; row; i++) {
+            <span class="comment">//console.log("第" + i + "行");</span>
+            <span class="keyword">for</span> (<span class="keyword">var</span> j = <span class="number">1</span>; j &lt;= itemCount; j++) {
+                _index = j + i * itemCount;
+                <span class="keyword">if</span> (_index &gt; plength) {
+                    <span class="keyword">break</span>;
+                }
+                <span class="comment">//console.log(j);</span>
+                <span class="keyword">if</span> (j % <span class="number">2</span> != <span class="number">0</span>) {
+                    pstrs = attr;
+                    L1 = i * xiejiao + <span class="string">"r45t-0"</span>;
+                    H1 = j == <span class="number">1</span> ? <span class="number">0</span> : (j - <span class="number">1</span>) / <span class="number">2</span> * xiejiao;
+                    imagesH1 = (xiejiao - <span class="number">40</span>) / <span class="number">2</span> + xiejiao * i;
+                    imagesL1 = H1 + <span class="number">30</span>;
+
+                    <span class="comment">//console.log("奇数:" + j + ":" + H1 + "  " + L1 + "图:" +imagesL1+ ":"+ imagesH1);</span>
+                } <span class="keyword">else</span> {
+                    pstrs = attr2;
+                    L1 = (i * xiejiao + xiejiao) + <span class="string">"r45t-"</span> + width;
+                    H1 = j / <span class="number">2</span> * xiejiao;
+                    imagesH1 = (<span class="number">0.5</span> * xiejiao + <span class="number">30</span> - <span class="number">40</span>) * <span class="number">2</span> + xiejiao * i;
+                    imagesL1 = (j / <span class="number">2</span> - <span class="number">0.5</span>) * xiejiao + <span class="number">35</span>;
+
+                    <span class="comment">//console.log("偶数:" + j + ":" + H1 + "  " + L1+ "图:" +imagesL1+ ":"+ imagesH1);</span>
+                }
+                <span class="comment">//绘制最底层的形状</span>
+                R.path(Raphael.format(<span class="string">"M{0},{1}h{2}v{3}h{4}z"</span>, x, y, width, height, -width)).transform(<span class="string">"t"</span> + H1 + <span class="string">","</span> + L1 + <span class="string">",0s1"</span>).attr(pstrs);
+                <span class="comment">//绘制内容图片</span>
+                R.image(<span class="string">"images/big_1.jpg"</span>, imagesL1, imagesH1, <span class="number">133</span>, <span class="number">40</span>); <span class="comment">//图片的位置及大小</span>
+                <span class="comment">//绘制遮罩层</span>
+                temp = R.path(Raphael.format(<span class="string">"M{0},{1}h{2}v{3}h{4}z"</span>, x, y, width, height, -width)).transform(<span class="string">"t"</span> + H1 + <span class="string">","</span> + L1 + <span class="string">",0s1"</span>).attr(attr3);
+                <span class="comment">//绘制遮罩层上面的说明文字</span>
+                R.text(imagesL1 + <span class="number">20</span>, imagesH1 + <span class="number">20</span>, <span class="string">"60."</span> + _index+<span class="string">"a"</span>).attr(attr4).data(<span class="string">"i"</span>, _index+<span class="string">"a"</span>);
+
+                key = <span class="string">"vic"</span> + _index;
+                aus[key] = temp;
+            }
+        }
+        <span class="keyword">for</span> (<span class="keyword">var</span> state <span class="keyword">in</span> aus) {
+            aus[state].color = Raphael.getColor();
+            (<span class="function"><span class="keyword">function</span><span class="params">(st, state)</span> {</span>
+                st[<span class="number">0</span>].style.cursor = <span class="string">"pointer"</span>;
+                <span class="comment">//console.log(st.next[0].childNodes[0].innerHTML.length*parseInt(st.next[0].style.fontSize)/2);</span>
+                st.next[<span class="number">0</span>].onmouseover = <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
+                    st.animate({
+                        <span class="string">"opacity"</span>: <span class="string">".5"</span>
+                    });
+                    st.next.animate({
+                        <span class="string">"opacity"</span>: <span class="string">"1.0"</span>
+                    });
+                };
+                st.next[<span class="number">0</span>].onmouseout = <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
+                    st.animate({
+                        <span class="string">"opacity"</span>: <span class="string">"0"</span>
+                    });
+                    st.next.animate({
+                        <span class="string">"opacity"</span>: <span class="string">"0"</span>
+                    });
+                };
+                st[<span class="number">0</span>].onmouseover = <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
+                    st.animate({
+                        <span class="string">"opacity"</span>: <span class="string">".5"</span>
+                    });
+                    st.next.animate({
+                        <span class="string">"opacity"</span>: <span class="string">"1.0"</span>
+                    });
+                };
+                st[<span class="number">0</span>].onmouseout = <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
+                    st.animate({
+                        <span class="string">"opacity"</span>: <span class="string">"0"</span>
+                    });
+                    st.next.animate({
+                        <span class="string">"opacity"</span>: <span class="string">"0"</span>
+                    });
+                };
+            })(aus[state], state);
+        };
+    })(Raphael,<span class="number">146</span>);
+    </span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">body</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">html</span>&gt;</span>
+</pre></td></tr></table></figure>]]></content>
+    <summary type="html"><![CDATA[<h2 id="介绍菱形的绘制法">介绍菱形的绘制法</h2>
+<pre><code>第一种是svg、vml
+</code></pre><p>如图：</p>
+<p><img src="https://raw.githubusercontent.com/fangcao7618/fangcao7618.github.io/master/img/1.jpg" alt="图片"><br>]]></summary>
+    
+      <category term="技术" scheme="http://yoursite.com/tags/%E6%8A%80%E6%9C%AF/"/>
+    
+      <category term="svg" scheme="http://yoursite.com/tags/svg/"/>
+    
+      <category term="vml" scheme="http://yoursite.com/tags/vml/"/>
+    
+      <category term="照片" scheme="http://yoursite.com/tags/%E7%85%A7%E7%89%87/"/>
+    
+  </entry>
+  
+</feed>

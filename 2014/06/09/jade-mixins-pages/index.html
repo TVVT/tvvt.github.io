@@ -1,0 +1,399 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Jade-Mixins-Pages | TVVT</title>
+  <meta name="author" content="tvvt">
+  
+  <meta name="description" content="相信奇迹，相信梦想">
+  
+  
+  <meta property="og:title" content="Jade-Mixins-Pages"/>
+  <meta property="og:site_name" content="TVVT"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+   <link rel="apple-touch-icon" href="/images/6659684.png" title="TVVT" >
+   <link rel="shortcut icon" href="/images/6659684.png" title="TVVT" >
+   <link rel="alternate" href="/atom.xml" title="TVVT" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  <!--<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>-->
+  <script src="/js/jquery-1.8.3.min.js"></script>
+  <script src="/js/index.js"></script>
+</head>
+
+
+<body>
+  <div id="content" class="inner clearfix">
+    <aside id="sidebar" class="alignleft animated fadeInLeft">
+      <div class="navigationBar">
+      <a class="imgIcon" href="https://github.com/TVVT"><img src="/images/6659684.png" alt=""></a>
+        <a href="/">TVVT</a>
+      </div>
+    	
+  <div class="widget search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="text" name="q" results="0" placeholder="Search">
+    <input type="hidden" name="q" value="site:yoursite.com">
+  </form>
+  <form method="get" class="searchform" action="http://localhost:5000/">
+	<input type="text" value="Type then hit enter to search" onblur="if(this.value == '') { this.value='Type then hit enter to search'}" onfocus="if (this.value == 'Type then hit enter to search') {this.value=''}" name="s" class="searchbar">
+	<input type="hidden" class="searchsubmit" value="Search">
+	</form><div class="clear"></div>
+</div>
+
+  <nav class="widget" id="menu">
+	<ul>
+    
+      <li class="cell"><a class="next" href="/">Home</a><li>
+    
+      <li class="cell"><a class="next" href="/archives/">Archives</a><li>
+    
+      <li class="cell"><a class="next" href="/about/">About</a><li>
+    
+      <li class="cell"><a class="next" href="/atom.xml">Subscribe</a><li>
+    
+    </ul>
+</nav>
+
+  <div class="widget member clearfix">
+	<a href="https://github.com/fangcao7618"><img src="/images/1916867.png" alt=""></a>
+	<a href="https://github.com/huangkemin"><img src="/images/1684527.png" alt=""></a>
+	<a href="https://github.com/wov"><img src="/images/1091511.jpeg" alt=""></a>
+	<a href="https://github.com/lb1064"><img src="/images/1217562.jpeg" alt=""></a>
+	<a href="https://github.com/wchaowu"><img src="/images/131735.jpeg" alt=""></a>
+	<a href="https://github.com/luckyrobin"><img src="/images/3426945.jpeg" alt=""></a>
+	<a href="https://github.com/kevin14"><img src="/images/2288763.png" alt=""></a>
+	<a href="https://github.com/Sunny-JJ"><img src="/images/6659860.png" alt=""></a>
+	<a href="https://github.com/ximan"><img src="/images/2944289.jpeg" alt=""></a>
+	<a href="https://github.com/InsCake"><img src="/images/3214484.png" alt=""></a>
+</div>
+
+  
+
+  
+<div class="widget tagcloud">
+  <h3 class="title">Tags</h3>
+  <div class="entry">
+    <a href="/tags/Effective/" style="font-size: 10.00px;">Effective</a><a href="/tags/HTML5/" style="font-size: 10.00px;">HTML5</a><a href="/tags/Hack/" style="font-size: 10.00px;">Hack</a><a href="/tags/Jade/" style="font-size: 10.00px;">Jade</a><a href="/tags/JavaScript/" style="font-size: 10.00px;">JavaScript</a><a href="/tags/Mac/" style="font-size: 10.00px;">Mac</a><a href="/tags/Mixins/" style="font-size: 10.00px;">Mixins</a><a href="/tags/Nodejs/" style="font-size: 10.00px;">Node.js</a><a href="/tags/Notes/" style="font-size: 10.00px;">Notes</a><a href="/tags/Objective-C/" style="font-size: 10.00px;">Objective-C</a><a href="/tags/Other/" style="font-size: 10.00px;">Other</a><a href="/tags/Raspberry-Pi/" style="font-size: 10.00px;">Raspberry Pi</a><a href="/tags/Sinppets/" style="font-size: 10.00px;">Sinppets</a><a href="/tags/Unix/" style="font-size: 10.00px;">Unix</a><a href="/tags/Web/" style="font-size: 10.00px;">Web</a><a href="/tags/Xcode/" style="font-size: 10.00px;">Xcode</a><a href="/tags/clang/" style="font-size: 10.00px;">clang</a><a href="/tags/easyXDM/" style="font-size: 10.00px;">easyXDM</a><a href="/tags/form/" style="font-size: 10.00px;">form</a><a href="/tags/iOS/" style="font-size: 10.00px;">iOS</a><a href="/tags/iscroll/" style="font-size: 10.00px;">iscroll</a><a href="/tags/llvm/" style="font-size: 10.00px;">llvm</a><a href="/tags/phoneGap/" style="font-size: 20.00px;">phoneGap</a><a href="/tags/runtime/" style="font-size: 10.00px;">runtime</a><a href="/tags/svg/" style="font-size: 10.00px;">svg</a><a href="/tags/vml/" style="font-size: 10.00px;">vml</a><a href="/tags/分页控件/" style="font-size: 10.00px;">分页控件</a><a href="/tags/只读经典/" style="font-size: 10.00px;">只读经典</a><a href="/tags/图片处理/" style="font-size: 10.00px;">图片处理</a><a href="/tags/技术/" style="font-size: 10.00px;">技术</a><a href="/tags/正则表达式/" style="font-size: 10.00px;">正则表达式</a><a href="/tags/照片/" style="font-size: 15.00px;">照片</a>
+  </div>
+</div>
+
+
+  
+
+    	<footer id="footer" class="inner"><div class="copyright">
+  
+  &copy; 2014 tvvt
+  
+</div>
+
+
+<div style="position:relative; bottom: 23px">
+  <script src="http://s95.cnzz.com/stat.php?id=1&web_id=1&show=pic1" language="JavaScript">
+  </script>
+</div>
+
+
+</footer>
+    </aside>
+    
+    
+    <div id="hidden-navigationBar" class="navigationBar">
+      <a class="imgIcon" href="https://github.com/TVVT"><img src="/images/6659684.png" alt=""></a>
+      <a href="/">TVVT</a>
+    </div>
+    <div id="main-col" class="alignright">
+      <div id="wrapper" class="animated fadeInRight" >
+      
+<article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content animated fadeInRight">
+  <header>
+      
+      
+  
+    <h1 class="title">Jade-Mixins-Pages</h1>
+  
+
+      <time datetime="2014-06-09T09:18:10.000Z"><a href="/2014/06/09/jade-mixins-pages/">Jun 9 2014</a></time>
+      
+  </header>
+
+<div class="entry ">
+
+
+    <!--toc--> 
+    
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Jade:"><span class="toc-number">1.</span> <span class="toc-text">Jade:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用:"><span class="toc-number">2.</span> <span class="toc-text">使用:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#结果:"><span class="toc-number">3.</span> <span class="toc-text">结果:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参数:"><span class="toc-number">4.</span> <span class="toc-text">参数:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#效果:"><span class="toc-number">5.</span> <span class="toc-text">效果:</span></a></li></ol>
+    </div>
+    
+    <!--end-->
+  <p>分页功能对于web开发来说是非常常见的功能之一，而其实现上也有多种方法。<br>这里和大家分享一种使用Jade实现的分页~</p>
+<hr>
+<p>先上代码:<br><a id="more"></a></p>
+<h3 id="Jade:">Jade:</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+</pre></td><td class="code"><pre>mixin pages(curPage,totol,baseUrl)
+	- var curPage = Number(curPage),totol = Number(totol);
+	- var startPage = curPage - <span class="number">4</span> &gt; <span class="number">0</span> ? curPage - <span class="number">4</span> : <span class="number">1</span>;
+	- var lastPage = curPage + <span class="number">4</span> &lt;= totol ? curPage + <span class="number">4</span> : totol;
+	- <span class="keyword">if</span>(startPage == <span class="number">1</span>) lastPage = totol &gt;= <span class="number">9</span> ? <span class="number">9</span> : totol
+	div.global-pages
+		- <span class="keyword">if</span>(curPage &gt; <span class="number">1</span>)
+			a.page.page-prev(href=baseUrl+<span class="string">'?id='</span>+(curPage-<span class="number">1</span>)) 上一页
+		- <span class="keyword">if</span>(startPage &gt; <span class="number">1</span>)
+			a.ell ...
+		- <span class="keyword">for</span>(var val = startPage ; val &lt; lastPage + <span class="number">1</span> ; val ++)
+			a.page(class=<span class="string">'page-'</span>+val class=curPage===val?<span class="string">'cur'</span>:<span class="string">''</span> href=baseUrl+<span class="string">'?id='</span>+val) <span class="comment">#{val}</span>
+		- <span class="keyword">if</span>(totol &gt; <span class="number">9</span> && curPage &lt; totol )
+			a.ell ...
+		- <span class="keyword">if</span>(curPage &lt; totol)
+			a.page.page-next(href=baseUrl+<span class="string">'?id='</span>+(curPage+<span class="number">1</span>)) 下一页
+</pre></td></tr></table></figure>
+
+<h3 id="使用:">使用:</h3>
+<p><figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>+pages(pageId,<span class="number">20</span>,<span class="string">'http://loler.us:4000/qa'</span>)
+</pre></td></tr></table></figure></p>
+<h3 id="结果:">结果:</h3>
+<p><figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+</pre></td><td class="code"><pre>&lt;div class=<span class="string">"global-pages"</span>&gt;
+	&lt;a href=<span class="string">"http://loler.us:4000/qa?id=1"</span> class=<span class="string">"page page-1 cur"</span>&gt;<span class="number">1</span>&lt;/a&gt;
+	&lt;a href=<span class="string">"http://loler.us:4000/qa?id=2"</span> class=<span class="string">"page page-2"</span>&gt;<span class="number">2</span>&lt;/a&gt;
+	&lt;a href=<span class="string">"http://loler.us:4000/qa?id=3"</span> class=<span class="string">"page page-3"</span>&gt;<span class="number">3</span>&lt;/a&gt;
+	&lt;a href=<span class="string">"http://loler.us:4000/qa?id=4"</span> class=<span class="string">"page page-4"</span>&gt;<span class="number">4</span>&lt;/a&gt;
+	&lt;a href=<span class="string">"http://loler.us:4000/qa?id=5"</span> class=<span class="string">"page page-5"</span>&gt;<span class="number">5</span>&lt;/a&gt;
+	&lt;a href=<span class="string">"http://loler.us:4000/qa?id=6"</span> class=<span class="string">"page page-6"</span>&gt;<span class="number">6</span>&lt;/a&gt;
+	&lt;a href=<span class="string">"http://loler.us:4000/qa?id=7"</span> class=<span class="string">"page page-7"</span>&gt;<span class="number">7</span>&lt;/a&gt;
+	&lt;a href=<span class="string">"http://loler.us:4000/qa?id=8"</span> class=<span class="string">"page page-8"</span>&gt;<span class="number">8</span>&lt;/a&gt;
+	&lt;a href=<span class="string">"http://loler.us:4000/qa?id=9"</span> class=<span class="string">"page page-9"</span>&gt;<span class="number">9</span>&lt;/a&gt;
+	&lt;a class=<span class="string">"ell"</span>&gt;...&lt;/a&gt;
+	&lt;a href=<span class="string">"http://loler.us:4000/qa?id=2"</span> class=<span class="string">"page page-next"</span>&gt;下一页&lt;/a&gt;
+&lt;/div&gt;
+</pre></td></tr></table></figure></p>
+<h3 id="参数:">参数:</h3>
+<p>curPage  当前的pageId<br>totol    页面总数<br>baseUrl  a标签的链接 例如 <a href="http://loler.us:4000/qa，那么a的url就是http://loler.us:4000/qa?id=" target="_blank" rel="external">http://loler.us:4000/qa，那么a的url就是http://loler.us:4000/qa?id=</a></p>
+<h3 id="效果:">效果:</h3>
+<p><img src="/img/mixin-pages.png" alt="分页"></p>
+
+
+  
+    <p style="margin:20px 0; color:#9f9f9f; font-size:12px;">
+<span>Posted by <a style="color:#9f9f9f;" href="http://weibo.com/u/2120066534/home?wvr=5&amp;s=6cm7D0"><strong>杨靖</strong></a> - Jun 9 2014</span><br />
+<span style="line-height:13px;">如需转载，请注明： 本文来自 <a style="color:#9f9f9f;" href="http://yoursite.com"><strong>TVVT</strong></a></span>
+</p>
+  
+
+
+</div>
+
+    <!--<div class="entry">
+      
+      <p>分页功能对于web开发来说是非常常见的功能之一，而其实现上也有多种方法。<br>这里和大家分享一种使用Jade实现的分页~</p>
+<hr>
+<p>先上代码:<br><a id="more"></a></p>
+<h3 id="Jade:">Jade:</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+</pre></td><td class="code"><pre>mixin pages(curPage,totol,baseUrl)
+	- var curPage = Number(curPage),totol = Number(totol);
+	- var startPage = curPage - <span class="number">4</span> &gt; <span class="number">0</span> ? curPage - <span class="number">4</span> : <span class="number">1</span>;
+	- var lastPage = curPage + <span class="number">4</span> &lt;= totol ? curPage + <span class="number">4</span> : totol;
+	- <span class="keyword">if</span>(startPage == <span class="number">1</span>) lastPage = totol &gt;= <span class="number">9</span> ? <span class="number">9</span> : totol
+	div.global-pages
+		- <span class="keyword">if</span>(curPage &gt; <span class="number">1</span>)
+			a.page.page-prev(href=baseUrl+<span class="string">'?id='</span>+(curPage-<span class="number">1</span>)) 上一页
+		- <span class="keyword">if</span>(startPage &gt; <span class="number">1</span>)
+			a.ell ...
+		- <span class="keyword">for</span>(var val = startPage ; val &lt; lastPage + <span class="number">1</span> ; val ++)
+			a.page(class=<span class="string">'page-'</span>+val class=curPage===val?<span class="string">'cur'</span>:<span class="string">''</span> href=baseUrl+<span class="string">'?id='</span>+val) <span class="comment">#{val}</span>
+		- <span class="keyword">if</span>(totol &gt; <span class="number">9</span> && curPage &lt; totol )
+			a.ell ...
+		- <span class="keyword">if</span>(curPage &lt; totol)
+			a.page.page-next(href=baseUrl+<span class="string">'?id='</span>+(curPage+<span class="number">1</span>)) 下一页
+</pre></td></tr></table></figure>
+
+<h3 id="使用:">使用:</h3>
+<p><figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>+pages(pageId,<span class="number">20</span>,<span class="string">'http://loler.us:4000/qa'</span>)
+</pre></td></tr></table></figure></p>
+<h3 id="结果:">结果:</h3>
+<p><figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+</pre></td><td class="code"><pre>&lt;div class=<span class="string">"global-pages"</span>&gt;
+	&lt;a href=<span class="string">"http://loler.us:4000/qa?id=1"</span> class=<span class="string">"page page-1 cur"</span>&gt;<span class="number">1</span>&lt;/a&gt;
+	&lt;a href=<span class="string">"http://loler.us:4000/qa?id=2"</span> class=<span class="string">"page page-2"</span>&gt;<span class="number">2</span>&lt;/a&gt;
+	&lt;a href=<span class="string">"http://loler.us:4000/qa?id=3"</span> class=<span class="string">"page page-3"</span>&gt;<span class="number">3</span>&lt;/a&gt;
+	&lt;a href=<span class="string">"http://loler.us:4000/qa?id=4"</span> class=<span class="string">"page page-4"</span>&gt;<span class="number">4</span>&lt;/a&gt;
+	&lt;a href=<span class="string">"http://loler.us:4000/qa?id=5"</span> class=<span class="string">"page page-5"</span>&gt;<span class="number">5</span>&lt;/a&gt;
+	&lt;a href=<span class="string">"http://loler.us:4000/qa?id=6"</span> class=<span class="string">"page page-6"</span>&gt;<span class="number">6</span>&lt;/a&gt;
+	&lt;a href=<span class="string">"http://loler.us:4000/qa?id=7"</span> class=<span class="string">"page page-7"</span>&gt;<span class="number">7</span>&lt;/a&gt;
+	&lt;a href=<span class="string">"http://loler.us:4000/qa?id=8"</span> class=<span class="string">"page page-8"</span>&gt;<span class="number">8</span>&lt;/a&gt;
+	&lt;a href=<span class="string">"http://loler.us:4000/qa?id=9"</span> class=<span class="string">"page page-9"</span>&gt;<span class="number">9</span>&lt;/a&gt;
+	&lt;a class=<span class="string">"ell"</span>&gt;...&lt;/a&gt;
+	&lt;a href=<span class="string">"http://loler.us:4000/qa?id=2"</span> class=<span class="string">"page page-next"</span>&gt;下一页&lt;/a&gt;
+&lt;/div&gt;
+</pre></td></tr></table></figure></p>
+<h3 id="参数:">参数:</h3>
+<p>curPage  当前的pageId<br>totol    页面总数<br>baseUrl  a标签的链接 例如 <a href="http://loler.us:4000/qa，那么a的url就是http://loler.us:4000/qa?id=" target="_blank" rel="external">http://loler.us:4000/qa，那么a的url就是http://loler.us:4000/qa?id=</a></p>
+<h3 id="效果:">效果:</h3>
+<p><img src="/img/mixin-pages.png" alt="分页"></p>
+
+	    
+	    <p style="margin:20px 0; color:#9f9f9f; font-size:12px;">
+<span>Posted by <a style="color:#9f9f9f;" href="http://weibo.com/u/2120066534/home?wvr=5&amp;s=6cm7D0"><strong>杨靖</strong></a> - Jun 9 2014</span><br />
+<span style="line-height:13px;">如需转载，请注明： 本文来自 <a style="color:#9f9f9f;" href="http://yoursite.com"><strong>TVVT</strong></a></span>
+</p>
+      
+      
+    </div>-->
+    <footer>
+      
+	 
+     		  
+       		
+  
+  <div class="tags">
+    <a href="/tags/Jade/">Jade</a>, <a href="/tags/Mixins/">Mixins</a>, <a href="/tags/分页控件/">分页控件</a>
+  </div>
+
+     		  
+<!-- JiaThis Button BEGIN -->
+<div class="jiathis_style addthis addthis_toolbox addthis_default_style" style="color: black">
+	<span class="jiathis_txt"></span>
+	<a class="jiathis_button_tools_1"></a>
+	<a class="jiathis_button_tools_2"></a>
+	<a class="jiathis_button_tools_3"></a>
+	<a class="jiathis_button_tools_4"></a>
+	<a href="http://www.jiathis.com/share?uid=1784645" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+	<a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript">
+var jiathis_config = {data_track_clickback:'true'};
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2120066534" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+       	 
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+<section id="comment">
+  <h1 class="title">Comments</h1>
+<div id="uyan_frame"></div>
+<script type="text/javascript" id="UYScript" src="http://v1.uyan.cc/js/iframe.js?UYUserId=1" async=""></script>
+</section>
+
+
+      </div>
+      <div id="totop" style="position:fixed;bottom:50px;right:30px;cursor: pointer;">
+<a title="返回顶部"><img src="/images/scrollup.png"/></a>
+</div>
+      <script src="/js/totop.js"></script>
+    </div>
+    <div class="tabbar" onload="divideTabBar()">
+	
+      <div class="tabbaritem"><a class="next" href="/">Home</a></div>
+    
+      <div class="tabbaritem"><a class="next" href="/archives/">Archives</a></div>
+    
+      <div class="tabbaritem"><a class="next" href="/about/">About</a></div>
+    
+      <div class="tabbaritem"><a class="next" href="/atom.xml">Subscribe</a></div>
+    
+</div>
+
+
+  </div>
+  <script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+</body>
+</html>
