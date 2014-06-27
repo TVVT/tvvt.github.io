@@ -4,7 +4,7 @@
   <subtitle><![CDATA[一群活泼开朗有潜力的小伙伴]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://yoursite.com/"/>
-  <updated>2014-06-27T07:22:04.250Z</updated>
+  <updated>2014-06-27T07:26:09.304Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -31,7 +31,7 @@
     <link href="http://yoursite.com/2014/06/16/shanghai/"/>
     <id>http://yoursite.com/2014/06/16/shanghai/</id>
     <published>2014-06-16T11:56:09.000Z</published>
-    <updated>2014-06-27T07:20:28.000Z</updated>
+    <updated>2014-06-27T07:25:58.000Z</updated>
     <content type="html"><![CDATA[<p><a id="more"></a><br><img src="http://tvvt.github.io/DSCF2735.JPG" alt=""></p>
 ]]></content>
     <summary type="html"><![CDATA[<p>]]></summary>
@@ -169,97 +169,77 @@ xhr.send(formdata);
   </entry>
   
   <entry>
-    <title><![CDATA[使用easyXDM与跨域iframe交互]]></title>
-    <link href="http://yoursite.com/2014/06/11/easyxdm/"/>
-    <id>http://yoursite.com/2014/06/11/easyxdm/</id>
+    <title><![CDATA[iscroll使用心得]]></title>
+    <link href="http://yoursite.com/2014/06/11/iscroll/"/>
+    <id>http://yoursite.com/2014/06/11/iscroll/</id>
     <published>2014-06-11T08:03:42.000Z</published>
-    <updated>2014-06-16T02:47:10.000Z</updated>
-    <content type="html"><![CDATA[<p>以前在<a href="http://www.aifang.com" target="_blank">爱房网</a>的时候,经常会遇到这样的需求：</p>
-<p>1.在任意页面可以嵌套iframe，iframe有独立的功能。如含有日历组件等。<br>1.ifarme需要改变大小，外面的框也需要跟着变化<br>1.iframe和主页面不同域</p>
-<p>之前没有理会这样的需求，是因为实在没有办法搞定ie6（伟大的ie6，原谅我的无能吧。）<br><a id="more"></a><br>不过前段时间Google了一下，发现了这样的一个神器：<a href="http://easyxdm.net/wp/" target="_blank">easyXDM</a></p>
-<p>虽然我已经不在爱房网了，但这个丝毫不会影响我去解决问题的好奇心，不是么？</p>
+    <updated>2014-06-16T02:44:12.000Z</updated>
+    <content type="html"><![CDATA[<p>前几天同事要在手机上做一个小的页面项目，页面布局是头部和脚步固定（这种布局其实是不太适合手机页面，但是如此常见。）</p>
+<p>我推荐她使用<a href="http://cubiq.org/iscroll" target="_blank" rel="external">iscroll</a></p>
+<p>等过几天发现其实有一大堆的问题。<br><a id="more"></a></p>
+<h4 id="1-文字无法输入">1.文字无法输入</h4>
+<p>项目中含有表单，但是无论怎样都没有办法输入文字。</p>
+<h4 id="2-android上的bug">2.android上的bug</h4>
+<p>如果在软键盘已经调出的情况下刷新会出现bug。页面不能撑满整个屏幕。</p>
+<p>总之，在没有表单的情况下一切良好，有表单的时候坑爹不止啊～</p>
 <hr>
-<h4 id="实现过程">实现过程</h4>
-<p>easyXDM功能强大，不过我们目前仅仅关心的是如何与跨域的ifarme交互。<a href="http://consumer.easyxdm.net/current/example/resize_iframe.html" target="_blank">官方例子</a></p>
-<h5 id="主页面：">主页面：</h5>
-<p>首先引入easyXDM：</p>
-<pre><code>&lt;script <span class="keyword">type</span>=<span class="string">"text/javascript"</span> src=<span class="string">"../easyXDM.min.js"</span>&gt;
-</code></pre><p>初始化：</p>
-<pre><code><span class="keyword">var</span> transport = <span class="keyword">new</span> easyXDM.Socket({
-    remote: IFRAME_HOST + <span class="string">"/resize_intermediate.html?url=resized_iframe_1.html"</span>,
-    swf: IFRAME_HOST + <span class="string">"/../easyxdm.swf"</span>, 
-    container: <span class="string">"embedded"</span>,
-    onMessage: <span class="function"><span class="keyword">function</span><span class="params">(message, origin)</span>{</span> 
-        <span class="keyword">this</span>.container.getElementsByTagName(<span class="string">"iframe"</span>)[<span class="number">0</span>].style.height = message + <span class="string">"px"</span>; 
+<p>大体研究了下iscroll的实现方式<br>iscroll采用的布局是头部绝对定位，底部绝对定位，中间采用固定高度，overflow:hidden。然后使用transform来移动内部的元素。</p>
+<hr>
+<h4 id="文字bug产生原因">文字bug产生原因</h4>
+<p>文字无法输入其实是因为加入了css属性</p>
+<pre><code><span class="tag">body</span><span class="rules">{
+    <span class="rule"><span class="attribute">-webkit-user-select</span>:<span class="value">none</span></span>;
+<span class="rule">}</span></span>
+</code></pre><p>以及加入了阻止浏览器默认事件的脚本：</p>
+<pre><code>document.addEventListener(<span class="string">'touchmove'</span>, <span class="function"><span class="keyword">function</span> <span class="params">(e)</span> {</span> e.preventDefault(); }, <span class="literal">false</span>);
+</code></pre><p>加入css的原因是如果能够选择文字的话会出现拖动不顺畅的情况。而加入js的原因是为了阻止ios上的safari上默认页面被拖动。</p>
+<h4 id="文字bug解决方案">文字bug解决方案</h4>
+<p>对于css我们可以使用伪类:</p>
+<pre><code>*<span class="pseudo">:not(input)</span><span class="rules">{
+    <span class="rule"><span class="attribute">-webkit-user-select</span>:<span class="value">none</span></span>;
+<span class="rule">}</span></span>
+</code></pre><p>对于js我们可以使用e.target</p>
+<pre><code>document.addEventListener(<span class="string">'touchmove'</span>, <span class="function"><span class="keyword">function</span> <span class="params">(e)</span> {</span> 
+    console.log(e.target);
+    <span class="comment">//这里使用e.target来判断是否需要阻止默认，希望你能够自己动手。</span>
+    e.preventDefault(); 
+}, <span class="literal">false</span>);
+</code></pre><p>或者我们也可以让input阻止冒泡：</p>
+<pre><code><span class="keyword">var</span> _inputs = document.querySelectorAll(<span class="string">'input'</span>);
+<span class="keyword">for</span>(<span class="keyword">var</span> n=<span class="number">0</span>;n&lt;_inputs.length;n++){
+    <span class="keyword">var</span> _input = _inputs[n];
+    _input.addEventListener(<span class="string">'touchstart'</span>,<span class="function"><span class="keyword">function</span><span class="params">(e)</span>{</span>
+        e.stopPropagation();
+    });
+}
+</code></pre><h4 id="android的bug解决方案">android的bug解决方案</h4>
+<p>回到android问题产生的原因是在android调出软键盘的时候，将页面空间挤压后。中间的模块无法获取正常的高度.这个是一个比较难于解决的问题。</p>
+<p>但是android真的需要iscroll么。iscroll本来就是解决ios上不支持overflow:auto.的问题的。</p>
+<p>所以我的建议是不要在android上使用iscroll。</p>
+<pre><code><span class="keyword">var</span> ua = navigator.userAgent.toLowerCase();
+    <span class="keyword">if</span>(ua.<span class="keyword">match</span>(<span class="string">'iphone'</span>)){
+        init_ios();
+    }<span class="keyword">else</span>{
+        init_android();
     }
-});
-</code></pre><p>使用easyXDM不用自己去写iframe元素，脚本会自动帮你去生成一个iframe。</p>
-<p>其中的swf是解决ie系列的跨域问题的。如果你只针对高级浏览器（支持postMessage）可以去除掉。</p>
-<p>onMessage是回调函数，在子页面发送消息的时候触发。</p>
-<h5 id="中转页">中转页</h5>
-<p>上面例子的resize_intermediate.html其实是一个空白的中转页，目的就是当他获取子页面的消息时发送给他的父页面。</p>
-<p>听起来有些拗口，我们来看怎么实现的吧。</p>
-<pre><code><span class="doctype">&lt;!doctype html&gt;</span>
-<span class="tag">&lt;<span class="title">html</span>&gt;</span>
-    <span class="tag">&lt;<span class="title">head</span>&gt;</span>
-        <span class="tag">&lt;<span class="title">title</span>&gt;</span>easyXDM<span class="tag">&lt;/<span class="title">title</span>&gt;</span>
-        <span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span> <span class="attribute">src</span>=<span class="value">"../easyXDM.debug.js"</span>&gt;</span><span class="javascript">
-        </span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>
-        <span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="javascript">
-            <span class="keyword">var</span> iframe;
-            <span class="keyword">var</span> socket = <span class="keyword">new</span> easyXDM.Socket({
-                swf: <span class="string">"../easyxdm.swf"</span>,
-                onReady: <span class="function"><span class="keyword">function</span><span class="params">()</span>{</span>
-                    iframe = document.createElement(<span class="string">"iframe"</span>);
-                    iframe.frameBorder = <span class="number">0</span>;
-                    document.body.appendChild(iframe);
-                    iframe.src = easyXDM.query.url;
-                },
-                onMessage: <span class="function"><span class="keyword">function</span><span class="params">(url, origin)</span>{</span>
-                    iframe.src = url;
-                }
-            });
-        </span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>
-        <span class="tag">&lt;<span class="title">style</span> <span class="attribute">type</span>=<span class="value">"text/css"</span>&gt;</span><span class="css">
-            <span class="tag">html</span>, <span class="tag">body</span> <span class="rules">{
-                <span class="rule"><span class="attribute">overflow</span>:<span class="value"> hidden</span></span>;
-                <span class="rule"><span class="attribute">margin</span>:<span class="value"> <span class="number">0</span>px</span></span>;
-                <span class="rule"><span class="attribute">padding</span>:<span class="value"> <span class="number">0</span>px</span></span>;
-                <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">100</span>%</span></span>;
-                <span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">100</span>%</span></span>;
-            <span class="rule">}</span></span>
-
-            <span class="tag">iframe</span> <span class="rules">{
-                <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">100</span>%</span></span>;
-                <span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">100</span>%</span></span>;
-                <span class="rule"><span class="attribute">border</span>:<span class="value"> <span class="number">0</span>px</span></span>;
-            <span class="rule">}</span></span>
-        </span><span class="tag">&lt;/<span class="title">style</span>&gt;</span>
-    <span class="tag">&lt;/<span class="title">head</span>&gt;</span>
-    <span class="tag">&lt;<span class="title">body</span>&gt;</span>
-    <span class="tag">&lt;/<span class="title">body</span>&gt;</span>
-<span class="tag">&lt;/<span class="title">html</span>&gt;</span>
-</code></pre><h5 id="子页面">子页面</h5>
-<p>子页面和中转页是同域的。</p>
-<pre><code>&lt;script type=<span class="string">"text/javascript"</span>&gt;
-    window<span class="preprocessor">.onload</span> = function(){
-        parent<span class="preprocessor">.socket</span><span class="preprocessor">.postMessage</span>(document<span class="preprocessor">.body</span><span class="preprocessor">.clientHeight</span> || document<span class="preprocessor">.body</span><span class="preprocessor">.offsetHeight</span> || document<span class="preprocessor">.body</span><span class="preprocessor">.scrollHeight</span>)<span class="comment">;</span>
-    }<span class="comment">;</span>
-&lt;/script&gt;
-</code></pre><p>子页面只需要对中转页发送消息就可以了。</p>
+}
+</code></pre><p>如果使用的平台是ios，那我们就初始化ios的iscroll，如果使用的平台为android，那么我们设置容器的样式：overfllow:auto 这里需要自己去尝试。</p>
 <hr>
-<p>上面的官方例子其实实现的是这样一个场景，你需要载入一个iframe，iframe又可以随便跳转。跳转后高度不定，所以需要父页面跟着变化。</p>
-<p>easyXDM使用的方法是载入2个iframe。中转页主要用来传送消息，然后子页面可以随便改url，只要载入的时候发送自身高度就好了。</p>
-<p>如果你的逻辑不需要跳转，只要在适当的时候postMessage即可。</p>
-<hr>
-<h3 id="总结">总结</h3>
-<p>easyXDM的确帮助我们解决了不少问题。但是同时我们也需要了解它的原理，对于高级浏览器，其实是原生的postMessage，对于其他的则使用的是flash。但是flash到底是怎么实现的，目前我也还不知道。（这方面涉及的实在不多。）</p>
+<h4 id="最后">最后</h4>
+<p>其实我最后的建议是能不要使用iscroll就不要使用isroll。</p>
+<p>ios只要在5以上已经开始支持原生的overflow了。而且效率还不是一个数量级的。</p>
+<p>语法如下</p>
+<pre><code><span class="tag">div</span><span class="rules">{
+    <span class="rule"><span class="attribute">overflow</span>:<span class="value">auto</span></span>;
+    <span class="rule"><span class="attribute">-webkit-overflow-scrolling</span>:<span class="value"> touch</span></span>;
+<span class="rule">}</span></span>
+</code></pre><p>随着浏览器的更新，iscroll应该会不复存在了。</p>
 ]]></content>
-    <summary type="html"><![CDATA[<p>以前在<a href="http://www.aifang.com" target="_blank">爱房网</a>的时候,经常会遇到这样的需求：</p>
-<p>1.在任意页面可以嵌套iframe，iframe有独立的功能。如含有日历组件等。<br>1.ifarme需要改变大小，外面的框也需要跟着变化<br>1.iframe和主页面不同域</p>
-<p>之前没有理会这样的需求，是因为实在没有办法搞定ie6（伟大的ie6，原谅我的无能吧。）<br>]]></summary>
+    <summary type="html"><![CDATA[<p>前几天同事要在手机上做一个小的页面项目，页面布局是头部和脚步固定（这种布局其实是不太适合手机页面，但是如此常见。）</p>
+<p>我推荐她使用<a href="http://cubiq.org/iscroll" target="_blank" rel="external">iscroll</a></p>
+<p>等过几天发现其实有一大堆的问题。<br>]]></summary>
     
-      <category term="easyXDM" scheme="http://yoursite.com/tags/easyXDM/"/>
+      <category term="iscroll" scheme="http://yoursite.com/tags/iscroll/"/>
     
   </entry>
   
@@ -501,77 +481,97 @@ _login_btn.addEventListener(<span class="string">'click'</span>,<span class="fun
   </entry>
   
   <entry>
-    <title><![CDATA[iscroll使用心得]]></title>
-    <link href="http://yoursite.com/2014/06/11/iscroll/"/>
-    <id>http://yoursite.com/2014/06/11/iscroll/</id>
+    <title><![CDATA[使用easyXDM与跨域iframe交互]]></title>
+    <link href="http://yoursite.com/2014/06/11/easyxdm/"/>
+    <id>http://yoursite.com/2014/06/11/easyxdm/</id>
     <published>2014-06-11T08:03:42.000Z</published>
-    <updated>2014-06-16T02:44:12.000Z</updated>
-    <content type="html"><![CDATA[<p>前几天同事要在手机上做一个小的页面项目，页面布局是头部和脚步固定（这种布局其实是不太适合手机页面，但是如此常见。）</p>
-<p>我推荐她使用<a href="http://cubiq.org/iscroll" target="_blank" rel="external">iscroll</a></p>
-<p>等过几天发现其实有一大堆的问题。<br><a id="more"></a></p>
-<h4 id="1-文字无法输入">1.文字无法输入</h4>
-<p>项目中含有表单，但是无论怎样都没有办法输入文字。</p>
-<h4 id="2-android上的bug">2.android上的bug</h4>
-<p>如果在软键盘已经调出的情况下刷新会出现bug。页面不能撑满整个屏幕。</p>
-<p>总之，在没有表单的情况下一切良好，有表单的时候坑爹不止啊～</p>
+    <updated>2014-06-16T02:47:10.000Z</updated>
+    <content type="html"><![CDATA[<p>以前在<a href="http://www.aifang.com" target="_blank">爱房网</a>的时候,经常会遇到这样的需求：</p>
+<p>1.在任意页面可以嵌套iframe，iframe有独立的功能。如含有日历组件等。<br>1.ifarme需要改变大小，外面的框也需要跟着变化<br>1.iframe和主页面不同域</p>
+<p>之前没有理会这样的需求，是因为实在没有办法搞定ie6（伟大的ie6，原谅我的无能吧。）<br><a id="more"></a><br>不过前段时间Google了一下，发现了这样的一个神器：<a href="http://easyxdm.net/wp/" target="_blank">easyXDM</a></p>
+<p>虽然我已经不在爱房网了，但这个丝毫不会影响我去解决问题的好奇心，不是么？</p>
 <hr>
-<p>大体研究了下iscroll的实现方式<br>iscroll采用的布局是头部绝对定位，底部绝对定位，中间采用固定高度，overflow:hidden。然后使用transform来移动内部的元素。</p>
-<hr>
-<h4 id="文字bug产生原因">文字bug产生原因</h4>
-<p>文字无法输入其实是因为加入了css属性</p>
-<pre><code><span class="tag">body</span><span class="rules">{
-    <span class="rule"><span class="attribute">-webkit-user-select</span>:<span class="value">none</span></span>;
-<span class="rule">}</span></span>
-</code></pre><p>以及加入了阻止浏览器默认事件的脚本：</p>
-<pre><code>document.addEventListener(<span class="string">'touchmove'</span>, <span class="function"><span class="keyword">function</span> <span class="params">(e)</span> {</span> e.preventDefault(); }, <span class="literal">false</span>);
-</code></pre><p>加入css的原因是如果能够选择文字的话会出现拖动不顺畅的情况。而加入js的原因是为了阻止ios上的safari上默认页面被拖动。</p>
-<h4 id="文字bug解决方案">文字bug解决方案</h4>
-<p>对于css我们可以使用伪类:</p>
-<pre><code>*<span class="pseudo">:not(input)</span><span class="rules">{
-    <span class="rule"><span class="attribute">-webkit-user-select</span>:<span class="value">none</span></span>;
-<span class="rule">}</span></span>
-</code></pre><p>对于js我们可以使用e.target</p>
-<pre><code>document.addEventListener(<span class="string">'touchmove'</span>, <span class="function"><span class="keyword">function</span> <span class="params">(e)</span> {</span> 
-    console.log(e.target);
-    <span class="comment">//这里使用e.target来判断是否需要阻止默认，希望你能够自己动手。</span>
-    e.preventDefault(); 
-}, <span class="literal">false</span>);
-</code></pre><p>或者我们也可以让input阻止冒泡：</p>
-<pre><code><span class="keyword">var</span> _inputs = document.querySelectorAll(<span class="string">'input'</span>);
-<span class="keyword">for</span>(<span class="keyword">var</span> n=<span class="number">0</span>;n&lt;_inputs.length;n++){
-    <span class="keyword">var</span> _input = _inputs[n];
-    _input.addEventListener(<span class="string">'touchstart'</span>,<span class="function"><span class="keyword">function</span><span class="params">(e)</span>{</span>
-        e.stopPropagation();
-    });
-}
-</code></pre><h4 id="android的bug解决方案">android的bug解决方案</h4>
-<p>回到android问题产生的原因是在android调出软键盘的时候，将页面空间挤压后。中间的模块无法获取正常的高度.这个是一个比较难于解决的问题。</p>
-<p>但是android真的需要iscroll么。iscroll本来就是解决ios上不支持overflow:auto.的问题的。</p>
-<p>所以我的建议是不要在android上使用iscroll。</p>
-<pre><code><span class="keyword">var</span> ua = navigator.userAgent.toLowerCase();
-    <span class="keyword">if</span>(ua.<span class="keyword">match</span>(<span class="string">'iphone'</span>)){
-        init_ios();
-    }<span class="keyword">else</span>{
-        init_android();
+<h4 id="实现过程">实现过程</h4>
+<p>easyXDM功能强大，不过我们目前仅仅关心的是如何与跨域的ifarme交互。<a href="http://consumer.easyxdm.net/current/example/resize_iframe.html" target="_blank">官方例子</a></p>
+<h5 id="主页面：">主页面：</h5>
+<p>首先引入easyXDM：</p>
+<pre><code>&lt;script <span class="keyword">type</span>=<span class="string">"text/javascript"</span> src=<span class="string">"../easyXDM.min.js"</span>&gt;
+</code></pre><p>初始化：</p>
+<pre><code><span class="keyword">var</span> transport = <span class="keyword">new</span> easyXDM.Socket({
+    remote: IFRAME_HOST + <span class="string">"/resize_intermediate.html?url=resized_iframe_1.html"</span>,
+    swf: IFRAME_HOST + <span class="string">"/../easyxdm.swf"</span>, 
+    container: <span class="string">"embedded"</span>,
+    onMessage: <span class="function"><span class="keyword">function</span><span class="params">(message, origin)</span>{</span> 
+        <span class="keyword">this</span>.container.getElementsByTagName(<span class="string">"iframe"</span>)[<span class="number">0</span>].style.height = message + <span class="string">"px"</span>; 
     }
-}
-</code></pre><p>如果使用的平台是ios，那我们就初始化ios的iscroll，如果使用的平台为android，那么我们设置容器的样式：overfllow:auto 这里需要自己去尝试。</p>
+});
+</code></pre><p>使用easyXDM不用自己去写iframe元素，脚本会自动帮你去生成一个iframe。</p>
+<p>其中的swf是解决ie系列的跨域问题的。如果你只针对高级浏览器（支持postMessage）可以去除掉。</p>
+<p>onMessage是回调函数，在子页面发送消息的时候触发。</p>
+<h5 id="中转页">中转页</h5>
+<p>上面例子的resize_intermediate.html其实是一个空白的中转页，目的就是当他获取子页面的消息时发送给他的父页面。</p>
+<p>听起来有些拗口，我们来看怎么实现的吧。</p>
+<pre><code><span class="doctype">&lt;!doctype html&gt;</span>
+<span class="tag">&lt;<span class="title">html</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">head</span>&gt;</span>
+        <span class="tag">&lt;<span class="title">title</span>&gt;</span>easyXDM<span class="tag">&lt;/<span class="title">title</span>&gt;</span>
+        <span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span> <span class="attribute">src</span>=<span class="value">"../easyXDM.debug.js"</span>&gt;</span><span class="javascript">
+        </span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>
+        <span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="javascript">
+            <span class="keyword">var</span> iframe;
+            <span class="keyword">var</span> socket = <span class="keyword">new</span> easyXDM.Socket({
+                swf: <span class="string">"../easyxdm.swf"</span>,
+                onReady: <span class="function"><span class="keyword">function</span><span class="params">()</span>{</span>
+                    iframe = document.createElement(<span class="string">"iframe"</span>);
+                    iframe.frameBorder = <span class="number">0</span>;
+                    document.body.appendChild(iframe);
+                    iframe.src = easyXDM.query.url;
+                },
+                onMessage: <span class="function"><span class="keyword">function</span><span class="params">(url, origin)</span>{</span>
+                    iframe.src = url;
+                }
+            });
+        </span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>
+        <span class="tag">&lt;<span class="title">style</span> <span class="attribute">type</span>=<span class="value">"text/css"</span>&gt;</span><span class="css">
+            <span class="tag">html</span>, <span class="tag">body</span> <span class="rules">{
+                <span class="rule"><span class="attribute">overflow</span>:<span class="value"> hidden</span></span>;
+                <span class="rule"><span class="attribute">margin</span>:<span class="value"> <span class="number">0</span>px</span></span>;
+                <span class="rule"><span class="attribute">padding</span>:<span class="value"> <span class="number">0</span>px</span></span>;
+                <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">100</span>%</span></span>;
+                <span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">100</span>%</span></span>;
+            <span class="rule">}</span></span>
+
+            <span class="tag">iframe</span> <span class="rules">{
+                <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">100</span>%</span></span>;
+                <span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">100</span>%</span></span>;
+                <span class="rule"><span class="attribute">border</span>:<span class="value"> <span class="number">0</span>px</span></span>;
+            <span class="rule">}</span></span>
+        </span><span class="tag">&lt;/<span class="title">style</span>&gt;</span>
+    <span class="tag">&lt;/<span class="title">head</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">body</span>&gt;</span>
+    <span class="tag">&lt;/<span class="title">body</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">html</span>&gt;</span>
+</code></pre><h5 id="子页面">子页面</h5>
+<p>子页面和中转页是同域的。</p>
+<pre><code>&lt;script type=<span class="string">"text/javascript"</span>&gt;
+    window<span class="preprocessor">.onload</span> = function(){
+        parent<span class="preprocessor">.socket</span><span class="preprocessor">.postMessage</span>(document<span class="preprocessor">.body</span><span class="preprocessor">.clientHeight</span> || document<span class="preprocessor">.body</span><span class="preprocessor">.offsetHeight</span> || document<span class="preprocessor">.body</span><span class="preprocessor">.scrollHeight</span>)<span class="comment">;</span>
+    }<span class="comment">;</span>
+&lt;/script&gt;
+</code></pre><p>子页面只需要对中转页发送消息就可以了。</p>
 <hr>
-<h4 id="最后">最后</h4>
-<p>其实我最后的建议是能不要使用iscroll就不要使用isroll。</p>
-<p>ios只要在5以上已经开始支持原生的overflow了。而且效率还不是一个数量级的。</p>
-<p>语法如下</p>
-<pre><code><span class="tag">div</span><span class="rules">{
-    <span class="rule"><span class="attribute">overflow</span>:<span class="value">auto</span></span>;
-    <span class="rule"><span class="attribute">-webkit-overflow-scrolling</span>:<span class="value"> touch</span></span>;
-<span class="rule">}</span></span>
-</code></pre><p>随着浏览器的更新，iscroll应该会不复存在了。</p>
+<p>上面的官方例子其实实现的是这样一个场景，你需要载入一个iframe，iframe又可以随便跳转。跳转后高度不定，所以需要父页面跟着变化。</p>
+<p>easyXDM使用的方法是载入2个iframe。中转页主要用来传送消息，然后子页面可以随便改url，只要载入的时候发送自身高度就好了。</p>
+<p>如果你的逻辑不需要跳转，只要在适当的时候postMessage即可。</p>
+<hr>
+<h3 id="总结">总结</h3>
+<p>easyXDM的确帮助我们解决了不少问题。但是同时我们也需要了解它的原理，对于高级浏览器，其实是原生的postMessage，对于其他的则使用的是flash。但是flash到底是怎么实现的，目前我也还不知道。（这方面涉及的实在不多。）</p>
 ]]></content>
-    <summary type="html"><![CDATA[<p>前几天同事要在手机上做一个小的页面项目，页面布局是头部和脚步固定（这种布局其实是不太适合手机页面，但是如此常见。）</p>
-<p>我推荐她使用<a href="http://cubiq.org/iscroll" target="_blank" rel="external">iscroll</a></p>
-<p>等过几天发现其实有一大堆的问题。<br>]]></summary>
+    <summary type="html"><![CDATA[<p>以前在<a href="http://www.aifang.com" target="_blank">爱房网</a>的时候,经常会遇到这样的需求：</p>
+<p>1.在任意页面可以嵌套iframe，iframe有独立的功能。如含有日历组件等。<br>1.ifarme需要改变大小，外面的框也需要跟着变化<br>1.iframe和主页面不同域</p>
+<p>之前没有理会这样的需求，是因为实在没有办法搞定ie6（伟大的ie6，原谅我的无能吧。）<br>]]></summary>
     
-      <category term="iscroll" scheme="http://yoursite.com/tags/iscroll/"/>
+      <category term="easyXDM" scheme="http://yoursite.com/tags/easyXDM/"/>
     
   </entry>
   
