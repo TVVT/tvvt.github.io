@@ -20,6 +20,7 @@ var tvvtObj = {
         if(!!$photoTwo.length){
             $photoTwo.find("br").remove();
         }
+        $("footer .alignleft").next().remove();
     },
     inition: function() {
         this.tagcloud();
