@@ -901,6 +901,7 @@ article footer {
   font-size: 0.9em;
   line-height: 16px;
   position: relative;
+  z-index: -1;
   min-height: 16px;
 }
 article footer .addthis {
