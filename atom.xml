@@ -4,7 +4,7 @@
   <subtitle><![CDATA[一群活泼开朗有潜力的小伙伴]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://yoursite.com/"/>
-  <updated>2014-06-25T01:53:18.600Z</updated>
+  <updated>2014-06-27T07:04:36.541Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -68,174 +68,6 @@ console<span class="preprocessor">.log</span>(viewportWidth,viewportHeight)<span
 ]]></content>
     <summary type="html"><![CDATA[<p>ios上viewport的大小</p>
 <p>不知道为什么 在ios7 ipad上设置 height:100% 始终会有滚动条出现。检查了一些原因 有可能是viewport的原因。<br>]]></summary>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[使用phoneGap构建ios程序3--插件]]></title>
-    <link href="http://yoursite.com/2014/06/11/phonegap3/"/>
-    <id>http://yoursite.com/2014/06/11/phonegap3/</id>
-    <published>2014-06-11T08:03:42.000Z</published>
-    <updated>2014-06-16T02:44:40.000Z</updated>
-    <content type="html"><![CDATA[<h3 id="注意">注意</h3>
-<p>本教程可能只适合ios且版本号在5以上</p>
-<h3 id="使用phoneGap的插件">使用phoneGap的插件</h3>
-<p>phoneGap 不仅可以支持原生api的调用。他还有许多可用的插件。<br><a id="more"></a><br>目前可以在 <a href="https://github.com/purplecabbage/phonegap-plugins" target="_blank">https://github.com/purplecabbage/phonegap-plugins</a></p>
-<p>phoneGap安装插件的方式比较简单，就是将插件文件夹拖入项目的Plugins文件夹中。</p>
-<p>然后在Cordova.plist中增加Plugins的子项目。一般安装的插件的地方都会有说明的。</p>
-<p>接下来主要讲我用到的插件遇到的一些问题。</p>
-<h3 id="ChildBrowser">ChildBrowser</h3>
-<p>地址：<a href="https://github.com/purplecabbage/phonegap-plugins/tree/master/iOS/ChildBrowser" target="_blank">https://github.com/purplecabbage/phonegap-plugins/tree/master/iOS/ChildBrowser</a></p>
-<p>我使用childBorower的目的是为了用到联合登录。（或者OAuth 2.0登录）。</p>
-<p>OAuth 2.0登录的原理大致是这样：请求第三方的接口的页面，访问的时候包含了网站身份信息，以及处理后的跳转页面。第三方收到请求后会将信息发送到我们的服务器。并跳转到我们定义的连接地址。并且加入一串token信息。然后我们利用token就可以和我们自己服务器上对比。</p>
-<p>如果有同样的信息的话。就说明我们的用户登录成功了。</p>
-<p>以上都是我一个做前端的理解。可能会有偏差。</p>
-<p>所以我登录的方法就是 先使用 childBorower 打开第三方页面。等用户登录后页面会发生跳转。</p>
-<p>childBorower有url发生变换的回调函数。这个时候监测url中的token，并取出token值。</p>
-<p>取得token值进行ajax POST请求。获得用户信息。</p>
-<p>最后使用localStorage将请求到的用户信息存储起来。</p>
-<h4 id="遇到的问题">遇到的问题</h4>
-<p>在使用phoneGap2.1.0的时候，调用childBorowser会出现诡异的bug。回调后整个应用被压缩到了一半。</p>
-<p>好在后来升级到了phoneGap2.2.0之后 问题就不复存在了。</p>
-<h3 id="GA统计">GA统计</h3>
-<p>虽然phoneGap是用html写的应用程序。但是直接添加GA的脚本却是不起作用的。</p>
-<p>原因据说是因为webView没有cookie？</p>
-<p>不过好在phonegap提供了插件。（因为google也开放了专门针对应用的统计）。</p>
-<p>但是试过之后才知道，那熊插件根本不起作用啊。</p>
-<p>话说目前phoneGap最新版本已经是2.3.0了，这个插件还口口声声说1.5.0以上。难免让人发毛。而且使用google的SDK还是旧的。真是坑爹不止啊。</p>
-<p>好在我google到了一个专门针对phoneGap2.2.0和GA skd 2.0的教程</p>
-<p>地址：</p>
-<p><a target="_blank" href="http://jelled.com/google-analytics-plugin-for-phonegap-cordova-2-2-0-ios/">http://jelled.com/google-analytics-plugin-for-phonegap-cordova-2-2-0-ios/</a></p>
-<p>按照他的教程 以及给出的插件就可以在 phoneGap 2.2.0 做统计啦</p>
-<p>插件地址：<br><a href="https://github.com/jelled/google-analytics-cordova-ios" target="_blank" rel="external">https://github.com/jelled/google-analytics-cordova-ios</a></p>
-<p>由于是别人的劳动果实 我在这里就不卖弄了。大家去看他的教程吧。</p>
-<h3 id="延伸">延伸</h3>
-]]></content>
-    <summary type="html"><![CDATA[<h3 id="注意">注意</h3>
-<p>本教程可能只适合ios且版本号在5以上</p>
-<h3 id="使用phoneGap的插件">使用phoneGap的插件</h3>
-<p>phoneGap 不仅可以支持原生api的调用。他还有许多可用的插件。<br>]]></summary>
-    
-      <category term="phoneGap" scheme="http://yoursite.com/tags/phoneGap/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[使用phoneGap构建ios程序]]></title>
-    <link href="http://yoursite.com/2014/06/11/phonegap/"/>
-    <id>http://yoursite.com/2014/06/11/phonegap/</id>
-    <published>2014-06-11T08:03:42.000Z</published>
-    <updated>2014-06-16T02:44:32.000Z</updated>
-    <content type="html"><![CDATA[<h3 id="write_once_,_run_anywhere?">write once , run anywhere?</h3>
-<p>NO！很多安卓设备的h5能力糟糕的让人惊讶。就算是apple，目前也还是不够好:(</p>
-<p>所以为了尽量保体验。我直接开发在ios5以上的系统。</p>
-<p><a id="more"></a></p>
-<h3 id="设置phoneGap">设置phoneGap</h3>
-<p>目前为止，phoneGap的最新版本是2.2.0 。在2.1.0时候使用childbrowser会有bug（如果你需要联合登陆。我相信你会用到这个的。）</p>
-<p>安装的教程点击<a href="http://docs.phonegap.com/en/2.2.0/guide_getting-started_ios_index.md.html#Getting%20Started%20with%20iOS" target="_blank">这里</a>。</p>
-<h4 id="禁止页面拖动。">禁止页面拖动。</h4>
-<p>苹果的浏览器在默认情况下可以拖动页面。使用UIwebView当然也不例外。</p>
-<p>尽管我们可以使用touchmove来禁止页面被拖动。</p>
-<pre><code>document.addEventListener(<span class="string">'touchmove'</span>,<span class="function"><span class="keyword">function</span><span class="params">(e)</span>{</span>
-    e.preventDefault();
-});
-</code></pre><p>但是这样很容造成一些其他的问题。</p>
-<p>其实在phoneGap里可以设置：</p>
-<p>在项目中找到Cordova.plist - &gt; UIWebViewBounce。将值改成NO。</p>
-<p>就是这么简单。</p>
-<p><em>注意</em>：在phoneGap 2.4.0 中 已经统一在 xml 中修改了。</p>
-<p>找到config.xml 修改成：</p>
-<pre><code>&lt;preference name=<span class="string">"UIWebViewBounce"</span> <span class="keyword">value</span>=<span class="string">"false"</span> /&gt;
-</code></pre><p>但是这个也会造成一些其他的问题。比如我使用：active来改变按钮的样式就实效了。</p>
-<p>不过后来经过尝试，对于绑定了touch事件，比如touchend，就可以激活：active伪类。</p>
-<p>但是我们可能还是需要使用click，因为使用click，用户可以取消误点击。而touch事件没有办法取消的。</p>
-<p>后来我的解决方案是 绑定一个空的touchend，然后绑定 click。</p>
-<p>代码如下：</p>
-<pre><code>_btn.addEventListener(<span class="string">'touchend'</span>,<span class="function"><span class="keyword">function</span><span class="params">()</span>{</span>});
-_btn.addEventListener(<span class="string">'click'</span>,<span class="function"><span class="keyword">function</span><span class="params">()</span>{</span>
-    <span class="comment">//do somthing...</span>
-});
-</code></pre><h4 id="跨域设置">跨域设置</h4>
-<p>还是在刚才的Cordova.plist 在 ExternalHost 下面添加一个字段（默认是item0），值是 * (代表所有的域名。当然为了安全起见，你可以只写你自己的域名)</p>
-<p>设置完之后，我们就可以使用ajax去请求。</p>
-<p>我们的应用使用到了canvas，所以canvas跨域的安全性限制也可以得到解决。</p>
-<p>这个要比浏览器客户端方便很多。</p>
-<p><em>注意</em> 在 phoneGap 2.4.0中已经默认添加 * 。如果需要修改</p>
-<p>去config.xml 中修改。</p>
-<h4 id="尺寸">尺寸</h4>
-<p>对于ipad来说，屏幕有高清屏和非高清屏。我们的程序是基于非高清屏去设置的。因为我们的程序的ui基本上是基于CSS去实现的。所以一般不会有太大的问题。</p>
-<p>我们需要在index.html里做如下设置。</p>
-<pre><code><span class="tag">&lt;<span class="title">meta</span> <span class="attribute">name</span>=<span class="value">"viewport"</span> <span class="attribute">content</span>=<span class="value">"user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=1024"</span> /&gt;</span>
-</code></pre><p>如果你的是iphone</p>
-<pre><code><span class="tag">&lt;<span class="title">meta</span> <span class="attribute">name</span>=<span class="value">"viewport"</span> <span class="attribute">content</span>=<span class="value">"user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=320"</span> /&gt;</span>
-</code></pre><p>把meta加入到head中。</p>
-<h5 id="滑动">滑动</h5>
-<p>ios支持原生的滑动，效果会比iscroll好很多。关键是，它真的很简单：</p>
-<pre><code><span class="tag">div</span><span class="rules">{
-    <span class="rule"><span class="attribute">overflow</span>:<span class="value">auto</span></span>;
-    <span class="rule"><span class="attribute">-webkit-overflow-scrolling</span>:<span class="value"> touch</span></span>;
-<span class="rule">}</span></span>
-</code></pre><p>甚至我们可以使用js来调用</p>
-<pre><code>_div.addEventListener(<span class="string">'scroll'</span>,<span class="function"><span class="keyword">function</span><span class="params">(e)</span>{</span>
-    console.log(e.target.scrollLeft);
-    console.log(e.target.scrollTop);
-    <span class="comment">//your code here.</span>
-});
-</code></pre><h3 id="延伸">延伸</h3>
-]]></content>
-    <summary type="html"><![CDATA[<h3 id="write_once_,_run_anywhere?">write once , run anywhere?</h3>
-<p>NO！很多安卓设备的h5能力糟糕的让人惊讶。就算是apple，目前也还是不够好:(</p>
-<p>所以为了尽量保体验。我直接开发在ios5以上的系统。</p>
-<p>]]></summary>
-    
-      <category term="phoneGap" scheme="http://yoursite.com/tags/phoneGap/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[使用phoneGap构建ios程序2--切换页面]]></title>
-    <link href="http://yoursite.com/2014/06/11/phonegap2/"/>
-    <id>http://yoursite.com/2014/06/11/phonegap2/</id>
-    <published>2014-06-11T08:03:42.000Z</published>
-    <updated>2014-06-16T02:44:36.000Z</updated>
-    <content type="html"><![CDATA[<h3 id="开始之前">开始之前</h3>
-<p>这个教程只适用与ios，并且版本号在5.0以上。</p>
-<h3 id="构建页面">构建页面</h3>
-<p>在我开发的app中，如果所有的东西都需要使用js去更改页面的内容。那么将会是一个非常繁琐的体力活。<br><a id="more"></a><br>并且由于我们的性能有限。假如一开始就将所有的元素加载进来的话，重绘需要的开销会非常大。app很可能会因为太占内存，而被保护性崩溃。</p>
-<p>所以我把所有的东西独立出了模块。一个模块包含了一个css文件和一个html文件。</p>
-<p>其中html文件我使用了<a href="http://underscorejs.org/" target="_blank">underscore</a>模板解析引擎，来应对基本相同的页面，但是内容不一样的需求。</p>
-<p>当然，你也可以使用其他引擎，比如<a href="http://jade-lang.com/" target="_blank">jade</a>。效率上好像要比underscore高。但是underscore的写法和html比较接近。有点类似与php。</p>
-<p>当我们需要一个’页面’被切换出来的时候。</p>
-<p>我会首先使用’ajax’去请求那个页面。请求的时候会传入一些json参数。然后模板会根据不同的json数据生成不同的页面。然后append到body中去。</p>
-<p>然后css文件直接append到head中。这里我给每个css文件一个id。当监测到head中已经有这个id的时候。就不用在append了。</p>
-<h3 id="页面切换">页面切换</h3>
-<p>不同于app应用可以有多个view环境。如果我们需要在切换的时候添加效果，我们很可能只能在一个页面下面切换来控制元素的隐藏与显示。</p>
-<p>不过还好我们有css3能够帮助我们做很多事情。</p>
-<h4 id="定义变换的元素">定义变换的元素</h4>
-<p>很多人喜欢把东西绝对定位。然后变换css的’left’值或者’margin-left’值。但是我们这里完全没有必要这样做。</p>
-<p>我们只需要改变元素的transform值。他们的区别在于改变transform值不会影响文档流和页面的重绘。<a href="http://jsfiddle.net/wovfeng/E8zH6/5/" target="_blank">查看示例</a>。</p>
-<p>幸好ios是支持transform3d的，意味着我们可以依赖硬件加速来使得我们的动画更加流畅。</p>
-<pre><code><span class="attribute">-webkit</span><span class="attribute">-transform</span><span class="attribute">-style</span>: preserve<span class="subst">-</span><span class="number">3</span>d; 
-<span class="attribute">-webkit</span><span class="attribute">-transition</span>:<span class="attribute">-webkit</span><span class="attribute">-transform</span> <span class="number">0.5</span>s;
-<span class="attribute">-webkit</span><span class="attribute">-transition</span><span class="attribute">-timing</span><span class="attribute">-function</span>: cubic<span class="attribute">-bezier</span>(<span class="number">0.19</span>,<span class="number">1.00</span>,<span class="number">0.70</span>,<span class="number">0.95</span>);
-</code></pre><p>上面的代码中我们使用了 transition 。当元素的transform发生变化时。会自动发生一个动画。运行的时间是0.5s。</p>
-<p>上面最后那行是我自己写的转换曲线，当然你可以使用默认的。把这行删掉就好了。</p>
-<p>这样我们只要改变元素的transform就可以使用动态的切换效果了。</p>
-<h4 id="变换后的js调用">变换后的js调用</h4>
-<p>如果你仔细看的话，在前面的页面模板中，我并没有把js放在其中。如果在append元素的时候，你可能会一不小心把事件注册了多遍，引起各种各样的bug。</p>
-<p>不过好在我们使用的css transition 支持回调。</p>
-<pre><code>dom.addEventListener(<span class="string">'webkitTransitionEnd'</span>,<span class="function"><span class="keyword">function</span><span class="params">()</span>{</span>
-    <span class="comment">//your code.</span>
-},<span class="literal">false</span>);
-</code></pre><p>在页面回调之后可以绑定你的事件。</p>
-<h3 id="延伸">延伸</h3>
-]]></content>
-    <summary type="html"><![CDATA[<h3 id="开始之前">开始之前</h3>
-<p>这个教程只适用与ios，并且版本号在5.0以上。</p>
-<h3 id="构建页面">构建页面</h3>
-<p>在我开发的app中，如果所有的东西都需要使用js去更改页面的内容。那么将会是一个非常繁琐的体力活。<br>]]></summary>
-    
-      <category term="phoneGap" scheme="http://yoursite.com/tags/phoneGap/"/>
     
   </entry>
   
@@ -412,97 +244,77 @@ xhr.send(formdata);
   </entry>
   
   <entry>
-    <title><![CDATA[使用easyXDM与跨域iframe交互]]></title>
-    <link href="http://yoursite.com/2014/06/11/easyxdm/"/>
-    <id>http://yoursite.com/2014/06/11/easyxdm/</id>
+    <title><![CDATA[html5 appliction cache]]></title>
+    <link href="http://yoursite.com/2014/06/11/html5-appliction-cache/"/>
+    <id>http://yoursite.com/2014/06/11/html5-appliction-cache/</id>
     <published>2014-06-11T08:03:42.000Z</published>
-    <updated>2014-06-16T02:47:10.000Z</updated>
-    <content type="html"><![CDATA[<p>以前在<a href="http://www.aifang.com" target="_blank">爱房网</a>的时候,经常会遇到这样的需求：</p>
-<p>1.在任意页面可以嵌套iframe，iframe有独立的功能。如含有日历组件等。<br>1.ifarme需要改变大小，外面的框也需要跟着变化<br>1.iframe和主页面不同域</p>
-<p>之前没有理会这样的需求，是因为实在没有办法搞定ie6（伟大的ie6，原谅我的无能吧。）<br><a id="more"></a><br>不过前段时间Google了一下，发现了这样的一个神器：<a href="http://easyxdm.net/wp/" target="_blank">easyXDM</a></p>
-<p>虽然我已经不在爱房网了，但这个丝毫不会影响我去解决问题的好奇心，不是么？</p>
-<hr>
-<h4 id="实现过程">实现过程</h4>
-<p>easyXDM功能强大，不过我们目前仅仅关心的是如何与跨域的ifarme交互。<a href="http://consumer.easyxdm.net/current/example/resize_iframe.html" target="_blank">官方例子</a></p>
-<h5 id="主页面：">主页面：</h5>
-<p>首先引入easyXDM：</p>
-<pre><code>&lt;script <span class="keyword">type</span>=<span class="string">"text/javascript"</span> src=<span class="string">"../easyXDM.min.js"</span>&gt;
-</code></pre><p>初始化：</p>
-<pre><code><span class="keyword">var</span> transport = <span class="keyword">new</span> easyXDM.Socket({
-    remote: IFRAME_HOST + <span class="string">"/resize_intermediate.html?url=resized_iframe_1.html"</span>,
-    swf: IFRAME_HOST + <span class="string">"/../easyxdm.swf"</span>, 
-    container: <span class="string">"embedded"</span>,
-    onMessage: <span class="function"><span class="keyword">function</span><span class="params">(message, origin)</span>{</span> 
-        <span class="keyword">this</span>.container.getElementsByTagName(<span class="string">"iframe"</span>)[<span class="number">0</span>].style.height = message + <span class="string">"px"</span>; 
-    }
-});
-</code></pre><p>使用easyXDM不用自己去写iframe元素，脚本会自动帮你去生成一个iframe。</p>
-<p>其中的swf是解决ie系列的跨域问题的。如果你只针对高级浏览器（支持postMessage）可以去除掉。</p>
-<p>onMessage是回调函数，在子页面发送消息的时候触发。</p>
-<h5 id="中转页">中转页</h5>
-<p>上面例子的resize_intermediate.html其实是一个空白的中转页，目的就是当他获取子页面的消息时发送给他的父页面。</p>
-<p>听起来有些拗口，我们来看怎么实现的吧。</p>
-<pre><code><span class="doctype">&lt;!doctype html&gt;</span>
-<span class="tag">&lt;<span class="title">html</span>&gt;</span>
-    <span class="tag">&lt;<span class="title">head</span>&gt;</span>
-        <span class="tag">&lt;<span class="title">title</span>&gt;</span>easyXDM<span class="tag">&lt;/<span class="title">title</span>&gt;</span>
-        <span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span> <span class="attribute">src</span>=<span class="value">"../easyXDM.debug.js"</span>&gt;</span><span class="javascript">
-        </span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>
-        <span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="javascript">
-            <span class="keyword">var</span> iframe;
-            <span class="keyword">var</span> socket = <span class="keyword">new</span> easyXDM.Socket({
-                swf: <span class="string">"../easyxdm.swf"</span>,
-                onReady: <span class="function"><span class="keyword">function</span><span class="params">()</span>{</span>
-                    iframe = document.createElement(<span class="string">"iframe"</span>);
-                    iframe.frameBorder = <span class="number">0</span>;
-                    document.body.appendChild(iframe);
-                    iframe.src = easyXDM.query.url;
-                },
-                onMessage: <span class="function"><span class="keyword">function</span><span class="params">(url, origin)</span>{</span>
-                    iframe.src = url;
-                }
-            });
-        </span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>
-        <span class="tag">&lt;<span class="title">style</span> <span class="attribute">type</span>=<span class="value">"text/css"</span>&gt;</span><span class="css">
-            <span class="tag">html</span>, <span class="tag">body</span> <span class="rules">{
-                <span class="rule"><span class="attribute">overflow</span>:<span class="value"> hidden</span></span>;
-                <span class="rule"><span class="attribute">margin</span>:<span class="value"> <span class="number">0</span>px</span></span>;
-                <span class="rule"><span class="attribute">padding</span>:<span class="value"> <span class="number">0</span>px</span></span>;
-                <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">100</span>%</span></span>;
-                <span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">100</span>%</span></span>;
-            <span class="rule">}</span></span>
+    <updated>2014-06-16T02:47:09.000Z</updated>
+    <content type="html"><![CDATA[<p>html5 application cache 是html5新增的接口。但是非常有必要了解它的原理及应用场景。</p>
+<h3 id="配置">配置</h3>
+<h4 id="服务器端">服务器端</h4>
+<p>需要设置一个清单文件。并且需要指定特殊的Content-type。如果使用php的话可以直接在清单文件中指定<br><a id="more"></a><br>    &lt;?php header(‘Content-type:text/cache-manifest’);?&gt;CACHE MANIFEST</p>
+<pre><code><span class="variable">#your</span> <span class="built_in">list</span> here
 
-            <span class="tag">iframe</span> <span class="rules">{
-                <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">100</span>%</span></span>;
-                <span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">100</span>%</span></span>;
-                <span class="rule"><span class="attribute">border</span>:<span class="value"> <span class="number">0</span>px</span></span>;
-            <span class="rule">}</span></span>
-        </span><span class="tag">&lt;/<span class="title">style</span>&gt;</span>
-    <span class="tag">&lt;/<span class="title">head</span>&gt;</span>
-    <span class="tag">&lt;<span class="title">body</span>&gt;</span>
-    <span class="tag">&lt;/<span class="title">body</span>&gt;</span>
-<span class="tag">&lt;/<span class="title">html</span>&gt;</span>
-</code></pre><h5 id="子页面">子页面</h5>
-<p>子页面和中转页是同域的。</p>
-<pre><code>&lt;script type=<span class="string">"text/javascript"</span>&gt;
-    window<span class="preprocessor">.onload</span> = function(){
-        parent<span class="preprocessor">.socket</span><span class="preprocessor">.postMessage</span>(document<span class="preprocessor">.body</span><span class="preprocessor">.clientHeight</span> || document<span class="preprocessor">.body</span><span class="preprocessor">.offsetHeight</span> || document<span class="preprocessor">.body</span><span class="preprocessor">.scrollHeight</span>)<span class="comment">;</span>
-    }<span class="comment">;</span>
-&lt;/script&gt;
-</code></pre><p>子页面只需要对中转页发送消息就可以了。</p>
-<hr>
-<p>上面的官方例子其实实现的是这样一个场景，你需要载入一个iframe，iframe又可以随便跳转。跳转后高度不定，所以需要父页面跟着变化。</p>
-<p>easyXDM使用的方法是载入2个iframe。中转页主要用来传送消息，然后子页面可以随便改url，只要载入的时候发送自身高度就好了。</p>
-<p>如果你的逻辑不需要跳转，只要在适当的时候postMessage即可。</p>
-<hr>
+NETWORK
+<span class="attribute">...</span><span class="built_in">.</span>
+</code></pre><p>如果使用nodejs(express)：</p>
+<pre><code>app.get(<span class="string">'/manifest'</span>,function(req,res){
+    console.<span class="keyword">log</span>(<span class="string">'get manifet'</span>);
+    res.setHeader(<span class="string">'Content-Type'</span>, <span class="string">'text/cache-manifest'</span>);
+
+    var <span class="keyword">str</span> = <span class="string">'CACHE MANIFEST\n'</span>;
+    <span class="keyword">str</span> += <span class="string">'CACHE:\n'</span>;
+    <span class="keyword">str</span>+= <span class="string">'#2013-03-15 v.10\n'</span>;
+    <span class="keyword">str</span> += <span class="string">'NETWORK:\n'</span>;
+    <span class="keyword">str</span> += <span class="string">'*\n'</span>;
+    res.send(<span class="keyword">str</span>);
+});
+</code></pre><h4 id="客户端">客户端</h4>
+<p>客户端只需要在每个html标签内添加远程清单地址即可。</p>
+<pre><code>&lt;html manifest=<span class="string">"/manifestfile"</span>&gt;
+<span class="keyword">...</span>
+&lt;/html&gt;
+</code></pre><p>需要注意的是，清单文件是不支持跨域的（部分浏览器好像不限制子域名跨域的。这个我还没有测试过）</p>
+<h3 id="如何填写清单文件">如何填写清单文件</h3>
+<p>清单文件的注释使用的是符号：#</p>
+<p>清单文件大致如下</p>
+<pre><code>CACHE MANIFEST
+<span class="preprocessor">#version v1.0</span>
+<span class="preprocessor">#create Date 2013-04-03</span>
+main<span class="preprocessor">.js</span>
+main<span class="preprocessor">.css</span>
+bj<span class="preprocessor">.png</span>
+<span class="label">NETWORK:</span>
+update<span class="preprocessor">.js</span>
+update<span class="preprocessor">.css</span>
+<span class="label">FALLBACK:</span>
+notOnLine<span class="preprocessor">.html</span>
+</code></pre><p>CACHE MANIFEST 后面的是想要缓存的文件</p>
+<p>NETWORK 后面的是访问在线资源的文件</p>
+<p>FALLBACK 后面是当没有离线页面时候访问文件</p>
+<h3 id="浏览器执行过程">浏览器执行过程</h3>
+<p>当浏览器访问到的页面含有离线清单文件的时候。首先去访问离线清单。然后在本地也创建一份清单文件。</p>
+<p>然后按照清单的指示开始下载离线的文件。</p>
+<p>当再次访问的时候，首先对比本地清单文件和服务器上的清单文件是否保持一致。如果保持一致的话，就直接读取本地文件。因为文件不再请求服务器。所以都不会有304。</p>
+<p>当然如果用户本身处于离线状态，那就省去了和服务器对比的环节。直接读取本地文件。</p>
+<p>需要注意的是，浏览器除了下载清单中的文件外，访问过的html文件也会缓存下来。所以一旦服务器上清单有过变更。浏览器不但重新下载清单上的所有文件，而且会下载本地所有缓存的html文件。</p>
+<p>比如用户浏览了100个页面，一旦清单有变更的话，不但清单文件会同时下载，100个html文件也会同时下载。</p>
+<p>这个应该是对服务器和客户端都有着不小的压力。所以一旦页面非常多的话，是不太适合做离线缓存的。</p>
+<p>我想这个也是为什么叫做”application cache”的原因吧。</p>
+<h3 id="计时更新版本">计时更新版本</h3>
+<p>更新清单文件非常简单 只要清单文件有任何改动即可。</p>
+<p>如果清单中的文件名字没有改变的话只要改些注释就好了。</p>
+<h3 id="浏览器调试">浏览器调试</h3>
+<p>在chrome地址栏输入 chrome://appcache-internals/ 可以看到当前浏览器缓存了哪些网站的数据以及缓存的容量。也可以再这里删掉。</p>
+<p>另外打开控制台的话，可以看到缓存状态信息。</p>
+<p>另外，application cache 还提供了一些监听事件。</p>
 <h3 id="总结">总结</h3>
-<p>easyXDM的确帮助我们解决了不少问题。但是同时我们也需要了解它的原理，对于高级浏览器，其实是原生的postMessage，对于其他的则使用的是flash。但是flash到底是怎么实现的，目前我也还不知道。（这方面涉及的实在不多。）</p>
+<p>application cache经常听说，但是目前使用的网站很少。因为比较适合游戏或者应用类网站。而且是比较难于驾驭的。使用的时候千万要小心。</p>
 ]]></content>
-    <summary type="html"><![CDATA[<p>以前在<a href="http://www.aifang.com" target="_blank">爱房网</a>的时候,经常会遇到这样的需求：</p>
-<p>1.在任意页面可以嵌套iframe，iframe有独立的功能。如含有日历组件等。<br>1.ifarme需要改变大小，外面的框也需要跟着变化<br>1.iframe和主页面不同域</p>
-<p>之前没有理会这样的需求，是因为实在没有办法搞定ie6（伟大的ie6，原谅我的无能吧。）<br>]]></summary>
-    
-      <category term="easyXDM" scheme="http://yoursite.com/tags/easyXDM/"/>
+    <summary type="html"><![CDATA[<p>html5 application cache 是html5新增的接口。但是非常有必要了解它的原理及应用场景。</p>
+<h3 id="配置">配置</h3>
+<h4 id="服务器端">服务器端</h4>
+<p>需要设置一个清单文件。并且需要指定特殊的Content-type。如果使用php的话可以直接在清单文件中指定<br>]]></summary>
     
   </entry>
   
@@ -669,77 +481,97 @@ _login_btn.addEventListener(<span class="string">'click'</span>,<span class="fun
   </entry>
   
   <entry>
-    <title><![CDATA[html5 appliction cache]]></title>
-    <link href="http://yoursite.com/2014/06/11/html5-appliction-cache/"/>
-    <id>http://yoursite.com/2014/06/11/html5-appliction-cache/</id>
+    <title><![CDATA[使用easyXDM与跨域iframe交互]]></title>
+    <link href="http://yoursite.com/2014/06/11/easyxdm/"/>
+    <id>http://yoursite.com/2014/06/11/easyxdm/</id>
     <published>2014-06-11T08:03:42.000Z</published>
-    <updated>2014-06-16T02:47:09.000Z</updated>
-    <content type="html"><![CDATA[<p>html5 application cache 是html5新增的接口。但是非常有必要了解它的原理及应用场景。</p>
-<h3 id="配置">配置</h3>
-<h4 id="服务器端">服务器端</h4>
-<p>需要设置一个清单文件。并且需要指定特殊的Content-type。如果使用php的话可以直接在清单文件中指定<br><a id="more"></a><br>    &lt;?php header(‘Content-type:text/cache-manifest’);?&gt;CACHE MANIFEST</p>
-<pre><code><span class="variable">#your</span> <span class="built_in">list</span> here
-
-NETWORK
-<span class="attribute">...</span><span class="built_in">.</span>
-</code></pre><p>如果使用nodejs(express)：</p>
-<pre><code>app.get(<span class="string">'/manifest'</span>,function(req,res){
-    console.<span class="keyword">log</span>(<span class="string">'get manifet'</span>);
-    res.setHeader(<span class="string">'Content-Type'</span>, <span class="string">'text/cache-manifest'</span>);
-
-    var <span class="keyword">str</span> = <span class="string">'CACHE MANIFEST\n'</span>;
-    <span class="keyword">str</span> += <span class="string">'CACHE:\n'</span>;
-    <span class="keyword">str</span>+= <span class="string">'#2013-03-15 v.10\n'</span>;
-    <span class="keyword">str</span> += <span class="string">'NETWORK:\n'</span>;
-    <span class="keyword">str</span> += <span class="string">'*\n'</span>;
-    res.send(<span class="keyword">str</span>);
+    <updated>2014-06-16T02:47:10.000Z</updated>
+    <content type="html"><![CDATA[<p>以前在<a href="http://www.aifang.com" target="_blank">爱房网</a>的时候,经常会遇到这样的需求：</p>
+<p>1.在任意页面可以嵌套iframe，iframe有独立的功能。如含有日历组件等。<br>1.ifarme需要改变大小，外面的框也需要跟着变化<br>1.iframe和主页面不同域</p>
+<p>之前没有理会这样的需求，是因为实在没有办法搞定ie6（伟大的ie6，原谅我的无能吧。）<br><a id="more"></a><br>不过前段时间Google了一下，发现了这样的一个神器：<a href="http://easyxdm.net/wp/" target="_blank">easyXDM</a></p>
+<p>虽然我已经不在爱房网了，但这个丝毫不会影响我去解决问题的好奇心，不是么？</p>
+<hr>
+<h4 id="实现过程">实现过程</h4>
+<p>easyXDM功能强大，不过我们目前仅仅关心的是如何与跨域的ifarme交互。<a href="http://consumer.easyxdm.net/current/example/resize_iframe.html" target="_blank">官方例子</a></p>
+<h5 id="主页面：">主页面：</h5>
+<p>首先引入easyXDM：</p>
+<pre><code>&lt;script <span class="keyword">type</span>=<span class="string">"text/javascript"</span> src=<span class="string">"../easyXDM.min.js"</span>&gt;
+</code></pre><p>初始化：</p>
+<pre><code><span class="keyword">var</span> transport = <span class="keyword">new</span> easyXDM.Socket({
+    remote: IFRAME_HOST + <span class="string">"/resize_intermediate.html?url=resized_iframe_1.html"</span>,
+    swf: IFRAME_HOST + <span class="string">"/../easyxdm.swf"</span>, 
+    container: <span class="string">"embedded"</span>,
+    onMessage: <span class="function"><span class="keyword">function</span><span class="params">(message, origin)</span>{</span> 
+        <span class="keyword">this</span>.container.getElementsByTagName(<span class="string">"iframe"</span>)[<span class="number">0</span>].style.height = message + <span class="string">"px"</span>; 
+    }
 });
-</code></pre><h4 id="客户端">客户端</h4>
-<p>客户端只需要在每个html标签内添加远程清单地址即可。</p>
-<pre><code>&lt;html manifest=<span class="string">"/manifestfile"</span>&gt;
-<span class="keyword">...</span>
-&lt;/html&gt;
-</code></pre><p>需要注意的是，清单文件是不支持跨域的（部分浏览器好像不限制子域名跨域的。这个我还没有测试过）</p>
-<h3 id="如何填写清单文件">如何填写清单文件</h3>
-<p>清单文件的注释使用的是符号：#</p>
-<p>清单文件大致如下</p>
-<pre><code>CACHE MANIFEST
-<span class="preprocessor">#version v1.0</span>
-<span class="preprocessor">#create Date 2013-04-03</span>
-main<span class="preprocessor">.js</span>
-main<span class="preprocessor">.css</span>
-bj<span class="preprocessor">.png</span>
-<span class="label">NETWORK:</span>
-update<span class="preprocessor">.js</span>
-update<span class="preprocessor">.css</span>
-<span class="label">FALLBACK:</span>
-notOnLine<span class="preprocessor">.html</span>
-</code></pre><p>CACHE MANIFEST 后面的是想要缓存的文件</p>
-<p>NETWORK 后面的是访问在线资源的文件</p>
-<p>FALLBACK 后面是当没有离线页面时候访问文件</p>
-<h3 id="浏览器执行过程">浏览器执行过程</h3>
-<p>当浏览器访问到的页面含有离线清单文件的时候。首先去访问离线清单。然后在本地也创建一份清单文件。</p>
-<p>然后按照清单的指示开始下载离线的文件。</p>
-<p>当再次访问的时候，首先对比本地清单文件和服务器上的清单文件是否保持一致。如果保持一致的话，就直接读取本地文件。因为文件不再请求服务器。所以都不会有304。</p>
-<p>当然如果用户本身处于离线状态，那就省去了和服务器对比的环节。直接读取本地文件。</p>
-<p>需要注意的是，浏览器除了下载清单中的文件外，访问过的html文件也会缓存下来。所以一旦服务器上清单有过变更。浏览器不但重新下载清单上的所有文件，而且会下载本地所有缓存的html文件。</p>
-<p>比如用户浏览了100个页面，一旦清单有变更的话，不但清单文件会同时下载，100个html文件也会同时下载。</p>
-<p>这个应该是对服务器和客户端都有着不小的压力。所以一旦页面非常多的话，是不太适合做离线缓存的。</p>
-<p>我想这个也是为什么叫做”application cache”的原因吧。</p>
-<h3 id="计时更新版本">计时更新版本</h3>
-<p>更新清单文件非常简单 只要清单文件有任何改动即可。</p>
-<p>如果清单中的文件名字没有改变的话只要改些注释就好了。</p>
-<h3 id="浏览器调试">浏览器调试</h3>
-<p>在chrome地址栏输入 chrome://appcache-internals/ 可以看到当前浏览器缓存了哪些网站的数据以及缓存的容量。也可以再这里删掉。</p>
-<p>另外打开控制台的话，可以看到缓存状态信息。</p>
-<p>另外，application cache 还提供了一些监听事件。</p>
+</code></pre><p>使用easyXDM不用自己去写iframe元素，脚本会自动帮你去生成一个iframe。</p>
+<p>其中的swf是解决ie系列的跨域问题的。如果你只针对高级浏览器（支持postMessage）可以去除掉。</p>
+<p>onMessage是回调函数，在子页面发送消息的时候触发。</p>
+<h5 id="中转页">中转页</h5>
+<p>上面例子的resize_intermediate.html其实是一个空白的中转页，目的就是当他获取子页面的消息时发送给他的父页面。</p>
+<p>听起来有些拗口，我们来看怎么实现的吧。</p>
+<pre><code><span class="doctype">&lt;!doctype html&gt;</span>
+<span class="tag">&lt;<span class="title">html</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">head</span>&gt;</span>
+        <span class="tag">&lt;<span class="title">title</span>&gt;</span>easyXDM<span class="tag">&lt;/<span class="title">title</span>&gt;</span>
+        <span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span> <span class="attribute">src</span>=<span class="value">"../easyXDM.debug.js"</span>&gt;</span><span class="javascript">
+        </span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>
+        <span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="javascript">
+            <span class="keyword">var</span> iframe;
+            <span class="keyword">var</span> socket = <span class="keyword">new</span> easyXDM.Socket({
+                swf: <span class="string">"../easyxdm.swf"</span>,
+                onReady: <span class="function"><span class="keyword">function</span><span class="params">()</span>{</span>
+                    iframe = document.createElement(<span class="string">"iframe"</span>);
+                    iframe.frameBorder = <span class="number">0</span>;
+                    document.body.appendChild(iframe);
+                    iframe.src = easyXDM.query.url;
+                },
+                onMessage: <span class="function"><span class="keyword">function</span><span class="params">(url, origin)</span>{</span>
+                    iframe.src = url;
+                }
+            });
+        </span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>
+        <span class="tag">&lt;<span class="title">style</span> <span class="attribute">type</span>=<span class="value">"text/css"</span>&gt;</span><span class="css">
+            <span class="tag">html</span>, <span class="tag">body</span> <span class="rules">{
+                <span class="rule"><span class="attribute">overflow</span>:<span class="value"> hidden</span></span>;
+                <span class="rule"><span class="attribute">margin</span>:<span class="value"> <span class="number">0</span>px</span></span>;
+                <span class="rule"><span class="attribute">padding</span>:<span class="value"> <span class="number">0</span>px</span></span>;
+                <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">100</span>%</span></span>;
+                <span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">100</span>%</span></span>;
+            <span class="rule">}</span></span>
+
+            <span class="tag">iframe</span> <span class="rules">{
+                <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">100</span>%</span></span>;
+                <span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">100</span>%</span></span>;
+                <span class="rule"><span class="attribute">border</span>:<span class="value"> <span class="number">0</span>px</span></span>;
+            <span class="rule">}</span></span>
+        </span><span class="tag">&lt;/<span class="title">style</span>&gt;</span>
+    <span class="tag">&lt;/<span class="title">head</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">body</span>&gt;</span>
+    <span class="tag">&lt;/<span class="title">body</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">html</span>&gt;</span>
+</code></pre><h5 id="子页面">子页面</h5>
+<p>子页面和中转页是同域的。</p>
+<pre><code>&lt;script type=<span class="string">"text/javascript"</span>&gt;
+    window<span class="preprocessor">.onload</span> = function(){
+        parent<span class="preprocessor">.socket</span><span class="preprocessor">.postMessage</span>(document<span class="preprocessor">.body</span><span class="preprocessor">.clientHeight</span> || document<span class="preprocessor">.body</span><span class="preprocessor">.offsetHeight</span> || document<span class="preprocessor">.body</span><span class="preprocessor">.scrollHeight</span>)<span class="comment">;</span>
+    }<span class="comment">;</span>
+&lt;/script&gt;
+</code></pre><p>子页面只需要对中转页发送消息就可以了。</p>
+<hr>
+<p>上面的官方例子其实实现的是这样一个场景，你需要载入一个iframe，iframe又可以随便跳转。跳转后高度不定，所以需要父页面跟着变化。</p>
+<p>easyXDM使用的方法是载入2个iframe。中转页主要用来传送消息，然后子页面可以随便改url，只要载入的时候发送自身高度就好了。</p>
+<p>如果你的逻辑不需要跳转，只要在适当的时候postMessage即可。</p>
+<hr>
 <h3 id="总结">总结</h3>
-<p>application cache经常听说，但是目前使用的网站很少。因为比较适合游戏或者应用类网站。而且是比较难于驾驭的。使用的时候千万要小心。</p>
+<p>easyXDM的确帮助我们解决了不少问题。但是同时我们也需要了解它的原理，对于高级浏览器，其实是原生的postMessage，对于其他的则使用的是flash。但是flash到底是怎么实现的，目前我也还不知道。（这方面涉及的实在不多。）</p>
 ]]></content>
-    <summary type="html"><![CDATA[<p>html5 application cache 是html5新增的接口。但是非常有必要了解它的原理及应用场景。</p>
-<h3 id="配置">配置</h3>
-<h4 id="服务器端">服务器端</h4>
-<p>需要设置一个清单文件。并且需要指定特殊的Content-type。如果使用php的话可以直接在清单文件中指定<br>]]></summary>
+    <summary type="html"><![CDATA[<p>以前在<a href="http://www.aifang.com" target="_blank">爱房网</a>的时候,经常会遇到这样的需求：</p>
+<p>1.在任意页面可以嵌套iframe，iframe有独立的功能。如含有日历组件等。<br>1.ifarme需要改变大小，外面的框也需要跟着变化<br>1.iframe和主页面不同域</p>
+<p>之前没有理会这样的需求，是因为实在没有办法搞定ie6（伟大的ie6，原谅我的无能吧。）<br>]]></summary>
+    
+      <category term="easyXDM" scheme="http://yoursite.com/tags/easyXDM/"/>
     
   </entry>
   
