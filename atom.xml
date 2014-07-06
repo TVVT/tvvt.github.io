@@ -4,7 +4,7 @@
   <subtitle><![CDATA[一群活泼开朗有潜力的小伙伴]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://yoursite.com/"/>
-  <updated>2014-07-06T01:34:36.946Z</updated>
+  <updated>2014-07-06T01:36:50.824Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -224,6 +224,103 @@ console<span class="preprocessor">.log</span>(viewportWidth,viewportHeight)<span
 ]]></content>
     <summary type="html"><![CDATA[<p>ios上viewport的大小</p>
 <p>不知道为什么 在ios7 ipad上设置 height:100% 始终会有滚动条出现。检查了一些原因 有可能是viewport的原因。<br>]]></summary>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[html5上传图片]]></title>
+    <link href="http://yoursite.com/2014/06/11/picture-upload/"/>
+    <id>http://yoursite.com/2014/06/11/picture-upload/</id>
+    <published>2014-06-11T08:03:42.000Z</published>
+    <updated>2014-06-16T02:44:50.000Z</updated>
+    <content type="html"><![CDATA[<h3 id="概要">概要</h3>
+<p>html5上传图片其实非常简单。而且功能也比较强大。</p>
+<p>可以用的api 包括 ：  File , ajax    level 2, formdata , drag &amp; drop , createObjectURL , base64 等。</p>
+<p>它们都非常简单且易用。下面按照流程来讲这些可能会用用到的apis。</p>
+<p><a id="more"></a></p>
+<h3 id="上传文件">上传文件</h3>
+<p>传统的上传文件使用的是表单。</p>
+<pre><code>&lt;input <span class="keyword">type</span>=<span class="string">"file"</span> /&gt; 
+</code></pre><p>我们也可以添加一些属性。用法如下：</p>
+<pre><code>&lt;input <span class="keyword">type</span>=<span class="string">"file"</span> accept=<span class="string">"image/*"</span> <span class="string">"multiple"</span>=<span class="string">"multiple"</span> /&gt;
+</code></pre><p>其中 accept 表明接受的MIME type。这里表示所有的图片文件。当调用系统控件的时候，会过滤掉不支持的结果。</p>
+<p>而 multiple 就是是否允许上传多张还是 只允许上传一张。</p>
+<p>目前几乎支持所有的浏览器。</p>
+<p>但是在移动端。ios6以下（不包含6）的safari是不支持的。WP ie10(包含ie10)以下版本是不支持的。</p>
+<p>除了input以外，html5新增了 drag &amp; drop 。 这里可以看到<a href="http://html5demos.com/file-api" target="_blank">例子</a>。</p>
+<p>不过需要注意的是，目前移动平台应该都是不支持的。问题是叫它怎么支持呢？</p>
+<h3 id="获取文件">获取文件</h3>
+<p>之前处理图片文件的时候，我们很多时候是先传到服务器，让服务器判断文件大小、尺寸是否合法。然后再给出结果。</p>
+<p>如果你使用html5的话，根本没有必要这么做。这样节省成本，和获得更好的体验。</p>
+<p>如果使用input的话。我们是这样取得文件的。</p>
+<pre><code>_input.addEventListener(<span class="string">'change'</span>,<span class="function"><span class="keyword">function</span><span class="params">()</span>{</span>
+    <span class="keyword">var</span> files = _input.files;
+    <span class="comment">// do somthing with your files</span>
+});
+</code></pre><p>这里注意的是 不管你是否含有 multiple 属性。你获得的始终是一个数组。</p>
+<p>使用drag &amp; drop的代码如下：</p>
+<pre><code>FU.addEventListener(<span class="string">'dragenter'</span>, <span class="function"><span class="keyword">function</span><span class="params">(e)</span> {</span>
+    e.preventDefault();
+}, <span class="literal">false</span>); 
+FU.addEventListener(<span class="string">'dragleave'</span>, <span class="function"><span class="keyword">function</span><span class="params">(e)</span> {</span>
+    e.preventDefault();
+}, <span class="literal">false</span>);
+FU.addEventListener(<span class="string">'dragover'</span>, <span class="function"><span class="keyword">function</span><span class="params">(e)</span> {</span>
+    e.preventDefault();
+}, <span class="literal">false</span>);
+FU.addEventListener(<span class="string">'drop'</span>, <span class="function"><span class="keyword">function</span><span class="params">(e)</span> {</span>
+    e.preventDefault();
+    <span class="keyword">var</span> files = e.dataTransfer.files;
+    <span class="comment">//do somthing with your files</span>
+}, <span class="literal">false</span>);
+</code></pre><p>首先要注意的是：虽然我没有对 dragenter 、 dragleave 、dragover 等事件做什么处理。（当然你可以做些样式的改变来响应用户的操作）但是还是阻止浏览器默认的操作。</p>
+<p>不然的话，浏览器很有可能在新窗口中打开图片。</p>
+<h3 id="预览文件">预览文件</h3>
+<p>html5可以使用file api 读取文件，并输出base64的格式。然后 使用 image 显示出来。</p>
+<pre><code><span class="keyword">var</span> reader = <span class="keyword">new</span> FileReader();
+reader.onload = <span class="function"><span class="keyword">function</span> <span class="params">(event)</span> {</span>
+    <span class="keyword">var</span> src = event.target.result;
+    <span class="comment">//do somthing width your src</span>
+    };
+reader.readAsDataURL(file);
+</code></pre><p>但是其实没有必要这么麻烦。我们可以使用windows.URL.createObjectURL</p>
+<pre><code><span class="reserved">var</span> WINURL = <span class="built_in">window</span>.URL || <span class="built_in">window</span>.webkitURL;
+<span class="reserved">var</span> src = WINURL.createObjectURL(file);
+<span class="regexp">//</span><span class="keyword">do</span> somthing width your src
+</code></pre><p>需要注意的是当使用完成之后需要注销，不然会占据着内存</p>
+<pre><code>WINURL<span class="preprocessor">.revokeObjectURL</span>(src)<span class="comment">;</span>
+</code></pre><h3 id="上传文件并显示上传进度">上传文件并显示上传进度</h3>
+<p>上传使用ajax POST。</p>
+<p>代码如下：</p>
+<pre><code><span class="keyword">var</span> formdata = <span class="keyword">new</span> FormData();
+formdata.append(<span class="string">'file'</span> , file);
+
+<span class="keyword">var</span> xhr = <span class="keyword">new</span> XMLHttpRequest();
+<span class="keyword">var</span> upload = xhr.upload;
+
+upload.addEventListener(<span class="string">"progress"</span>, <span class="function"><span class="keyword">function</span> <span class="params">(ev)</span> {</span>
+    <span class="keyword">if</span> (ev.lengthComputable) {
+        console.log(ev.loaded/ev.total);
+    }
+},<span class="literal">false</span>);
+
+xhr.onreadystatechange = <span class="function"><span class="keyword">function</span><span class="params">()</span>{</span>
+    <span class="keyword">if</span>(xhr.readyState === <span class="number">4</span>){
+         <span class="comment">//do somthing width your respose.</span>
+    }
+};
+
+xhr.open(<span class="string">'POST'</span>,url); <span class="comment">//url 是表单的提交地址。</span>
+xhr.send(formdata);
+</code></pre><p>是不是特别简单呢。</p>
+]]></content>
+    <summary type="html"><![CDATA[<h3 id="概要">概要</h3>
+<p>html5上传图片其实非常简单。而且功能也比较强大。</p>
+<p>可以用的api 包括 ：  File , ajax    level 2, formdata , drag &amp; drop , createObjectURL , base64 等。</p>
+<p>它们都非常简单且易用。下面按照流程来讲这些可能会用用到的apis。</p>
+<p>]]></summary>
+    
+      <category term="图片处理" scheme="http://yoursite.com/tags/%E5%9B%BE%E7%89%87%E5%A4%84%E7%90%86/"/>
     
   </entry>
   
@@ -556,103 +653,6 @@ _login_btn.addEventListener(<span class="string">'click'</span>,<span class="fun
       <category term="只读经典" scheme="http://yoursite.com/tags/%E5%8F%AA%E8%AF%BB%E7%BB%8F%E5%85%B8/"/>
     
       <category term="正则表达式" scheme="http://yoursite.com/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[html5上传图片]]></title>
-    <link href="http://yoursite.com/2014/06/11/picture-upload/"/>
-    <id>http://yoursite.com/2014/06/11/picture-upload/</id>
-    <published>2014-06-11T08:03:42.000Z</published>
-    <updated>2014-06-16T02:44:50.000Z</updated>
-    <content type="html"><![CDATA[<h3 id="概要">概要</h3>
-<p>html5上传图片其实非常简单。而且功能也比较强大。</p>
-<p>可以用的api 包括 ：  File , ajax    level 2, formdata , drag &amp; drop , createObjectURL , base64 等。</p>
-<p>它们都非常简单且易用。下面按照流程来讲这些可能会用用到的apis。</p>
-<p><a id="more"></a></p>
-<h3 id="上传文件">上传文件</h3>
-<p>传统的上传文件使用的是表单。</p>
-<pre><code>&lt;input <span class="keyword">type</span>=<span class="string">"file"</span> /&gt; 
-</code></pre><p>我们也可以添加一些属性。用法如下：</p>
-<pre><code>&lt;input <span class="keyword">type</span>=<span class="string">"file"</span> accept=<span class="string">"image/*"</span> <span class="string">"multiple"</span>=<span class="string">"multiple"</span> /&gt;
-</code></pre><p>其中 accept 表明接受的MIME type。这里表示所有的图片文件。当调用系统控件的时候，会过滤掉不支持的结果。</p>
-<p>而 multiple 就是是否允许上传多张还是 只允许上传一张。</p>
-<p>目前几乎支持所有的浏览器。</p>
-<p>但是在移动端。ios6以下（不包含6）的safari是不支持的。WP ie10(包含ie10)以下版本是不支持的。</p>
-<p>除了input以外，html5新增了 drag &amp; drop 。 这里可以看到<a href="http://html5demos.com/file-api" target="_blank">例子</a>。</p>
-<p>不过需要注意的是，目前移动平台应该都是不支持的。问题是叫它怎么支持呢？</p>
-<h3 id="获取文件">获取文件</h3>
-<p>之前处理图片文件的时候，我们很多时候是先传到服务器，让服务器判断文件大小、尺寸是否合法。然后再给出结果。</p>
-<p>如果你使用html5的话，根本没有必要这么做。这样节省成本，和获得更好的体验。</p>
-<p>如果使用input的话。我们是这样取得文件的。</p>
-<pre><code>_input.addEventListener(<span class="string">'change'</span>,<span class="function"><span class="keyword">function</span><span class="params">()</span>{</span>
-    <span class="keyword">var</span> files = _input.files;
-    <span class="comment">// do somthing with your files</span>
-});
-</code></pre><p>这里注意的是 不管你是否含有 multiple 属性。你获得的始终是一个数组。</p>
-<p>使用drag &amp; drop的代码如下：</p>
-<pre><code>FU.addEventListener(<span class="string">'dragenter'</span>, <span class="function"><span class="keyword">function</span><span class="params">(e)</span> {</span>
-    e.preventDefault();
-}, <span class="literal">false</span>); 
-FU.addEventListener(<span class="string">'dragleave'</span>, <span class="function"><span class="keyword">function</span><span class="params">(e)</span> {</span>
-    e.preventDefault();
-}, <span class="literal">false</span>);
-FU.addEventListener(<span class="string">'dragover'</span>, <span class="function"><span class="keyword">function</span><span class="params">(e)</span> {</span>
-    e.preventDefault();
-}, <span class="literal">false</span>);
-FU.addEventListener(<span class="string">'drop'</span>, <span class="function"><span class="keyword">function</span><span class="params">(e)</span> {</span>
-    e.preventDefault();
-    <span class="keyword">var</span> files = e.dataTransfer.files;
-    <span class="comment">//do somthing with your files</span>
-}, <span class="literal">false</span>);
-</code></pre><p>首先要注意的是：虽然我没有对 dragenter 、 dragleave 、dragover 等事件做什么处理。（当然你可以做些样式的改变来响应用户的操作）但是还是阻止浏览器默认的操作。</p>
-<p>不然的话，浏览器很有可能在新窗口中打开图片。</p>
-<h3 id="预览文件">预览文件</h3>
-<p>html5可以使用file api 读取文件，并输出base64的格式。然后 使用 image 显示出来。</p>
-<pre><code><span class="keyword">var</span> reader = <span class="keyword">new</span> FileReader();
-reader.onload = <span class="function"><span class="keyword">function</span> <span class="params">(event)</span> {</span>
-    <span class="keyword">var</span> src = event.target.result;
-    <span class="comment">//do somthing width your src</span>
-    };
-reader.readAsDataURL(file);
-</code></pre><p>但是其实没有必要这么麻烦。我们可以使用windows.URL.createObjectURL</p>
-<pre><code><span class="reserved">var</span> WINURL = <span class="built_in">window</span>.URL || <span class="built_in">window</span>.webkitURL;
-<span class="reserved">var</span> src = WINURL.createObjectURL(file);
-<span class="regexp">//</span><span class="keyword">do</span> somthing width your src
-</code></pre><p>需要注意的是当使用完成之后需要注销，不然会占据着内存</p>
-<pre><code>WINURL<span class="preprocessor">.revokeObjectURL</span>(src)<span class="comment">;</span>
-</code></pre><h3 id="上传文件并显示上传进度">上传文件并显示上传进度</h3>
-<p>上传使用ajax POST。</p>
-<p>代码如下：</p>
-<pre><code><span class="keyword">var</span> formdata = <span class="keyword">new</span> FormData();
-formdata.append(<span class="string">'file'</span> , file);
-
-<span class="keyword">var</span> xhr = <span class="keyword">new</span> XMLHttpRequest();
-<span class="keyword">var</span> upload = xhr.upload;
-
-upload.addEventListener(<span class="string">"progress"</span>, <span class="function"><span class="keyword">function</span> <span class="params">(ev)</span> {</span>
-    <span class="keyword">if</span> (ev.lengthComputable) {
-        console.log(ev.loaded/ev.total);
-    }
-},<span class="literal">false</span>);
-
-xhr.onreadystatechange = <span class="function"><span class="keyword">function</span><span class="params">()</span>{</span>
-    <span class="keyword">if</span>(xhr.readyState === <span class="number">4</span>){
-         <span class="comment">//do somthing width your respose.</span>
-    }
-};
-
-xhr.open(<span class="string">'POST'</span>,url); <span class="comment">//url 是表单的提交地址。</span>
-xhr.send(formdata);
-</code></pre><p>是不是特别简单呢。</p>
-]]></content>
-    <summary type="html"><![CDATA[<h3 id="概要">概要</h3>
-<p>html5上传图片其实非常简单。而且功能也比较强大。</p>
-<p>可以用的api 包括 ：  File , ajax    level 2, formdata , drag &amp; drop , createObjectURL , base64 等。</p>
-<p>它们都非常简单且易用。下面按照流程来讲这些可能会用用到的apis。</p>
-<p>]]></summary>
-    
-      <category term="图片处理" scheme="http://yoursite.com/tags/%E5%9B%BE%E7%89%87%E5%A4%84%E7%90%86/"/>
     
   </entry>
   
