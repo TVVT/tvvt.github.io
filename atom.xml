@@ -4,7 +4,7 @@
   <subtitle><![CDATA[一群活泼开朗有潜力的小伙伴]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://yoursite.com/"/>
-  <updated>2014-06-27T07:37:02.717Z</updated>
+  <updated>2014-07-06T01:34:36.946Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -13,6 +13,162 @@
   </author>
   
   <generator uri="http://zespia.tw/hexo/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[Html5-Canvas-Duplicated-On-Android]]></title>
+    <link href="http://yoursite.com/2014/07/06/html5-canvas-duplicated-on-android/"/>
+    <id>http://yoursite.com/2014/07/06/html5-canvas-duplicated-on-android/</id>
+    <published>2014-07-06T07:08:44.000Z</published>
+    <updated>2014-07-06T01:23:02.000Z</updated>
+    <content type="html"><![CDATA[<p>最近在开发H5游戏的时候会出现用Canvas绘制的画面被复制到页面顶部的问题，而且仅仅在Android的浏览器上会出现这种情况，反复检查不得其解。最终发现这竟然是CSS引起的Bug。</p>
+<p>Canvas的父级不能拥有 <code>overflow</code> 的属性(除非是 <code>body</code> )，否则便会导致Canvas被复制。</p>
+<p>在Google Code上也有类似的Issue — <a href="https://code.google.com/p/android/issues/detail?id=41312" target="_blank" rel="external">https://code.google.com/p/android/issues/detail?id=41312</a><br><a id="more"></a></p>
+<h3 id="先上代码:">先上代码:</h3>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+</pre></td><td class="code"><pre>	//this may bring the android browser bug
+	.parent{
+		overflow:hidden;
+		.canvas{
+
+		}
+	}
+</pre></td></tr></table></figure>
+
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+</pre></td><td class="code"><pre>	//correct
+	.parent{
+		//overflow:hidden;
+		.canvas{
+
+		}
+	}
+</pre></td></tr></table></figure>
+
+<hr>
+<h3 id="Bug如下图:">Bug如下图:</h3>
+<p><img width="320px" height="640px" src="/images/error.jpg" alt="位置异常"></p>
+<p>手机型号: 小米2S 三星S3</p>
+<hr>
+<h3 id="修复后:">修复后:</h3>
+<p><img width="320px" height="640px" src="/images/correct.jpg" alt="位置异常"></p>
+]]></content>
+    <summary type="html"><![CDATA[<p>最近在开发H5游戏的时候会出现用Canvas绘制的画面被复制到页面顶部的问题，而且仅仅在Android的浏览器上会出现这种情况，反复检查不得其解。最终发现这竟然是CSS引起的Bug。</p>
+<p>Canvas的父级不能拥有 <code>overflow</code> 的属性(除非是 <code>body</code> )，否则便会导致Canvas被复制。</p>
+<p>在Google Code上也有类似的Issue — <a href="https://code.google.com/p/android/issues/detail?id=41312" target="_blank" rel="external">https://code.google.com/p/android/issues/detail?id=41312</a><br>]]></summary>
+    
+      <category term="HTML5" scheme="http://yoursite.com/tags/HTML5/"/>
+    
+      <category term="Canvas" scheme="http://yoursite.com/tags/Canvas/"/>
+    
+      <category term="Duplicated" scheme="http://yoursite.com/tags/Duplicated/"/>
+    
+      <category term="Android" scheme="http://yoursite.com/tags/Android/"/>
+    
+      <category term="Bug" scheme="http://yoursite.com/tags/Bug/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[tvvtTeam]]></title>
+    <link href="http://yoursite.com/2014/06/27/tvvtTeam/"/>
+    <id>http://yoursite.com/2014/06/27/tvvtTeam/</id>
+    <published>2014-06-27T07:40:28.000Z</published>
+    <updated>2014-07-06T01:31:09.000Z</updated>
+    <content type="html"><![CDATA[]]></content>
+    
+    
+      <category term="照片" scheme="http://yoursite.com/tags/%E7%85%A7%E7%89%87/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[html5 appliction cache]]></title>
+    <link href="http://yoursite.com/2014/06/25/html5-appliction-cache/"/>
+    <id>http://yoursite.com/2014/06/25/html5-appliction-cache/</id>
+    <published>2014-06-25T07:08:44.000Z</published>
+    <updated>2014-07-06T01:22:36.000Z</updated>
+    <content type="html"><![CDATA[<p>html5 application cache 是html5新增的接口。但是非常有必要了解它的原理及应用场景。</p>
+<h3 id="配置">配置</h3>
+<h4 id="服务器端">服务器端</h4>
+<p>需要设置一个清单文件。并且需要指定特殊的Content-type。如果使用php的话可以直接在清单文件中指定<br><a id="more"></a><br>    &lt;?php header(‘Content-type:text/cache-manifest’);?&gt;CACHE MANIFEST</p>
+<pre><code><span class="variable">#your</span> <span class="built_in">list</span> here
+
+NETWORK
+<span class="attribute">...</span><span class="built_in">.</span>
+</code></pre><p>如果使用nodejs(express)：</p>
+<pre><code>app.get(<span class="string">'/manifest'</span>,function(req,res){
+    console.<span class="keyword">log</span>(<span class="string">'get manifet'</span>);
+    res.setHeader(<span class="string">'Content-Type'</span>, <span class="string">'text/cache-manifest'</span>);
+
+    var <span class="keyword">str</span> = <span class="string">'CACHE MANIFEST\n'</span>;
+    <span class="keyword">str</span> += <span class="string">'CACHE:\n'</span>;
+    <span class="keyword">str</span>+= <span class="string">'#2013-03-15 v.10\n'</span>;
+    <span class="keyword">str</span> += <span class="string">'NETWORK:\n'</span>;
+    <span class="keyword">str</span> += <span class="string">'*\n'</span>;
+    res.send(<span class="keyword">str</span>);
+});
+</code></pre><h4 id="客户端">客户端</h4>
+<p>客户端只需要在每个html标签内添加远程清单地址即可。</p>
+<pre><code>&lt;html manifest=<span class="string">"/manifestfile"</span>&gt;
+<span class="keyword">...</span>
+&lt;/html&gt;
+</code></pre><p>需要注意的是，清单文件是不支持跨域的（部分浏览器好像不限制子域名跨域的。这个我还没有测试过）</p>
+<h3 id="如何填写清单文件">如何填写清单文件</h3>
+<p>清单文件的注释使用的是符号：#</p>
+<p>清单文件大致如下</p>
+<pre><code>CACHE MANIFEST
+<span class="preprocessor">#version v1.0</span>
+<span class="preprocessor">#create Date 2013-04-03</span>
+main<span class="preprocessor">.js</span>
+main<span class="preprocessor">.css</span>
+bj<span class="preprocessor">.png</span>
+<span class="label">NETWORK:</span>
+update<span class="preprocessor">.js</span>
+update<span class="preprocessor">.css</span>
+<span class="label">FALLBACK:</span>
+notOnLine<span class="preprocessor">.html</span>
+</code></pre><p>CACHE MANIFEST 后面的是想要缓存的文件</p>
+<p>NETWORK 后面的是访问在线资源的文件</p>
+<p>FALLBACK 后面是当没有离线页面时候访问文件</p>
+<h3 id="浏览器执行过程">浏览器执行过程</h3>
+<p>当浏览器访问到的页面含有离线清单文件的时候。首先去访问离线清单。然后在本地也创建一份清单文件。</p>
+<p>然后按照清单的指示开始下载离线的文件。</p>
+<p>当再次访问的时候，首先对比本地清单文件和服务器上的清单文件是否保持一致。如果保持一致的话，就直接读取本地文件。因为文件不再请求服务器。所以都不会有304。</p>
+<p>当然如果用户本身处于离线状态，那就省去了和服务器对比的环节。直接读取本地文件。</p>
+<p>需要注意的是，浏览器除了下载清单中的文件外，访问过的html文件也会缓存下来。所以一旦服务器上清单有过变更。浏览器不但重新下载清单上的所有文件，而且会下载本地所有缓存的html文件。</p>
+<p>比如用户浏览了100个页面，一旦清单有变更的话，不但清单文件会同时下载，100个html文件也会同时下载。</p>
+<p>这个应该是对服务器和客户端都有着不小的压力。所以一旦页面非常多的话，是不太适合做离线缓存的。</p>
+<p>我想这个也是为什么叫做”application cache”的原因吧。</p>
+<h3 id="计时更新版本">计时更新版本</h3>
+<p>更新清单文件非常简单 只要清单文件有任何改动即可。</p>
+<p>如果清单中的文件名字没有改变的话只要改些注释就好了。</p>
+<h3 id="浏览器调试">浏览器调试</h3>
+<p>在chrome地址栏输入 chrome://appcache-internals/ 可以看到当前浏览器缓存了哪些网站的数据以及缓存的容量。也可以再这里删掉。</p>
+<p>另外打开控制台的话，可以看到缓存状态信息。</p>
+<p>另外，application cache 还提供了一些监听事件。</p>
+<h3 id="总结">总结</h3>
+<p>application cache经常听说，但是目前使用的网站很少。因为比较适合游戏或者应用类网站。而且是比较难于驾驭的。使用的时候千万要小心。</p>
+]]></content>
+    <summary type="html"><![CDATA[<p>html5 application cache 是html5新增的接口。但是非常有必要了解它的原理及应用场景。</p>
+<h3 id="配置">配置</h3>
+<h4 id="服务器端">服务器端</h4>
+<p>需要设置一个清单文件。并且需要指定特殊的Content-type。如果使用php的话可以直接在清单文件中指定<br>]]></summary>
+    
+      <category term="html5" scheme="http://yoursite.com/tags/html5/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[英孚一日游]]></title>
@@ -72,99 +228,97 @@ console<span class="preprocessor">.log</span>(viewportWidth,viewportHeight)<span
   </entry>
   
   <entry>
-    <title><![CDATA[html5上传图片]]></title>
-    <link href="http://yoursite.com/2014/06/11/picture-upload/"/>
-    <id>http://yoursite.com/2014/06/11/picture-upload/</id>
+    <title><![CDATA[使用easyXDM与跨域iframe交互]]></title>
+    <link href="http://yoursite.com/2014/06/11/easyxdm/"/>
+    <id>http://yoursite.com/2014/06/11/easyxdm/</id>
     <published>2014-06-11T08:03:42.000Z</published>
-    <updated>2014-06-16T02:44:50.000Z</updated>
-    <content type="html"><![CDATA[<h3 id="概要">概要</h3>
-<p>html5上传图片其实非常简单。而且功能也比较强大。</p>
-<p>可以用的api 包括 ：  File , ajax    level 2, formdata , drag &amp; drop , createObjectURL , base64 等。</p>
-<p>它们都非常简单且易用。下面按照流程来讲这些可能会用用到的apis。</p>
-<p><a id="more"></a></p>
-<h3 id="上传文件">上传文件</h3>
-<p>传统的上传文件使用的是表单。</p>
-<pre><code>&lt;input <span class="keyword">type</span>=<span class="string">"file"</span> /&gt; 
-</code></pre><p>我们也可以添加一些属性。用法如下：</p>
-<pre><code>&lt;input <span class="keyword">type</span>=<span class="string">"file"</span> accept=<span class="string">"image/*"</span> <span class="string">"multiple"</span>=<span class="string">"multiple"</span> /&gt;
-</code></pre><p>其中 accept 表明接受的MIME type。这里表示所有的图片文件。当调用系统控件的时候，会过滤掉不支持的结果。</p>
-<p>而 multiple 就是是否允许上传多张还是 只允许上传一张。</p>
-<p>目前几乎支持所有的浏览器。</p>
-<p>但是在移动端。ios6以下（不包含6）的safari是不支持的。WP ie10(包含ie10)以下版本是不支持的。</p>
-<p>除了input以外，html5新增了 drag &amp; drop 。 这里可以看到<a href="http://html5demos.com/file-api" target="_blank">例子</a>。</p>
-<p>不过需要注意的是，目前移动平台应该都是不支持的。问题是叫它怎么支持呢？</p>
-<h3 id="获取文件">获取文件</h3>
-<p>之前处理图片文件的时候，我们很多时候是先传到服务器，让服务器判断文件大小、尺寸是否合法。然后再给出结果。</p>
-<p>如果你使用html5的话，根本没有必要这么做。这样节省成本，和获得更好的体验。</p>
-<p>如果使用input的话。我们是这样取得文件的。</p>
-<pre><code>_input.addEventListener(<span class="string">'change'</span>,<span class="function"><span class="keyword">function</span><span class="params">()</span>{</span>
-    <span class="keyword">var</span> files = _input.files;
-    <span class="comment">// do somthing with your files</span>
+    <updated>2014-06-16T02:47:10.000Z</updated>
+    <content type="html"><![CDATA[<p>以前在<a href="http://www.aifang.com" target="_blank">爱房网</a>的时候,经常会遇到这样的需求：</p>
+<p>1.在任意页面可以嵌套iframe，iframe有独立的功能。如含有日历组件等。<br>1.ifarme需要改变大小，外面的框也需要跟着变化<br>1.iframe和主页面不同域</p>
+<p>之前没有理会这样的需求，是因为实在没有办法搞定ie6（伟大的ie6，原谅我的无能吧。）<br><a id="more"></a><br>不过前段时间Google了一下，发现了这样的一个神器：<a href="http://easyxdm.net/wp/" target="_blank">easyXDM</a></p>
+<p>虽然我已经不在爱房网了，但这个丝毫不会影响我去解决问题的好奇心，不是么？</p>
+<hr>
+<h4 id="实现过程">实现过程</h4>
+<p>easyXDM功能强大，不过我们目前仅仅关心的是如何与跨域的ifarme交互。<a href="http://consumer.easyxdm.net/current/example/resize_iframe.html" target="_blank">官方例子</a></p>
+<h5 id="主页面：">主页面：</h5>
+<p>首先引入easyXDM：</p>
+<pre><code>&lt;script <span class="keyword">type</span>=<span class="string">"text/javascript"</span> src=<span class="string">"../easyXDM.min.js"</span>&gt;
+</code></pre><p>初始化：</p>
+<pre><code><span class="keyword">var</span> transport = <span class="keyword">new</span> easyXDM.Socket({
+    remote: IFRAME_HOST + <span class="string">"/resize_intermediate.html?url=resized_iframe_1.html"</span>,
+    swf: IFRAME_HOST + <span class="string">"/../easyxdm.swf"</span>, 
+    container: <span class="string">"embedded"</span>,
+    onMessage: <span class="function"><span class="keyword">function</span><span class="params">(message, origin)</span>{</span> 
+        <span class="keyword">this</span>.container.getElementsByTagName(<span class="string">"iframe"</span>)[<span class="number">0</span>].style.height = message + <span class="string">"px"</span>; 
+    }
 });
-</code></pre><p>这里注意的是 不管你是否含有 multiple 属性。你获得的始终是一个数组。</p>
-<p>使用drag &amp; drop的代码如下：</p>
-<pre><code>FU.addEventListener(<span class="string">'dragenter'</span>, <span class="function"><span class="keyword">function</span><span class="params">(e)</span> {</span>
-    e.preventDefault();
-}, <span class="literal">false</span>); 
-FU.addEventListener(<span class="string">'dragleave'</span>, <span class="function"><span class="keyword">function</span><span class="params">(e)</span> {</span>
-    e.preventDefault();
-}, <span class="literal">false</span>);
-FU.addEventListener(<span class="string">'dragover'</span>, <span class="function"><span class="keyword">function</span><span class="params">(e)</span> {</span>
-    e.preventDefault();
-}, <span class="literal">false</span>);
-FU.addEventListener(<span class="string">'drop'</span>, <span class="function"><span class="keyword">function</span><span class="params">(e)</span> {</span>
-    e.preventDefault();
-    <span class="keyword">var</span> files = e.dataTransfer.files;
-    <span class="comment">//do somthing with your files</span>
-}, <span class="literal">false</span>);
-</code></pre><p>首先要注意的是：虽然我没有对 dragenter 、 dragleave 、dragover 等事件做什么处理。（当然你可以做些样式的改变来响应用户的操作）但是还是阻止浏览器默认的操作。</p>
-<p>不然的话，浏览器很有可能在新窗口中打开图片。</p>
-<h3 id="预览文件">预览文件</h3>
-<p>html5可以使用file api 读取文件，并输出base64的格式。然后 使用 image 显示出来。</p>
-<pre><code><span class="keyword">var</span> reader = <span class="keyword">new</span> FileReader();
-reader.onload = <span class="function"><span class="keyword">function</span> <span class="params">(event)</span> {</span>
-    <span class="keyword">var</span> src = event.target.result;
-    <span class="comment">//do somthing width your src</span>
-    };
-reader.readAsDataURL(file);
-</code></pre><p>但是其实没有必要这么麻烦。我们可以使用windows.URL.createObjectURL</p>
-<pre><code><span class="reserved">var</span> WINURL = <span class="built_in">window</span>.URL || <span class="built_in">window</span>.webkitURL;
-<span class="reserved">var</span> src = WINURL.createObjectURL(file);
-<span class="regexp">//</span><span class="keyword">do</span> somthing width your src
-</code></pre><p>需要注意的是当使用完成之后需要注销，不然会占据着内存</p>
-<pre><code>WINURL<span class="preprocessor">.revokeObjectURL</span>(src)<span class="comment">;</span>
-</code></pre><h3 id="上传文件并显示上传进度">上传文件并显示上传进度</h3>
-<p>上传使用ajax POST。</p>
-<p>代码如下：</p>
-<pre><code><span class="keyword">var</span> formdata = <span class="keyword">new</span> FormData();
-formdata.append(<span class="string">'file'</span> , file);
+</code></pre><p>使用easyXDM不用自己去写iframe元素，脚本会自动帮你去生成一个iframe。</p>
+<p>其中的swf是解决ie系列的跨域问题的。如果你只针对高级浏览器（支持postMessage）可以去除掉。</p>
+<p>onMessage是回调函数，在子页面发送消息的时候触发。</p>
+<h5 id="中转页">中转页</h5>
+<p>上面例子的resize_intermediate.html其实是一个空白的中转页，目的就是当他获取子页面的消息时发送给他的父页面。</p>
+<p>听起来有些拗口，我们来看怎么实现的吧。</p>
+<pre><code><span class="doctype">&lt;!doctype html&gt;</span>
+<span class="tag">&lt;<span class="title">html</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">head</span>&gt;</span>
+        <span class="tag">&lt;<span class="title">title</span>&gt;</span>easyXDM<span class="tag">&lt;/<span class="title">title</span>&gt;</span>
+        <span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span> <span class="attribute">src</span>=<span class="value">"../easyXDM.debug.js"</span>&gt;</span><span class="javascript">
+        </span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>
+        <span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="javascript">
+            <span class="keyword">var</span> iframe;
+            <span class="keyword">var</span> socket = <span class="keyword">new</span> easyXDM.Socket({
+                swf: <span class="string">"../easyxdm.swf"</span>,
+                onReady: <span class="function"><span class="keyword">function</span><span class="params">()</span>{</span>
+                    iframe = document.createElement(<span class="string">"iframe"</span>);
+                    iframe.frameBorder = <span class="number">0</span>;
+                    document.body.appendChild(iframe);
+                    iframe.src = easyXDM.query.url;
+                },
+                onMessage: <span class="function"><span class="keyword">function</span><span class="params">(url, origin)</span>{</span>
+                    iframe.src = url;
+                }
+            });
+        </span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>
+        <span class="tag">&lt;<span class="title">style</span> <span class="attribute">type</span>=<span class="value">"text/css"</span>&gt;</span><span class="css">
+            <span class="tag">html</span>, <span class="tag">body</span> <span class="rules">{
+                <span class="rule"><span class="attribute">overflow</span>:<span class="value"> hidden</span></span>;
+                <span class="rule"><span class="attribute">margin</span>:<span class="value"> <span class="number">0</span>px</span></span>;
+                <span class="rule"><span class="attribute">padding</span>:<span class="value"> <span class="number">0</span>px</span></span>;
+                <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">100</span>%</span></span>;
+                <span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">100</span>%</span></span>;
+            <span class="rule">}</span></span>
 
-<span class="keyword">var</span> xhr = <span class="keyword">new</span> XMLHttpRequest();
-<span class="keyword">var</span> upload = xhr.upload;
-
-upload.addEventListener(<span class="string">"progress"</span>, <span class="function"><span class="keyword">function</span> <span class="params">(ev)</span> {</span>
-    <span class="keyword">if</span> (ev.lengthComputable) {
-        console.log(ev.loaded/ev.total);
-    }
-},<span class="literal">false</span>);
-
-xhr.onreadystatechange = <span class="function"><span class="keyword">function</span><span class="params">()</span>{</span>
-    <span class="keyword">if</span>(xhr.readyState === <span class="number">4</span>){
-         <span class="comment">//do somthing width your respose.</span>
-    }
-};
-
-xhr.open(<span class="string">'POST'</span>,url); <span class="comment">//url 是表单的提交地址。</span>
-xhr.send(formdata);
-</code></pre><p>是不是特别简单呢。</p>
+            <span class="tag">iframe</span> <span class="rules">{
+                <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">100</span>%</span></span>;
+                <span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">100</span>%</span></span>;
+                <span class="rule"><span class="attribute">border</span>:<span class="value"> <span class="number">0</span>px</span></span>;
+            <span class="rule">}</span></span>
+        </span><span class="tag">&lt;/<span class="title">style</span>&gt;</span>
+    <span class="tag">&lt;/<span class="title">head</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">body</span>&gt;</span>
+    <span class="tag">&lt;/<span class="title">body</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">html</span>&gt;</span>
+</code></pre><h5 id="子页面">子页面</h5>
+<p>子页面和中转页是同域的。</p>
+<pre><code>&lt;script type=<span class="string">"text/javascript"</span>&gt;
+    window<span class="preprocessor">.onload</span> = function(){
+        parent<span class="preprocessor">.socket</span><span class="preprocessor">.postMessage</span>(document<span class="preprocessor">.body</span><span class="preprocessor">.clientHeight</span> || document<span class="preprocessor">.body</span><span class="preprocessor">.offsetHeight</span> || document<span class="preprocessor">.body</span><span class="preprocessor">.scrollHeight</span>)<span class="comment">;</span>
+    }<span class="comment">;</span>
+&lt;/script&gt;
+</code></pre><p>子页面只需要对中转页发送消息就可以了。</p>
+<hr>
+<p>上面的官方例子其实实现的是这样一个场景，你需要载入一个iframe，iframe又可以随便跳转。跳转后高度不定，所以需要父页面跟着变化。</p>
+<p>easyXDM使用的方法是载入2个iframe。中转页主要用来传送消息，然后子页面可以随便改url，只要载入的时候发送自身高度就好了。</p>
+<p>如果你的逻辑不需要跳转，只要在适当的时候postMessage即可。</p>
+<hr>
+<h3 id="总结">总结</h3>
+<p>easyXDM的确帮助我们解决了不少问题。但是同时我们也需要了解它的原理，对于高级浏览器，其实是原生的postMessage，对于其他的则使用的是flash。但是flash到底是怎么实现的，目前我也还不知道。（这方面涉及的实在不多。）</p>
 ]]></content>
-    <summary type="html"><![CDATA[<h3 id="概要">概要</h3>
-<p>html5上传图片其实非常简单。而且功能也比较强大。</p>
-<p>可以用的api 包括 ：  File , ajax    level 2, formdata , drag &amp; drop , createObjectURL , base64 等。</p>
-<p>它们都非常简单且易用。下面按照流程来讲这些可能会用用到的apis。</p>
-<p>]]></summary>
+    <summary type="html"><![CDATA[<p>以前在<a href="http://www.aifang.com" target="_blank">爱房网</a>的时候,经常会遇到这样的需求：</p>
+<p>1.在任意页面可以嵌套iframe，iframe有独立的功能。如含有日历组件等。<br>1.ifarme需要改变大小，外面的框也需要跟着变化<br>1.iframe和主页面不同域</p>
+<p>之前没有理会这样的需求，是因为实在没有办法搞定ie6（伟大的ie6，原谅我的无能吧。）<br>]]></summary>
     
-      <category term="图片处理" scheme="http://yoursite.com/tags/%E5%9B%BE%E7%89%87%E5%A4%84%E7%90%86/"/>
+      <category term="easyXDM" scheme="http://yoursite.com/tags/easyXDM/"/>
     
   </entry>
   
@@ -240,81 +394,6 @@ xhr.send(formdata);
 <p>等过几天发现其实有一大堆的问题。<br>]]></summary>
     
       <category term="iscroll" scheme="http://yoursite.com/tags/iscroll/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[html5 appliction cache]]></title>
-    <link href="http://yoursite.com/2014/06/11/html5-appliction-cache/"/>
-    <id>http://yoursite.com/2014/06/11/html5-appliction-cache/</id>
-    <published>2014-06-11T08:03:42.000Z</published>
-    <updated>2014-06-16T02:47:09.000Z</updated>
-    <content type="html"><![CDATA[<p>html5 application cache 是html5新增的接口。但是非常有必要了解它的原理及应用场景。</p>
-<h3 id="配置">配置</h3>
-<h4 id="服务器端">服务器端</h4>
-<p>需要设置一个清单文件。并且需要指定特殊的Content-type。如果使用php的话可以直接在清单文件中指定<br><a id="more"></a><br>    &lt;?php header(‘Content-type:text/cache-manifest’);?&gt;CACHE MANIFEST</p>
-<pre><code><span class="variable">#your</span> <span class="built_in">list</span> here
-
-NETWORK
-<span class="attribute">...</span><span class="built_in">.</span>
-</code></pre><p>如果使用nodejs(express)：</p>
-<pre><code>app.get(<span class="string">'/manifest'</span>,function(req,res){
-    console.<span class="keyword">log</span>(<span class="string">'get manifet'</span>);
-    res.setHeader(<span class="string">'Content-Type'</span>, <span class="string">'text/cache-manifest'</span>);
-
-    var <span class="keyword">str</span> = <span class="string">'CACHE MANIFEST\n'</span>;
-    <span class="keyword">str</span> += <span class="string">'CACHE:\n'</span>;
-    <span class="keyword">str</span>+= <span class="string">'#2013-03-15 v.10\n'</span>;
-    <span class="keyword">str</span> += <span class="string">'NETWORK:\n'</span>;
-    <span class="keyword">str</span> += <span class="string">'*\n'</span>;
-    res.send(<span class="keyword">str</span>);
-});
-</code></pre><h4 id="客户端">客户端</h4>
-<p>客户端只需要在每个html标签内添加远程清单地址即可。</p>
-<pre><code>&lt;html manifest=<span class="string">"/manifestfile"</span>&gt;
-<span class="keyword">...</span>
-&lt;/html&gt;
-</code></pre><p>需要注意的是，清单文件是不支持跨域的（部分浏览器好像不限制子域名跨域的。这个我还没有测试过）</p>
-<h3 id="如何填写清单文件">如何填写清单文件</h3>
-<p>清单文件的注释使用的是符号：#</p>
-<p>清单文件大致如下</p>
-<pre><code>CACHE MANIFEST
-<span class="preprocessor">#version v1.0</span>
-<span class="preprocessor">#create Date 2013-04-03</span>
-main<span class="preprocessor">.js</span>
-main<span class="preprocessor">.css</span>
-bj<span class="preprocessor">.png</span>
-<span class="label">NETWORK:</span>
-update<span class="preprocessor">.js</span>
-update<span class="preprocessor">.css</span>
-<span class="label">FALLBACK:</span>
-notOnLine<span class="preprocessor">.html</span>
-</code></pre><p>CACHE MANIFEST 后面的是想要缓存的文件</p>
-<p>NETWORK 后面的是访问在线资源的文件</p>
-<p>FALLBACK 后面是当没有离线页面时候访问文件</p>
-<h3 id="浏览器执行过程">浏览器执行过程</h3>
-<p>当浏览器访问到的页面含有离线清单文件的时候。首先去访问离线清单。然后在本地也创建一份清单文件。</p>
-<p>然后按照清单的指示开始下载离线的文件。</p>
-<p>当再次访问的时候，首先对比本地清单文件和服务器上的清单文件是否保持一致。如果保持一致的话，就直接读取本地文件。因为文件不再请求服务器。所以都不会有304。</p>
-<p>当然如果用户本身处于离线状态，那就省去了和服务器对比的环节。直接读取本地文件。</p>
-<p>需要注意的是，浏览器除了下载清单中的文件外，访问过的html文件也会缓存下来。所以一旦服务器上清单有过变更。浏览器不但重新下载清单上的所有文件，而且会下载本地所有缓存的html文件。</p>
-<p>比如用户浏览了100个页面，一旦清单有变更的话，不但清单文件会同时下载，100个html文件也会同时下载。</p>
-<p>这个应该是对服务器和客户端都有着不小的压力。所以一旦页面非常多的话，是不太适合做离线缓存的。</p>
-<p>我想这个也是为什么叫做”application cache”的原因吧。</p>
-<h3 id="计时更新版本">计时更新版本</h3>
-<p>更新清单文件非常简单 只要清单文件有任何改动即可。</p>
-<p>如果清单中的文件名字没有改变的话只要改些注释就好了。</p>
-<h3 id="浏览器调试">浏览器调试</h3>
-<p>在chrome地址栏输入 chrome://appcache-internals/ 可以看到当前浏览器缓存了哪些网站的数据以及缓存的容量。也可以再这里删掉。</p>
-<p>另外打开控制台的话，可以看到缓存状态信息。</p>
-<p>另外，application cache 还提供了一些监听事件。</p>
-<h3 id="总结">总结</h3>
-<p>application cache经常听说，但是目前使用的网站很少。因为比较适合游戏或者应用类网站。而且是比较难于驾驭的。使用的时候千万要小心。</p>
-]]></content>
-    <summary type="html"><![CDATA[<p>html5 application cache 是html5新增的接口。但是非常有必要了解它的原理及应用场景。</p>
-<h3 id="配置">配置</h3>
-<h4 id="服务器端">服务器端</h4>
-<p>需要设置一个清单文件。并且需要指定特殊的Content-type。如果使用php的话可以直接在清单文件中指定<br>]]></summary>
     
   </entry>
   
@@ -481,97 +560,99 @@ _login_btn.addEventListener(<span class="string">'click'</span>,<span class="fun
   </entry>
   
   <entry>
-    <title><![CDATA[使用easyXDM与跨域iframe交互]]></title>
-    <link href="http://yoursite.com/2014/06/11/easyxdm/"/>
-    <id>http://yoursite.com/2014/06/11/easyxdm/</id>
+    <title><![CDATA[html5上传图片]]></title>
+    <link href="http://yoursite.com/2014/06/11/picture-upload/"/>
+    <id>http://yoursite.com/2014/06/11/picture-upload/</id>
     <published>2014-06-11T08:03:42.000Z</published>
-    <updated>2014-06-16T02:47:10.000Z</updated>
-    <content type="html"><![CDATA[<p>以前在<a href="http://www.aifang.com" target="_blank">爱房网</a>的时候,经常会遇到这样的需求：</p>
-<p>1.在任意页面可以嵌套iframe，iframe有独立的功能。如含有日历组件等。<br>1.ifarme需要改变大小，外面的框也需要跟着变化<br>1.iframe和主页面不同域</p>
-<p>之前没有理会这样的需求，是因为实在没有办法搞定ie6（伟大的ie6，原谅我的无能吧。）<br><a id="more"></a><br>不过前段时间Google了一下，发现了这样的一个神器：<a href="http://easyxdm.net/wp/" target="_blank">easyXDM</a></p>
-<p>虽然我已经不在爱房网了，但这个丝毫不会影响我去解决问题的好奇心，不是么？</p>
-<hr>
-<h4 id="实现过程">实现过程</h4>
-<p>easyXDM功能强大，不过我们目前仅仅关心的是如何与跨域的ifarme交互。<a href="http://consumer.easyxdm.net/current/example/resize_iframe.html" target="_blank">官方例子</a></p>
-<h5 id="主页面：">主页面：</h5>
-<p>首先引入easyXDM：</p>
-<pre><code>&lt;script <span class="keyword">type</span>=<span class="string">"text/javascript"</span> src=<span class="string">"../easyXDM.min.js"</span>&gt;
-</code></pre><p>初始化：</p>
-<pre><code><span class="keyword">var</span> transport = <span class="keyword">new</span> easyXDM.Socket({
-    remote: IFRAME_HOST + <span class="string">"/resize_intermediate.html?url=resized_iframe_1.html"</span>,
-    swf: IFRAME_HOST + <span class="string">"/../easyxdm.swf"</span>, 
-    container: <span class="string">"embedded"</span>,
-    onMessage: <span class="function"><span class="keyword">function</span><span class="params">(message, origin)</span>{</span> 
-        <span class="keyword">this</span>.container.getElementsByTagName(<span class="string">"iframe"</span>)[<span class="number">0</span>].style.height = message + <span class="string">"px"</span>; 
-    }
+    <updated>2014-06-16T02:44:50.000Z</updated>
+    <content type="html"><![CDATA[<h3 id="概要">概要</h3>
+<p>html5上传图片其实非常简单。而且功能也比较强大。</p>
+<p>可以用的api 包括 ：  File , ajax    level 2, formdata , drag &amp; drop , createObjectURL , base64 等。</p>
+<p>它们都非常简单且易用。下面按照流程来讲这些可能会用用到的apis。</p>
+<p><a id="more"></a></p>
+<h3 id="上传文件">上传文件</h3>
+<p>传统的上传文件使用的是表单。</p>
+<pre><code>&lt;input <span class="keyword">type</span>=<span class="string">"file"</span> /&gt; 
+</code></pre><p>我们也可以添加一些属性。用法如下：</p>
+<pre><code>&lt;input <span class="keyword">type</span>=<span class="string">"file"</span> accept=<span class="string">"image/*"</span> <span class="string">"multiple"</span>=<span class="string">"multiple"</span> /&gt;
+</code></pre><p>其中 accept 表明接受的MIME type。这里表示所有的图片文件。当调用系统控件的时候，会过滤掉不支持的结果。</p>
+<p>而 multiple 就是是否允许上传多张还是 只允许上传一张。</p>
+<p>目前几乎支持所有的浏览器。</p>
+<p>但是在移动端。ios6以下（不包含6）的safari是不支持的。WP ie10(包含ie10)以下版本是不支持的。</p>
+<p>除了input以外，html5新增了 drag &amp; drop 。 这里可以看到<a href="http://html5demos.com/file-api" target="_blank">例子</a>。</p>
+<p>不过需要注意的是，目前移动平台应该都是不支持的。问题是叫它怎么支持呢？</p>
+<h3 id="获取文件">获取文件</h3>
+<p>之前处理图片文件的时候，我们很多时候是先传到服务器，让服务器判断文件大小、尺寸是否合法。然后再给出结果。</p>
+<p>如果你使用html5的话，根本没有必要这么做。这样节省成本，和获得更好的体验。</p>
+<p>如果使用input的话。我们是这样取得文件的。</p>
+<pre><code>_input.addEventListener(<span class="string">'change'</span>,<span class="function"><span class="keyword">function</span><span class="params">()</span>{</span>
+    <span class="keyword">var</span> files = _input.files;
+    <span class="comment">// do somthing with your files</span>
 });
-</code></pre><p>使用easyXDM不用自己去写iframe元素，脚本会自动帮你去生成一个iframe。</p>
-<p>其中的swf是解决ie系列的跨域问题的。如果你只针对高级浏览器（支持postMessage）可以去除掉。</p>
-<p>onMessage是回调函数，在子页面发送消息的时候触发。</p>
-<h5 id="中转页">中转页</h5>
-<p>上面例子的resize_intermediate.html其实是一个空白的中转页，目的就是当他获取子页面的消息时发送给他的父页面。</p>
-<p>听起来有些拗口，我们来看怎么实现的吧。</p>
-<pre><code><span class="doctype">&lt;!doctype html&gt;</span>
-<span class="tag">&lt;<span class="title">html</span>&gt;</span>
-    <span class="tag">&lt;<span class="title">head</span>&gt;</span>
-        <span class="tag">&lt;<span class="title">title</span>&gt;</span>easyXDM<span class="tag">&lt;/<span class="title">title</span>&gt;</span>
-        <span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span> <span class="attribute">src</span>=<span class="value">"../easyXDM.debug.js"</span>&gt;</span><span class="javascript">
-        </span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>
-        <span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="javascript">
-            <span class="keyword">var</span> iframe;
-            <span class="keyword">var</span> socket = <span class="keyword">new</span> easyXDM.Socket({
-                swf: <span class="string">"../easyxdm.swf"</span>,
-                onReady: <span class="function"><span class="keyword">function</span><span class="params">()</span>{</span>
-                    iframe = document.createElement(<span class="string">"iframe"</span>);
-                    iframe.frameBorder = <span class="number">0</span>;
-                    document.body.appendChild(iframe);
-                    iframe.src = easyXDM.query.url;
-                },
-                onMessage: <span class="function"><span class="keyword">function</span><span class="params">(url, origin)</span>{</span>
-                    iframe.src = url;
-                }
-            });
-        </span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>
-        <span class="tag">&lt;<span class="title">style</span> <span class="attribute">type</span>=<span class="value">"text/css"</span>&gt;</span><span class="css">
-            <span class="tag">html</span>, <span class="tag">body</span> <span class="rules">{
-                <span class="rule"><span class="attribute">overflow</span>:<span class="value"> hidden</span></span>;
-                <span class="rule"><span class="attribute">margin</span>:<span class="value"> <span class="number">0</span>px</span></span>;
-                <span class="rule"><span class="attribute">padding</span>:<span class="value"> <span class="number">0</span>px</span></span>;
-                <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">100</span>%</span></span>;
-                <span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">100</span>%</span></span>;
-            <span class="rule">}</span></span>
+</code></pre><p>这里注意的是 不管你是否含有 multiple 属性。你获得的始终是一个数组。</p>
+<p>使用drag &amp; drop的代码如下：</p>
+<pre><code>FU.addEventListener(<span class="string">'dragenter'</span>, <span class="function"><span class="keyword">function</span><span class="params">(e)</span> {</span>
+    e.preventDefault();
+}, <span class="literal">false</span>); 
+FU.addEventListener(<span class="string">'dragleave'</span>, <span class="function"><span class="keyword">function</span><span class="params">(e)</span> {</span>
+    e.preventDefault();
+}, <span class="literal">false</span>);
+FU.addEventListener(<span class="string">'dragover'</span>, <span class="function"><span class="keyword">function</span><span class="params">(e)</span> {</span>
+    e.preventDefault();
+}, <span class="literal">false</span>);
+FU.addEventListener(<span class="string">'drop'</span>, <span class="function"><span class="keyword">function</span><span class="params">(e)</span> {</span>
+    e.preventDefault();
+    <span class="keyword">var</span> files = e.dataTransfer.files;
+    <span class="comment">//do somthing with your files</span>
+}, <span class="literal">false</span>);
+</code></pre><p>首先要注意的是：虽然我没有对 dragenter 、 dragleave 、dragover 等事件做什么处理。（当然你可以做些样式的改变来响应用户的操作）但是还是阻止浏览器默认的操作。</p>
+<p>不然的话，浏览器很有可能在新窗口中打开图片。</p>
+<h3 id="预览文件">预览文件</h3>
+<p>html5可以使用file api 读取文件，并输出base64的格式。然后 使用 image 显示出来。</p>
+<pre><code><span class="keyword">var</span> reader = <span class="keyword">new</span> FileReader();
+reader.onload = <span class="function"><span class="keyword">function</span> <span class="params">(event)</span> {</span>
+    <span class="keyword">var</span> src = event.target.result;
+    <span class="comment">//do somthing width your src</span>
+    };
+reader.readAsDataURL(file);
+</code></pre><p>但是其实没有必要这么麻烦。我们可以使用windows.URL.createObjectURL</p>
+<pre><code><span class="reserved">var</span> WINURL = <span class="built_in">window</span>.URL || <span class="built_in">window</span>.webkitURL;
+<span class="reserved">var</span> src = WINURL.createObjectURL(file);
+<span class="regexp">//</span><span class="keyword">do</span> somthing width your src
+</code></pre><p>需要注意的是当使用完成之后需要注销，不然会占据着内存</p>
+<pre><code>WINURL<span class="preprocessor">.revokeObjectURL</span>(src)<span class="comment">;</span>
+</code></pre><h3 id="上传文件并显示上传进度">上传文件并显示上传进度</h3>
+<p>上传使用ajax POST。</p>
+<p>代码如下：</p>
+<pre><code><span class="keyword">var</span> formdata = <span class="keyword">new</span> FormData();
+formdata.append(<span class="string">'file'</span> , file);
 
-            <span class="tag">iframe</span> <span class="rules">{
-                <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">100</span>%</span></span>;
-                <span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">100</span>%</span></span>;
-                <span class="rule"><span class="attribute">border</span>:<span class="value"> <span class="number">0</span>px</span></span>;
-            <span class="rule">}</span></span>
-        </span><span class="tag">&lt;/<span class="title">style</span>&gt;</span>
-    <span class="tag">&lt;/<span class="title">head</span>&gt;</span>
-    <span class="tag">&lt;<span class="title">body</span>&gt;</span>
-    <span class="tag">&lt;/<span class="title">body</span>&gt;</span>
-<span class="tag">&lt;/<span class="title">html</span>&gt;</span>
-</code></pre><h5 id="子页面">子页面</h5>
-<p>子页面和中转页是同域的。</p>
-<pre><code>&lt;script type=<span class="string">"text/javascript"</span>&gt;
-    window<span class="preprocessor">.onload</span> = function(){
-        parent<span class="preprocessor">.socket</span><span class="preprocessor">.postMessage</span>(document<span class="preprocessor">.body</span><span class="preprocessor">.clientHeight</span> || document<span class="preprocessor">.body</span><span class="preprocessor">.offsetHeight</span> || document<span class="preprocessor">.body</span><span class="preprocessor">.scrollHeight</span>)<span class="comment">;</span>
-    }<span class="comment">;</span>
-&lt;/script&gt;
-</code></pre><p>子页面只需要对中转页发送消息就可以了。</p>
-<hr>
-<p>上面的官方例子其实实现的是这样一个场景，你需要载入一个iframe，iframe又可以随便跳转。跳转后高度不定，所以需要父页面跟着变化。</p>
-<p>easyXDM使用的方法是载入2个iframe。中转页主要用来传送消息，然后子页面可以随便改url，只要载入的时候发送自身高度就好了。</p>
-<p>如果你的逻辑不需要跳转，只要在适当的时候postMessage即可。</p>
-<hr>
-<h3 id="总结">总结</h3>
-<p>easyXDM的确帮助我们解决了不少问题。但是同时我们也需要了解它的原理，对于高级浏览器，其实是原生的postMessage，对于其他的则使用的是flash。但是flash到底是怎么实现的，目前我也还不知道。（这方面涉及的实在不多。）</p>
+<span class="keyword">var</span> xhr = <span class="keyword">new</span> XMLHttpRequest();
+<span class="keyword">var</span> upload = xhr.upload;
+
+upload.addEventListener(<span class="string">"progress"</span>, <span class="function"><span class="keyword">function</span> <span class="params">(ev)</span> {</span>
+    <span class="keyword">if</span> (ev.lengthComputable) {
+        console.log(ev.loaded/ev.total);
+    }
+},<span class="literal">false</span>);
+
+xhr.onreadystatechange = <span class="function"><span class="keyword">function</span><span class="params">()</span>{</span>
+    <span class="keyword">if</span>(xhr.readyState === <span class="number">4</span>){
+         <span class="comment">//do somthing width your respose.</span>
+    }
+};
+
+xhr.open(<span class="string">'POST'</span>,url); <span class="comment">//url 是表单的提交地址。</span>
+xhr.send(formdata);
+</code></pre><p>是不是特别简单呢。</p>
 ]]></content>
-    <summary type="html"><![CDATA[<p>以前在<a href="http://www.aifang.com" target="_blank">爱房网</a>的时候,经常会遇到这样的需求：</p>
-<p>1.在任意页面可以嵌套iframe，iframe有独立的功能。如含有日历组件等。<br>1.ifarme需要改变大小，外面的框也需要跟着变化<br>1.iframe和主页面不同域</p>
-<p>之前没有理会这样的需求，是因为实在没有办法搞定ie6（伟大的ie6，原谅我的无能吧。）<br>]]></summary>
+    <summary type="html"><![CDATA[<h3 id="概要">概要</h3>
+<p>html5上传图片其实非常简单。而且功能也比较强大。</p>
+<p>可以用的api 包括 ：  File , ajax    level 2, formdata , drag &amp; drop , createObjectURL , base64 等。</p>
+<p>它们都非常简单且易用。下面按照流程来讲这些可能会用用到的apis。</p>
+<p>]]></summary>
     
-      <category term="easyXDM" scheme="http://yoursite.com/tags/easyXDM/"/>
+      <category term="图片处理" scheme="http://yoursite.com/tags/%E5%9B%BE%E7%89%87%E5%A4%84%E7%90%86/"/>
     
   </entry>
   

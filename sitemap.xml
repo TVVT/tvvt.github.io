@@ -2,6 +2,21 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2014/06/27/tvvtTeam/</loc>
+    <lastmod>2014-07-06T01:31:09.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2014/07/06/html5-canvas-duplicated-on-android/</loc>
+    <lastmod>2014-07-06T01:23:02.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2014/06/25/html5-appliction-cache/</loc>
+    <lastmod>2014-07-06T01:22:36.000Z</lastmod>
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2014/06/18/ef/</loc>
     <lastmod>2014-06-27T07:36:48.000Z</lastmod>
   </url>
@@ -19,11 +34,6 @@
   <url>
     <loc>http://yoursite.com/2014/06/11/easyxdm/</loc>
     <lastmod>2014-06-16T02:47:10.000Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2014/06/11/html5-appliction-cache/</loc>
-    <lastmod>2014-06-16T02:47:09.000Z</lastmod>
   </url>
   
   <url>
