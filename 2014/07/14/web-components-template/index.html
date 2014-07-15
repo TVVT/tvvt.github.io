@@ -3,13 +3,13 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Notes | TVVT</title>
+  <title>Web-Components-Template | TVVT</title>
   <meta name="author" content="tvvt">
   
   <meta name="description" content="相信奇迹，相信梦想">
   
   
-  
+  <meta property="og:title" content="Web-Components-Template"/>
   <meta property="og:site_name" content="TVVT"/>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -110,23 +110,137 @@
     <div id="main-col" class="alignright">
       <div id="wrapper" class="animated fadeInRight" >
       
-<h2 class="archive-title tag">Notes</h2>
-
-
-  <div class="archive">
+<article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
     
-      <article class="post">
-        <div class="post-content">
-          <header>
-            
-              <h1 class="title"><a href="/2014/06/11/form/">html5表单</a></h1>
-            
-            <time datetime="2014-06-11T08:03:42.000Z"><a href="/2014/06/11/form/">Jun 11 2014</a></time>
-          </header>
-        </div>
-      </article>
+      <img src="">
     
   </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content animated fadeInRight">
+  <header>
+      
+      
+  
+    <h1 class="title">Web-Components-Template</h1>
+  
+
+      <time datetime="2014-07-14T13:18:10.000Z"><a href="/2014/07/14/web-components-template/">Jul 14 2014</a></time>
+      
+  </header>
+
+<div class="entry ">
+
+
+    <!--toc--> 
+    
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#下面我就写一个例子，让大家更好的理解_Templates_,先上代码:"><span class="toc-number">1.</span> <span class="toc-text"> ,先上代码:</span></a></li></ol>
+    </div>
+    
+    <!--end-->
+  <p>当 <code>Web Components API</code> 出现的时候,我就感觉这东西也许就是前端的未来了。<code>Web Components</code> 补充了很多当前HTML标准的缺陷。</p>
+<p><code>Web Components API</code> 由以下5个部分组成:</p>
+<blockquote>
+<p>Templates<br>Decorators<br>Custom Elements<br>Shadow DOM<br>Imports</p>
+</blockquote>
+<p>下面我先来介绍一下第一部分,也就是 <code>Web Components</code> 的 <code>Templates</code>。<br><a id="more"></a><br><a href="http://www.w3.org/TR/2013/WD-html-templates-20130214/" target="_blank" rel="external">W3C</a> 官方的解释如下:</p>
+<blockquote>
+<p>a method for declaring inert DOM subtrees in HTML and manipulating them to instantiate document fragments with identical contents.</p>
+</blockquote>
+<p>其实,简而言之,就是一种用来渲染的模版。哈哈 ^ ^</p>
+<p>其实模版渲染无非就是 <strong>模版+数据=HTML</strong> 这种模式,只不过模版的类型不同而已。现在比较流行的做法是对字符串进行操作,字符串中规定特殊的标记用来渲染数据,比如EJS的 <code>&lt;%%&gt;</code> ,Jade的 <code>#{}</code> 等等。然而这种操作毕竟是耗时耗力的。而另外一种则是先把节点DOM写进Document ( 这种方法早已被忘记～哈哈 )。</p>
+<p><em>但是</em>,<code>Templates</code>就是为了彻底解决这种问题而出现的。</p>
+<h3 id="下面我就写一个例子，让大家更好的理解_Templates_,先上代码:">下面我就写一个例子，让大家更好的理解 <code>Templates</code> ,先上代码:</h3>
+<p>我们用 <code>Template</code> 标签来定义一个模版:</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+</pre></td><td class="code"><pre><span class="tag">&lt;<span class="title">template</span> <span class="attribute">id</span>=<span class="value">"myTemplate"</span>&gt;</span>
+	<span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"#"</span> <span class="attribute">class</span>=<span class="value">"common_btn"</span>&gt;</span><span class="tag">&lt;/<span class="title">a</span>&gt;</span>
+	<span class="tag">&lt;<span class="title">canvas</span>&gt;</span><span class="tag">&lt;/<span class="title">canvas</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">template</span>&gt;</span>
+</pre></td></tr></table></figure>
+
+<p>注意: <code>Template</code> 在浏览器中的表现形式是 <code>display:none</code> 的，其实它就是一个隐藏的普通特殊而已。</p>
+<p>如果我想通过 <code>document.querySelector(&#39;#myTemplate&#39;).childNodes</code> 来获取上面代码的子结点,那是做不到的。因为 <code>Template</code> 标签里的东西在浏览器中的表现形式是空的,即 <code>不存在</code>。</p>
+<p>当然,我们还是可以通过 <code>document.querySelector(&#39;#myTemplate&#39;).content</code> 来解决这个问题的。</p>
+<p>在Document中,这段代码如下:<br><img width="600px" src="/images/templates_1.png" alt="Templates"></p>
+<p>我们用如下js来渲染这个模版:</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+</pre></td><td class="code"><pre><span class="reserved">var</span> template = <span class="built_in">document</span>.querySelector(<span class="string">'#myTemplate'</span>);
+<span class="reserved">var</span> btn = template.content.cloneNode(<span class="literal">true</span>);
+btn.querySelector(<span class="string">".common_btn"</span>).innerHTML = <span class="string">"按钮"</span>;
+<span class="built_in">document</span>.body.appendChild(btn);
+</pre></td></tr></table></figure>
+
+<p>OK,这样一个渲染好的按钮就出现在了页面中。</p>
+<p>最后说说 <code>Template</code>的兼容性,Can I Use数据截图如下:<br><img width="900px" src="/images/templates_2.png" alt="Templates"><br>目前Chrome的支持是最好的,不过不用担心,因为,这就是未来！</p>
+<p>补充: <code>Template</code> 标签中的任何元素都是不会被渲染的,所以不用担心在 <code>Template</code> 中引入了 <code>image</code> 标签等需要加载资源的元素,只有通过 <code>javaScript</code> , <code>Custom Elements</code>等方法渲染之后这些 <code>Template</code>才会其作用哦～所以,放心大胆的使用吧！</p>
+
+
+  
+    <p style="margin:20px 0; color:#9f9f9f; font-size:12px;">
+<span>Posted by <a style="color:#9f9f9f;" href="http://weibo.com/u/2120066534/home?wvr=5&amp;s=6cm7D0"><strong>undefined</strong></a> - Jul 14 2014</span><br />
+<span style="line-height:13px;">如需转载，请注明： 本文来自 <a style="color:#9f9f9f;" href="http://yoursite.com"><strong>TVVT</strong></a></span>
+</p>
+  
+
+
+</div>
+    <footer>
+      
+	 
+     		  
+       		
+  
+  <div class="tags">
+    <a href="/tags/web-components/">web components</a>, <a href="/tags/template/">template</a>, <a href="/tags/前端/">前端</a>
+  </div>
+
+     		  
+<!-- JiaThis Button BEGIN -->
+<div class="jiathis_style addthis addthis_toolbox addthis_default_style" style="color: black">
+	<span class="jiathis_txt"></span>
+	<a class="jiathis_button_tools_1"></a>
+	<a class="jiathis_button_tools_2"></a>
+	<a class="jiathis_button_tools_3"></a>
+	<a class="jiathis_button_tools_4"></a>
+	<a href="http://www.jiathis.com/share?uid=1784645" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+	<a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript">
+var jiathis_config = {data_track_clickback:'true'};
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2120066534" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+       	 
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+<section id="comment">
+  <h1 class="title">Comments</h1>
+<div id="uyan_frame"></div>
+<script type="text/javascript" id="UYScript" src="http://v1.uyan.cc/js/iframe.js?UYUserId=1" async=""></script>
+</section>
+
 
       </div>
       <div id="totop" style="position:fixed;bottom:50px;right:30px;cursor: pointer;">

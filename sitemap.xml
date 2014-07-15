@@ -2,6 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2014/07/14/web-components-template/</loc>
+    <lastmod>2014-07-15T03:01:57.000Z</lastmod>
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2014/06/27/tvvtTeam/</loc>
     <lastmod>2014-07-06T01:31:09.000Z</lastmod>
   </url>
